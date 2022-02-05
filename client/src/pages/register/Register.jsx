@@ -1,6 +1,8 @@
 
 import React, { useState, useRef } from 'react';
 import "./Register.css";
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -23,9 +25,11 @@ const Register = () => {
         <>
             <div className="container-fluid register">
                 <div className="row">
-                    <div className=" register-topbar">
+                    <div className=" register-topbar ">
                         <img src="../images/logo.jpg" alt="" />
-                        <button className='signIN-btn'>Sign In</button>
+                        <Link to="/login">
+                            <button className='signIN-btn'>Sign In</button>
+                        </Link>
                     </div>
                     <div className=" container-text ">
                         <h1 className='text-center'>Unlimated movies, Tv shows , and more.</h1>
