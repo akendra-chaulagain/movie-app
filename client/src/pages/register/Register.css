@@ -1,0 +1,96 @@
+.register {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url("../../../public/images/register.jpg.crdownload");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.register-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-topbar img {
+  margin-top: 20px;
+  height: 7vh;
+  margin-left: 25px;
+}
+.signIN-btn {
+  background-color: red;
+  color: white;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 5px 17px;
+  margin-top: 20px;
+  margin-right: 25px;
+}
+
+.container-text {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container-text h1 {
+  font-size: 44px;
+  font-weight: 800;
+}
+.container-text h4 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.container-text p {
+  font-size: 20px;
+  font-weight: 600;
+}
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-box input {
+  height: 8vh;
+  width: 30%;
+  outline: none;
+}
+
+.start-btn {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  padding: 15px 49px;
+  letter-spacing: 2px;
+}
+
+.input-box-user{
+    background-color: rgb(255, 0, 0);
+}
+
+@media only screen and (max-width: 768px) {
+  .register-topbar img {
+    height: 4vh;
+    margin-left: 2px;
+  }
+  .signIN-btn {
+    font-size: 18px;
+    padding: 2px 16px;
+    margin-right: 2px;
+  }
+  .input-box input {
+    height: 8vh;
+    width: 100%;
+  }
+  .start-btn {
+    padding: 13px 49px;
+  }
+}
