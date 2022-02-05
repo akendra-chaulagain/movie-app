@@ -1,9 +1,11 @@
 import React from 'react';
+import Home from './home/Home';
+import './App.css'
 
 const App = () => {
   return (
     <>
-      <h1>Akendra from react js</h1>
+     <Home/>
     </>
   )
 };
