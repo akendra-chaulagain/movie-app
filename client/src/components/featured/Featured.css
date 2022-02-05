@@ -1,0 +1,71 @@
+.featured {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url("../../../public/images/movie.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.Picture-text img {
+  width: 90%;
+}
+
+.Picture-text {
+  position: absolute;
+  bottom: 350px;
+  left: 100px;
+  height: 15vh;
+  color: white;
+  width: 40%;
+}
+.Picture-text p {
+  font-size: 20px;
+}
+.hero-btn-play {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  background-color: whitesmoke;
+}
+.hero-btn-info {
+  padding: 8px 18px;
+  border-radius: 6px;
+  background-color: gray;
+  font-weight: 600;
+  color: whitesmoke;
+  margin-left: 7px;
+  outline: none;
+  border: none;
+}
+
+.category {
+  position: absolute;
+  top: 130px;
+  left: 90px;
+  font-size: 30px;
+  font-weight: bold;
+}
+select {
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: #0b0b0b;
+  color: whitesmoke;
+  border: none;
+  outline: none;
+  font-size: 19px;
+}
+@media only screen and (max-width: 768px) {
+  .Picture-text {
+    width: 90%;
+    left: 10px;
+  }
+  .Picture-text img {
+    width: 70%;
+  }
+  .Picture-text p {
+    font-size: 15px;
+  }
+}
