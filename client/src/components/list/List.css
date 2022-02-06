@@ -4,33 +4,47 @@
 }
 .list-title {
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
-  margin-top: 20px;
+  margin-left: 50px;
 }
-.container-items {
+.all-items {
   display: flex;
   margin-left: 50px;
   width: max-content;
+  transition: all 1s ease;
+  z-index: 999;
 }
 .wrapper {
   position: relative;
 }
 
 .sliderArrow-left {
+  height: 50px;
   position: absolute;
+  background-color: black;
   top: 0;
   bottom: 0;
   margin: auto;
   cursor: pointer;
+  color: whitesmoke;
+  z-index: 999;
+  border-radius: 7px;
+
 }
 .sliderArrown-right {
-  width: 50px;
-  height: 100vh;
   background-color: black;
   margin-left: 97%;
   color: rgb(255, 255, 255);
   position: absolute;
-  top: 49px;
-  /* bottom: 0; */
+  top: 41px;
+  border-radius: 7px;
+}
+@media only screen and (max-width: 768px) {
+.sliderArrown-right {
+  margin-left: 90%;
+
+}
+
+    
 }

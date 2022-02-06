@@ -14,11 +14,14 @@ const App = () => {
     <>
       <Navbar />
       <Routes>
+        {/* home page routes */}
         <Route path="/" element={<Home />} />
+        {/* login page route import from login page */}
         <Route path="/login" element={<Login />} />
+        {/* login page route import from Register page */}
         <Route path="/register" element={<Register />} />
-        <Route path='*' element={<Error />}/>
-
+        {/* error page import from error page */}
+        <Route path='*' element={<Error />} />
       </Routes>
     </>
   )

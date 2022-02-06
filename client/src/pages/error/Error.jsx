@@ -11,7 +11,7 @@ const Error = () => {
                         <h1 className='mt-5 pt-3 text-center'>Lost Your Way?</h1>
                         <h3 className='text-center'>Sorry, we can't find the page. you'll find lots to explore on the home page.</h3>
                         <Link className='signupLink' to="/">
-                        <button className='error-btn'>Netflix Page</button>
+                            <button className='error-btn'>Netflix Page</button>
 
                         </Link>
 
