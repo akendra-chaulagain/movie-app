@@ -13,7 +13,7 @@ const MovieSchema = new mongoose.Schema({
     genre: { type: String },
     isSeries: { type: Boolean, default: false }
 
-}, { timestamps }
+}, { timestamps:true }
 )
 
 const Movie = mongoose.model("Movie", MovieSchema)
