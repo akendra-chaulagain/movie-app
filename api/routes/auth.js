@@ -46,6 +46,30 @@ router.post("/register", async (req, res) => {
 })
 
 
+// login user
+router.post("/login", async (req, res) => {
+    const body = req.body;
+    try {
+        const user = await User.findOne({ email: body.email })
+        if (user) {
+            // check user password with hashed password stored in the database
+            const validPassword = await bcrypt.compare(body.password, user.password);
+            if (validPassword) {
+                res.status(400).json(user)
+            } else {
+                res.status(400).json("Invalid Data")
+            }
+        } else {
+            res.status(400).json("Invalid Data")
+        }
+    } catch (error) {
+        res.status(400).json("User does not exist")
+
+    }
+
+})
+
+
 
 
 module.exports = router;
