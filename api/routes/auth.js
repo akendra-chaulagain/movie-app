@@ -2,9 +2,13 @@
 const express = require("express")
 const router = express.Router()
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 const bodyParser = require('body-parser')
 router.use(bodyParser.json()) // for parsing application/json
+
+// const dotenv = require("dotenv")
+// dotenv.config({ path: "../config.env" })
 
 
 router.get("/", (req, res) => {
@@ -46,30 +50,31 @@ router.post("/register", async (req, res) => {
 })
 
 
-// login user
+
+// login user data
 router.post("/login", async (req, res) => {
-    const body = req.body;
-    try {
-        const user = await User.findOne({ email: body.email })
-        if (user) {
-            // check user password with hashed password stored in the database
-            const validPassword = await bcrypt.compare(body.password, user.password);
-            if (validPassword) {
-                res.status(400).json(user)
-            } else {
-                res.status(400).json("Invalid Data")
-            }
-        } else {
-            res.status(400).json("Invalid Data")
-        }
-    } catch (error) {
-        res.status(400).json("User does not exist")
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    if (user) {
+      const isMatch = await bcrypt.compare(password, user.password);
 
+    //   jsonweb Tokrn created
+      const accessToken = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.SECRETKey,
+        { expiresIn: "5d" }
+      )
+  
+  
+      if (isMatch) {
+        const { password, ...others } = user._doc;
+        res.status(200).json({ ...others, accessToken });
+  
+      } else {
+        res.status(400).json({ error: "Invalid data" });
+      }
+    } else {
+      res.status(401).json({ error: "User does not exist" });
     }
-
-})
-
-
+  })
 
 
 module.exports = router;
