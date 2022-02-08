@@ -53,7 +53,6 @@
 .input-box {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .input-box input {
   height: 8vh;
@@ -68,18 +67,28 @@
   border: none;
   outline: none;
   font-weight: 600;
-  padding: 15px 49px;
+  padding: 15px 40px;
   letter-spacing: 2px;
 }
+
 
 .input-box-user {
   background-color: rgb(255, 0, 0);
 }
-
+::placeholder{
+  color: black;
+}
 @media only screen and (max-width: 768px) {
   .register-topbar img {
     height: 4vh;
     margin-left: 2px;
+  }
+  .container-text h1 {
+    font-size: 35px;
+    font-weight: 800;
+  }
+  .container-text h4 {
+    font-size: 25px;
   }
   .signIN-btn {
     font-size: 18px;
@@ -91,6 +100,6 @@
     width: 100%;
   }
   .start-btn {
-    padding: 13px 49px;
+    padding: 10px 20px;
   }
 }

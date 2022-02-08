@@ -50,10 +50,7 @@ const Register = () => {
                         ) : (
                             <>
                                 <form action="" className='input-box'>
-
-                                    <input type="password" placeholder='Enter Password'
-                                        ref={passwordRef}
-                                    />
+                                    <input type="password" placeholder='Enter Password' ref={passwordRef} />
                                     <button className='start-btn' onClick={handleFinish}>Start</button>
                                 </form>
 
