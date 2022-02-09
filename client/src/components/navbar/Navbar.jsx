@@ -1,5 +1,4 @@
 import SearchIcon from '@material-ui/icons/SearchOutlined';
-import Notification from '@material-ui/icons/Notifications';
 import DownArrow from '@material-ui/icons/KeyboardArrowDown';
 import Menu from '@material-ui/icons/Menu';
 import "./Navbar.css"
@@ -7,8 +6,6 @@ import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
-
-
     return (
         <>
             <nav className="navbar navbar-expand-lg ">
@@ -20,13 +17,13 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link " to="#">Homepage</Link>
+                                <Link className="nav-link " to="/">Homepage</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="#">Series</Link>
+                                <Link className="nav-link" to="/series">Series</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="#">Movies</Link>
+                                <Link className="nav-link" to="/movies">Movies</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="#">New and Popular</Link>
@@ -42,7 +39,7 @@ const Navbar = () => {
                                     <Link className="nav-link search-icon" to="#"><SearchIcon /></Link>
                                 </li>
 
-                              
+
                                 <li className="nav-item">
                                     <img src="../images/profile.jpg" alt="" />
                                 </li>

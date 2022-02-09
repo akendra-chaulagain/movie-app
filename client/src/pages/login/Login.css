@@ -14,22 +14,27 @@
 }
 
 .signupInputbox {
+  width: 37%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #0b0b0b;
+  border-radius: 5px;
+  opacity: 0.8;
 }
 
 .login-input input {
-  width: 100%;
+  width: 91%;
   height: 7vh;
   outline: none;
   background-color: white;
   border: none;
   color: rgb(0, 0, 0);
+  margin-left: 4%;
 }
 .login-btn {
-  width: 100%;
+  width: 91%;
   background-color: lightblue;
   color: rgb(0, 0, 0);
   height: 6vh;
@@ -39,12 +44,15 @@
   border-radius: 6px;
   font-weight: 600;
   margin-top: 10px;
+  margin-left: 4%;
 }
 .login-btn:hover {
   background-color: whitesmoke;
   color: rgb(0, 0, 0);
 }
-
+.signupInputbox p{
+  margin-left: 4%;
+}
 
 
 .signupLink {
@@ -62,6 +70,7 @@
   .signupInputbox {
     position: relative;
     top: 65%;
+    width: 100%;
   }
   .login-input input {
     height: 6vh;

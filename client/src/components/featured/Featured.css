@@ -56,11 +56,13 @@
 select {
   cursor: pointer;
   margin-left: 10px;
-  background-color: #0b0b0b;
-  color: whitesmoke;
+  background-color: whitesmoke;
+  color: rgb(0, 0, 0);
   border: none;
   outline: none;
   font-size: 19px;
+  padding: 10px 20px;
+  border-radius: 6px;
 }
 
 @media only screen and (max-width: 768px) {

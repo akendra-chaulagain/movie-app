@@ -12,7 +12,7 @@ const Featured = ({ type }) => {
             <div className="container-fluid featured">
                 {type && (
                     <div className="category">
-                        <span>{type === "movie" ? "Movies" : "Series"}</span>
+                        <span>{type === "movies" ? "Movies" : "Series"}</span>
                         <select name="genra" id="genra">
                             <option>Genere</option>
                             <option value="adventure">Adventure</option>

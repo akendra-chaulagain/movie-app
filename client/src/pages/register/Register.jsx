@@ -13,7 +13,13 @@ const Register = () => {
     return (
         <>
             <div className="container-fluid register">
-            <span className="navbar-brand" to="#">Ak movies</span>
+                <div className='topContent'>
+                <span className="navbar-brand" to="#">Ak movies</span>
+
+                <button className='start-btnsignIn ' >
+                    <Link  to="/login">Sign In</Link>
+                </button>
+                </div>
 
                 <div className="row">
                     <div className="container-text ">
@@ -32,6 +38,14 @@ const Register = () => {
                             />
                         </div>
                         <div>
+                            <label className='mt-3'>Username</label>
+
+                            <input type="text"
+                                className="form-control "
+                                placeholder='akendra'
+                            />
+                        </div>
+                        <div>
                             <label className='mt-3'>Password</label>
 
                             <input type="password"
@@ -40,8 +54,9 @@ const Register = () => {
                             />
                         </div>
                         <button className='start-btn' >Start</button>
-                     
-                            <Link to="/login" className='link'>Sign In now</Link>
+                        <span>Already have an account ?
+                            <Link to="/login" className='link'>Sign In </Link>
+                        </span>
                     </form>
                 </div>
 
