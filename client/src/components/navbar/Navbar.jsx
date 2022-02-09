@@ -13,7 +13,7 @@ const Navbar = () => {
         <>
             <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid">
-                    <span className="navbar-brand" to="#"><img src="../images/logo.jpg" alt="" /></span>
+                    <span className="navbar-brand" to="#">Ak movies</span>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"><Menu style={{ color: "white" }} /></span>
                     </button>
@@ -41,17 +41,16 @@ const Navbar = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link search-icon" to="#"><SearchIcon /></Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="#">KID</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="#"><Notification /></Link>
-                                </li>
+
+                              
                                 <li className="nav-item">
                                     <img src="../images/profile.jpg" alt="" />
                                 </li>
                                 <li className="nav-item dropDown-icon">
                                     <Link className="nav-link " to="#"><DownArrow /></Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="#">LogOut</Link>
                                 </li>
                             </ul>
                         </div>

@@ -2,14 +2,14 @@
   position: fixed;
   z-index: 9999;
   width: 100%;
-  background-color: #0b0b0b;
+  background-color: #000000;
 }
 
-
-
-.navbar-brand img {
-  height: 5vh;
+.navbar-brand {
   margin-left: 40px;
+  font-weight: 900;
+  font-size: 30px;
+  color: red;
 }
 .nav-item img {
   height: 50px;
@@ -21,14 +21,18 @@
   margin-top: 10px;
   margin: 10px;
   font-weight: 500;
-  color: rgb(190, 184, 184);
+  color: white;
 }
 .nav-item a:hover {
-  color: rgb(255, 255, 255);
+  color: gray;
 }
 
 @media only screen and (max-width: 768px) {
   .nav-item a {
     margin-top: 0px;
+  }
+  .navbar-brand {
+    margin-left: 10px;
+    font-size: 25px;
   }
 }

@@ -1,66 +1,76 @@
 .login {
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.9)),
     url("../../../public/images/login.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
 }
-.login-form {
-  height: 50vh;
-  width: 60%;
+.navbar-brand{
+  font-size: 40px;
+  color: rgb(255, 68, 68);
+  /* margin: 40px 0px 0px 40px; */
+}
+
+.signupInputbox {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.login-form h2 {
-  color: rgb(255, 255, 255);
-}
-.login-input {
-  background-color: #0b0b0b;
-  color: gray;
-  opacity: 0.9;
-}
+
 .login-input input {
   width: 100%;
   height: 7vh;
   outline: none;
-  background-color: gray;
+  background-color: white;
   border: none;
-  color: whitesmoke;
+  color: rgb(0, 0, 0);
 }
 .login-btn {
   width: 100%;
-  background-color: red;
+  background-color: lightblue;
+  color: rgb(0, 0, 0);
   height: 6vh;
-  color: white;
   font-size: 18px;
   border: none;
   outline: none;
   border-radius: 6px;
-  font-weight: 500;
-  margin-top: 20px;
-  margin-right: 25px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.login-btn:hover {
+  background-color: whitesmoke;
+  color: rgb(0, 0, 0);
 }
 
-::placeholder {
-  padding-left: 20px;
-  color: white;
-}
-.login img {
-  margin-top: 20px;
-  height: 7vh;
-  margin-left: 25px;
-}
+
+
 .signupLink {
   text-decoration: none;
-  color: whitesmoke;
   margin-left: 10px;
   font-weight: 600;
+  color: rgb(247, 177, 149);
 }
 .signupLink:hover {
   text-decoration: underline;
-  color: whitesmoke;
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .signupInputbox {
+    position: relative;
+    top: 65%;
+  }
+  .login-input input {
+    height: 6vh;
+    
+  }
+  .login-btn {
+  height: 5vh;
+    
+  }
+  
+  
 }

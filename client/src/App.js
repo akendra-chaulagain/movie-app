@@ -12,7 +12,7 @@ import Error from './pages/error/Error';
 const App = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         {/* home page routes */}
         <Route path="/" element={<Home />} />

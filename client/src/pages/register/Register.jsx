@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import "./Register.css";
 import { Link } from 'react-router-dom';
 
@@ -7,60 +7,42 @@ import { Link } from 'react-router-dom';
 
 
 const Register = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-
-    const emailRef = useRef();
-    const passwordRef = useRef();
 
 
-    const handleStart = () => {
-        setEmail(emailRef.current.value)
-    }
-    const handleFinish = () => {
-        setPassword(passwordRef.current.value)
 
-    }
     return (
         <>
             <div className="container-fluid register">
+            <span className="navbar-brand" to="#">Ak movies</span>
+
                 <div className="row">
-                    <div className=" register-topbar ">
-                        <img src="../images/logo.jpg" alt="" />
-                        <Link to="/login">
-                            <button className='signIN-btn'>Sign In</button>
-                        </Link>
-                    </div>
-                    <div className=" container-text ">
-                        <h1 className='text-center'>Unlimated movies, Tv shows , and more.</h1>
-                        <h4 className='text-center'> Watch anywhere.Cancel anytime</h4>
+                    <div className="container-text ">
+                        <h2 className="text-center mainTitle ">Unlimated movies, Tv shows , and more.</h2>
+                        <h3 className='text-center'> Watch anywhere.Cancel anytime</h3>
                         <p className='text-center'>Ready to watch ? Enter your email to create or restart your membership</p>
-                        {!email ? (
-                            <>
-                                <div className='input-box'>
-                                    <input type="email" placeholder='Email address'
-                                        ref={emailRef}
-                                    />
-                                    <button className='start-btn' onClick={handleStart}>Start</button>
-                                </div>
-
-
-                            </>
-
-                        ) : (
-                            <>
-                                <form action="" className='input-box'>
-                                    <input type="password" placeholder='Enter Password' ref={passwordRef} />
-                                    <button className='start-btn' onClick={handleFinish}>Start</button>
-                                </form>
-
-                            </>
-
-                        )
-                        }
-
-
                     </div>
+
+                    {/* register from */}
+                    <form action="" className='input-box  '>
+                        <div>
+                            <label >Email address</label>
+                            <input type="email"
+                                className="form-control mt-2"
+                                placeholder='akendra@gmail.com'
+                            />
+                        </div>
+                        <div>
+                            <label className='mt-3'>Password</label>
+
+                            <input type="password"
+                                className="form-control "
+                                placeholder='password'
+                            />
+                        </div>
+                        <button className='start-btn' >Start</button>
+                     
+                            <Link to="/login" className='link'>Sign In now</Link>
+                    </form>
                 </div>
 
             </div>

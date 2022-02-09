@@ -6,17 +6,36 @@ const Login = () => {
     return (
         <>
             <div className="container-fluid login">
-                <img src="../images/logo.jpg" alt="" />
+            <span className="navbar-brand" to="#">Ak movies</span>
+
                 <div className="row login-form">
-                    <div className="col-md-6 w-50 ml-0 mr-0 mx-auto login-input ">
-                        <h2 className='mt-3'>Sign In</h2>
-                        <form action="" className='mt-3'>
-                            <input type="text" className='mb-3' placeholder='Email or phone number' /><br />
-                            <input type="text" placeholder='password' />
-                            <button className='login-btn'>Sign IN</button>
-                            <p className='mt-2'>New to Netflix ?
+                    <div className=" login-input ">
+                        <form className='signupInputbox'>
+                            <div className="mb-3">
+                                <h2 className='mt-3 mb-4'>Sign In</h2>
+
+                                <label >Email address</label>
+                                <input type="email"
+                                    className="form-control mt-2"
+                                    placeholder='akendra@gmail.com'
+                                    required
+                                />
+
+                            </div>
+                            <div className="mb-3">
+                                <label >Password</label>
+                                <input type="password"
+                                    className="form-control mt-2"
+                                    placeholder="password"
+                                    required
+                                />
+                            </div>
+
+                            <button type="submit" className='login-btn mt-4'>Submit</button>
+                            <p className='mt-2'>New to Ak movies ?
                                 <Link className='signupLink' to="/register">Sign up now</Link>
                             </p>
+
                             <p>This page is protected by Google reCAPTCHA to ensure you're not a bot.
                                 <Link className='signupLink' to="https://www.netflix.com/np">Learn more.</Link>
                             </p>
