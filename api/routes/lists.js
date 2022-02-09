@@ -16,7 +16,7 @@ require("../connection/database")
 const List = require("../modules/List")
 
 
-// create movie
+// create list
 router.post("/", verify, async (req, res) => {
     const body = req.body;
     if (req.user.isAdmin) {
@@ -35,7 +35,7 @@ router.post("/", verify, async (req, res) => {
 })
 
 
-// delete movie
+// delete list
 router.post("/:id", verify, async (req, res) => {
     if (req.user.isAdmin) {
         try {
@@ -54,7 +54,7 @@ router.post("/:id", verify, async (req, res) => {
 
 // get all 
 router.get("/", verify, async (req, res) => {
-    const typeQuery = req.query.type;
+    const typeQuery = req.query.types;
     const genreQuery = req.query.genre;
     let list = [];
     try {
@@ -62,12 +62,12 @@ router.get("/", verify, async (req, res) => {
             if (genreQuery) {
                 list = await List.aggregate([
                     { $sample: { size: 10 } },
-                    { $match: { type: typeQuery, genre: genreQuery } }
+                    { $match: { types: typeQuery, genre: genreQuery } }
                 ])
             } else {
                 list = await List.aggregate([
                     { $sample: { size: 10 } },
-                    { $match: { type: typeQuery } },
+                    { $match: { types: typeQuery } },
                 ])
             }
         } else {

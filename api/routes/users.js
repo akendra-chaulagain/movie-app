@@ -18,7 +18,8 @@ const User = require("../modules/User")
 
 
 
-// update user
+// update user data
+
 router.put("/:id", verify, async (req, res) => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
         try {
@@ -27,48 +28,53 @@ router.put("/:id", verify, async (req, res) => {
                 req.body.password = await bcrypt.hash(req.body.password, salt)
             }
 
-            const updatedUser = await User.findByIdAndUpdate(req.params.id, {
+            const updateUser = await User.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             }, { new: true })
-            res.status(200).json(updatedUser)
-
+            res.status(201).json(updateUser)
         } catch (error) {
-            res.status(500).json(error)
+            res.status(201).json("unable to update")
+
         }
 
     } else {
-        res.status(403).json("you can update only your data")
+        console.log("you cannot update other account");
     }
-
 })
+
+
 
 
 // delete user
+
 router.delete("/:id", verify, async (req, res) => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
         try {
-
             const deleteUser = await User.findByIdAndDelete(req.params.id)
-            res.status(200).json(deleteUser)
-
+            res.status(201).json(deleteUser)
         } catch (error) {
-            res.status(500).json(error)
+            res.status(201).json("unable to delete")
         }
 
     } else {
-        res.status(403).json("you can delete only your data")
+        console.log("you cannot delete other account");
     }
-
 })
 
 
-// get singlw user by id
+
+
+
+
+// get user according to id
+
+
 router.get("/find/:id", async (req, res) => {
     try {
 
         const getUser = await User.findById(req.params.id)
-        const { password, ...others } = getUser._doc;
-        res.status(200).json({ others });
+        const { password, ...info } = getUser._doc;
+        res.status(200).json(info);
 
     } catch (error) {
         res.status(500).json("unable to get user")
@@ -76,7 +82,8 @@ router.get("/find/:id", async (req, res) => {
 
 })
 
-// get all data
+// get all user if we are admin
+
 router.get("/", verify, async (req, res) => {
     const query = req.query.new;
     if (req.user.isAdmin) {
@@ -94,12 +101,14 @@ router.get("/", verify, async (req, res) => {
 })
 
 
-// user data in year (user stats)
+
+// stats of the user in every month 
+
 router.get("/stats", async (req, res) => {
     const today = new Date();
     const lastYear = today.setFullYear(today.setFullYear() - 1)
 
-    const monthArrey = [
+    const monthsArrey = [
         "January",
         "Feburary",
         "March",
@@ -129,10 +138,7 @@ router.get("/stats", async (req, res) => {
         res.status(200).json(data)
     } catch (error) {
         res.status(500).json(error)
-
     }
-
-
 })
 
 

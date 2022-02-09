@@ -80,8 +80,9 @@ router.get("/find/:id", verify, async (req, res) => {
     }
 })
 
-// get random movie for home page and movie and series according to the click
 
+
+// get random movie  whrn refresh
 router.get("/random", verify, async (req, res) => {
     const type = req.query.type;
     let movie;
@@ -105,8 +106,6 @@ router.get("/random", verify, async (req, res) => {
 
 
 // get all user
-
-
 router.get("/", verify, async (req, res) => {
     if (req.user.isAdmin) {
         try {
