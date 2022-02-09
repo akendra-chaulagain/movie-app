@@ -94,7 +94,7 @@ router.get("/", verify, async (req, res) => {
 })
 
 
-// user data in year (user ststs)
+// user data in year (user stats)
 router.get("/stats", async (req, res) => {
     const today = new Date();
     const lastYear = today.setFullYear(today.setFullYear() - 1)

@@ -111,7 +111,7 @@ router.get("/", verify, async (req, res) => {
     if (req.user.isAdmin) {
         try {
             const getAllMovie = await Movie.find();
-            return res.status(201).json(getAllMovie)
+            return res.status(201).json(getAllMovie.reverse())
         } catch (error) {
             res.status(400).json(error)
         }

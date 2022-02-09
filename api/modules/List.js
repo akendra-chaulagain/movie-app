@@ -8,7 +8,7 @@ const ListSchema = new mongoose.Schema({
     genre: { type: String },
     content: { type: Array }
 
-}, { timestamps }
+}, { timestamps:true }
 )
 
 const List = mongoose.model("List", ListSchema)
