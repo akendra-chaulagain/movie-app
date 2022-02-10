@@ -7,7 +7,7 @@ import "./List.css"
 
 
 
-const List = () => {
+const List = ({ list }) => {
 
 
     // function for  carousel 
@@ -17,34 +17,28 @@ const List = () => {
         let distance = listRef.current.getBoundingClientRect().x - 50
         if (direction === "left" && slideNumber > 0) {
             setSlideNumber(slideNumber - 1)
-            listRef.current.style.transform = `translateX(${230 + distance}px)`
+            listRef.current.style.transform = `translateX(${200 + distance}px)`
         }
         if (direction === "right" && slideNumber < 5) {
             setSlideNumber(slideNumber + 1)
-            listRef.current.style.transform = `translateX(${-230 + distance}px)`
+            listRef.current.style.transform = `translateX(${-100 + distance}px)`
         }
     }
-
     return (
         <>
             <div className=" list">
-                <h2 className='list-title mt-3'>Continue to Watch</h2>
+                <h2 className='list-title text-center'>{list.title}</h2>
                 <div className="wrapper">
-                    <ArrowBackOutlined style={{ fontSize: 40 }} className='sliderArrow-left' onClick={() => handleClick("left")} />
+                    <ArrowBackOutlined style={{ fontSize: 30 }} className='sliderArrow-left' onClick={() => handleClick("left")} />
                     <div className="all-items" ref={listRef}>
                         {/* this all the list items are imported from the ListItem page  */}
-                        <ListItem index={0}/>
-                        <ListItem index={1}/>
-                        <ListItem index={2}/>
-                        <ListItem index={3}/>
-                        <ListItem index={4}/>
-                        <ListItem index={5}/>
-                        <ListItem index={6}/>
-                        <ListItem index={7}/>
-                        <ListItem index={8}/>
-                        <ListItem index={9}/>
+                        {
+                            list.content.map((item, i) => (
+                                <ListItem index={i} item={item} />
+                            ))}
+
                     </div>
-                    <ArrowFrontOutlined style={{ fontSize: 40 }} className='sliderArrown-right ' onClick={() => handleClick("right")} />
+                    <ArrowFrontOutlined style={{ fontSize: 30 }} className='sliderArrown-right ' onClick={() => handleClick("right")} />
                 </div>
 
             </div>

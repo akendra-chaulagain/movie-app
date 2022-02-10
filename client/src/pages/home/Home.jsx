@@ -13,7 +13,7 @@ const Home = ({ type }) => {
   const [lists, setLists] = useState([])
   const [genre, setgenre] = useState(null)
 
-  // list of movie fetchinf from database   or api/lists
+  // list of movie fetch from database   or api/lists folder
   useEffect(() => {
     const getRandomList = async () => {
       try {
@@ -22,7 +22,7 @@ const Home = ({ type }) => {
             token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDQxNzg4MCwiZXhwIjoxNjQ0ODQ5ODgwfQ.4FDiwKDBaMYzrsudelJ8NYMM9mjWLJN3GRPGddhtVw0"
           }
         })
-        console.log(res);
+        setLists(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -37,13 +37,15 @@ const Home = ({ type }) => {
         <Navbar />
         {/* featured page import from featured page  */}
         <Featured type={type} />
+
         {/* list page import from list page  */}
-        <List />
-        <List />
-        <List />
-        <List />
-        <List />
-        <List />
+        {
+          lists.map((list, key) => (
+            <List list={list} key={key} />
+
+          ))
+        }
+
       </div>
 
     </>

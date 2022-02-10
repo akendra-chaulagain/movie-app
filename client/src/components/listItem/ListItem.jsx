@@ -1,34 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ListItem.css'
 import Play from '@material-ui/icons/PlayArrow';
-import Add from '@material-ui/icons/Add';
-import Like from '@material-ui/icons/ThumbUp';
-import Dislike from '@material-ui/icons/ThumbDown';
+import axios from 'axios';
+import { Link } from "react-router-dom"
 
 
 
-const ListItem = ({index}) => {
-  const [isHovered, setIsHovered] = useState(false)
+
+
+const ListItem = ({ index, item }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [movie, setMovie] = useState({})
+
+  //  our item content user id with the help of this id fetching user data
+  useEffect(() => {
+    const getMovies = async () => {
+      try {
+        const res = await axios.get("/movies/find/" + item, {
+          headers: {
+            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDQ1NzU2OSwiZXhwIjoxNjQ0ODg5NTY5fQ.4tLs-ycRdwWidQVU9z1MWtPOi6afCoAEn-ZlY9Q82RE"
+          }
+        })
+        setMovie(res.data)
+        // console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getMovies()
+  }, [item])
+
+
   return (
     <>
       <div className='listItems'
-      style={{left :isHovered && index *225}}
+        style={{ left: isHovered && index * 225 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}>
-        <img src="../images/profile.jpg" alt="" />
+        <img src={movie.img} alt="" />
         <div className="itemInfo">
-          <div className="icons">
-            <Play  className='icon'/>
-            <Add className='icon' />
-            <Like  className='icon'/>
-            <Dislike  className='icon'/>
-          </div>
+
           <div className="itrmInfoTop">
-            <h5>1 hrs and 40 min</h5>
-            <span>+12</span><br/>
-            <span>Release data :2020</span>
-            <p className="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, esse!</p>
-            <h5>Action</h5>
+            <h6 className='text-center'>{movie.title}</h6>
+            <span>Duration :&#160;&#160;{movie.duration}</span><br />
+            <span>Limit :&#160;&#160;{movie.limit}</span><br />
+            <span>Release :&#160;&#160;{movie.year}</span><br />
+            <span>Genra :&#160;&#160;{movie.genre}</span><br />
+            <Link to={`/watch/` + movie._id}>
+              <button><Play />watch now</button>
+
+            </Link>
           </div>
 
         </div>

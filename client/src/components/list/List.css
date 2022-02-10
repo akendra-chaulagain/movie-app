@@ -10,7 +10,6 @@
 }
 .all-items {
   display: flex;
-  margin-left: 50px;
   width: max-content;
   transition: all 1s ease;
   z-index: 999;
@@ -18,33 +17,39 @@
 .wrapper {
   position: relative;
 }
-
+.list h2 {
+  color: rgb(255, 255, 255);
+  margin-top: 40px;
+  font-size: 28px;
+  font-weight: 800;
+  
+}
 .sliderArrow-left {
-  height: 50px;
   position: absolute;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   top: 0;
-  bottom: 0;
+  bottom: 0%;
   margin: auto;
   cursor: pointer;
-  color: whitesmoke;
+  color: rgb(0, 0, 0);
   z-index: 999;
   border-radius: 7px;
 
 }
 .sliderArrown-right {
-  background-color: black;
+  background-color: white;
   margin-left: 97%;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   position: absolute;
-  top: 41px;
+  top: 130px;
   border-radius: 7px;
+  font-size: 60px;
 }
 @media only screen and (max-width: 768px) {
-.sliderArrown-right {
-  margin-left: 90%;
-
-}
-
-    
+  .sliderArrown-right {
+    margin-left: 90%;
+    /* top: 120px; */
+  }
+  
+  
 }

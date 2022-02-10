@@ -2,10 +2,10 @@ import React from 'react';
 import Home from "./pages/home/Home";
 import './App.css'
 import { Routes, Route } from "react-router-dom";
-import Navbar from './components/navbar/Navbar';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Error from './pages/error/Error';
+import Watch from './pages/watch/Watch';
 
 
 
@@ -30,6 +30,8 @@ const App = () => {
               <Route path="/movies" element={<Home type="movies" />} />
               {/* series page  if the type is series it render to movies because props is given in home page*/}
               <Route path="/series" element={<Home type="series" />} />
+              {/* watch page  */}
+              <Route path="/watch/:id" element={<Watch/>} />
             </>
           )
         }

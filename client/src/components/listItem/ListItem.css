@@ -1,57 +1,48 @@
 .listItems {
   width: 225px;
-  height: 120px;
-  color: white;
-  margin-right: 5px;
+  height: 300px;
+  color: rgb(255, 255, 255);
+  margin-left: 25px;
   overflow: hidden;
   cursor: pointer;
+  background-color: black;
+ box-shadow: 0px 1px 11px 2px #FFFFFF; 
+ border-radius: 10px;
 }
 
 .listItems img {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 40%;
+  object-fit: cover;
+}
+.itrmInfoTop h6 {
+  font-size: 18px;
+  font-weight: 900;
+}
+.itrmInfoTop span {
+  margin-left: 20px;
+}
+.itrmInfoTop button{
+  margin-left: 20px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  padding: 2px 5px;
+  margin-top: 10px;
+  background-color: whitesmoke;
+}
+.itrmInfoTop button:hover{
+  background-color: lightblue;
+  color: black;
 }
 
-.listItems:hover {
-  width: 325px;
-  height: 300px;
-  -webkit-box-shadow: 0px 0px 16px 5px rgba(182, 182, 182, 0.97);
-          box-shadow: 0px 0px 16px 5px rgba(182, 182, 182, 0.97);
-  top: -150px;
-  position: absolute;
-  border-radius: 10px;
-  background-color: #0b0b0b;
+@media only screen and (max-width: 768px) {
+  .listItems {
+    width: 180px;
+    height: 300px;
+    margin-left: 10px;
+  }
+
+  
 }
 
-.listItems:hover img {
-  height: 140px;
-}
-
-.listItems:hover .itemInfo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 5px;
-}
-
-.listItems:hover .itemInfo .icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.listItems:hover .itemInfo .icons .icon {
-  border: 2px solid whitesmoke;
-  padding: 5px;
-  border-radius: 50%;
-  margin-right: 10px;
-  font-size: 35px;
-}
-/*# sourceMappingURL=ListItem.css.map */
