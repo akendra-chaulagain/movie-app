@@ -9,7 +9,6 @@ import "./List.css"
 
 const List = ({ list }) => {
 
-
     // function for  carousel 
     const listRef = useRef()
     const [slideNumber, setSlideNumber] = useState(0)
@@ -33,8 +32,8 @@ const List = ({ list }) => {
                     <div className="all-items" ref={listRef}>
                         {/* this all the list items are imported from the ListItem page  */}
                         {
-                            list.content.map((item, i) => (
-                                <ListItem index={i} item={item} />
+                            list.content.map((item, i, key = { i }) => (
+                                <ListItem index={i} item={item} key={i} />
                             ))}
 
                     </div>

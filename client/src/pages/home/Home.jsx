@@ -28,6 +28,9 @@ const Home = ({ type }) => {
       }
     }
     getRandomList()
+    return () => {
+
+    }
   }, [genre, type])
 
 

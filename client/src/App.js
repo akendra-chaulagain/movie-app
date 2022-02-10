@@ -6,6 +6,7 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Error from './pages/error/Error';
 import Watch from './pages/watch/Watch';
+import Video from './pages/video page/Video';
 
 
 
@@ -13,7 +14,6 @@ const App = () => {
   const user = true;
   return (
     <>
-      {/* <Navbar /> */}
       <Routes>
         {/* home page routes */}
         <Route exact path="/" element={user ? <Home /> : <Register />} />
@@ -27,11 +27,14 @@ const App = () => {
           user && (
             <>
               {/* movies page  if the type is movies it render to movies because props is given in home page */}
-              <Route path="/movies" element={<Home type="movies" />} />
+              <Route exact path="/movies" element={<Home type="movie" />} />
               {/* series page  if the type is series it render to movies because props is given in home page*/}
-              <Route path="/series" element={<Home type="series" />} />
-              {/* watch page  */}
+              <Route exact path="/series" element={<Home type="series" />} />
+              {/* watch page = when user click watch now then it render to watch page */}
               <Route path="/watch/:id" element={<Watch/>} />
+              {/* video page when user play video thgis page will run */}
+              <Route path="/watch/movie" element={<Video/>} />
+
             </>
           )
         }

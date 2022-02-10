@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Navbar from '../../components/navbar/Navbar'
 import "./Watch.css"
 import Play from '@material-ui/icons/PlayArrow';
@@ -13,7 +13,7 @@ const Watch = () => {
     const path = (location.pathname.split("/")[2]);
 
     const [watch, setWatch] = useState({})
-    // get data according to id
+
 
     useEffect(() => {
         const getMove = async () => {
@@ -25,12 +25,14 @@ const Watch = () => {
                         }
                     })
                 setWatch(res.data);
-                console.log(res);
+
             } catch (error) {
                 console.log(error);
             }
         }
-        getMove();
+        getMove()
+
+
     }, [path])
 
 
@@ -39,25 +41,26 @@ const Watch = () => {
             <Navbar />
             <div className="container-fluid watch">
                 <div className="row ">
-                        <div className="col-md-5 left ">
-                            <div className="movieImg ">
-                                <img src={watch.img} alt="" />
-                                <div className="icons">
-                                    
-                                </div>
-                                <div className="movietitle text-center">{watch.title}</div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 right ">
-                            <h5>Name : <span>{watch.title}</span></h5>
-                            <h5>genra : <span>{watch.genre}</span></h5>
-                            <h5>Release data : <span>{watch.year}</span></h5>
-                            <h5>Limit : <span>+{watch.limit}</span></h5>
-                            <h5>Description : <span>{watch.desc}</span></h5>
-                            <button><Play/>Watch</button>
-                        </div>
-                        
+                    <div className="col-md-5 left ">
+                        <div className="movieImg ">
+                            <img src={watch.img} alt="" />
+                            <div className="icons">
 
+                            </div>
+                            <div className="movietitle text-center">{watch.title}</div>
+                        </div>
+                    </div>
+                    <div className="col-md-6 right ">
+                        <h5>Name : <span>{watch.title}</span></h5>
+                        <h5>genra : <span>{watch.genre}</span></h5>
+                        <h5>Release data : <span>{watch.year}</span></h5>
+                        <h5>Limit : <span className='limit-box'>+{watch.limit}</span></h5>
+                        <h5>Description : <span>{watch.desc}</span></h5>
+                        <Link to={`/watch/movie`}>
+                            <button><Play />Watch</button>
+
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>
