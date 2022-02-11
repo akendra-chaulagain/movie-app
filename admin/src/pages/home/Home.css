@@ -1,8 +1,10 @@
 .home{
     margin-top: 11vh;
+    /* margin-left: 20%; */
 }
-@media only screen and (max-width: 768px) {
-    .home{
-        margin-left: 0%;
-    }
+.home img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
 }
+

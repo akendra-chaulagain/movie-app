@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home';
@@ -10,9 +9,12 @@ import NewUser from './pages/newUser/NewUser';
 import ProductList from './pages/productList/ProductList';
 import Product from './pages/product/Product';
 import NewProduct from './pages/newProduct/NewProduct';
+import React from 'react';
 
 
 const App = () => {
+  
+
   return (
     <>
       <Topbar />
@@ -34,11 +36,11 @@ const App = () => {
               {/*new user page => when some one click in create button in user/User.js it render to new User page */}
               <Route exact path='/newuser' element={<NewUser />} />
               {/* product page import from   from productlist page*/}
-              <Route exact path='/products' element={<ProductList />} />
+              <Route exact path='/movies' element={<ProductList />} />
               {/* single product from product page */}
               <Route exact path='/product/:userId' element={<Product />} />
-               {/* new product from newProduct page */}
-               <Route exact path='/newproduct' element={<NewProduct />} />
+              {/* new product from newProduct page */}
+              <Route exact path='/newproduct' element={<NewProduct />} />
 
             </Routes>
           </div>

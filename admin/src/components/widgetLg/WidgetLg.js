@@ -19,6 +19,8 @@ const WidgetLg = () => {
         <span className="widgetLgTitle">Latest transactions</span>
         <div className="row ">
           <table className='widgetLgTable mt-3'>
+          <tbody>
+
             <tr>
               <th>Customer</th>
               <th>Date</th>
@@ -88,6 +90,7 @@ const WidgetLg = () => {
                 <button>Approved</button>
               </td>
             </tr>
+          </tbody>
             
           </table>
         </div>
