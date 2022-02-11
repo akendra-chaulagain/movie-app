@@ -2,6 +2,7 @@ import "./Home.css";
 // import { RemoveRedEye } from '@material-ui/icons';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import Sidebar from "../../components/siderbar/Sidebar";
 
 
 
@@ -38,7 +39,10 @@ const Home = () => {
         <>
             <div className="container-fluid home">
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-3">
+                        <Sidebar />
+                    </div>
+                    <div className="col-md-9">
                         <h3 className='text-center mt-2'>Current 10 members in our website </h3>
 
                         <table className="table mt-2">
@@ -67,10 +71,10 @@ const Home = () => {
                             </tbody>
                         </table>
 
-
                     </div>
                 </div>
             </div>
+
         </>
     )
 };
