@@ -17,7 +17,7 @@ const Home = ({ type }) => {
   useEffect(() => {
     const getRandomList = async () => {
       try {
-        const res = await axios.get(`lists${type ? "?types=" + type : ""}${genre ? "genre=" + genre : ""}`, {
+        const res = await axios.get(`lists${type ? "?types=" + type : ""}${genre ? "&genre=" + genre : ""}`, {
           headers: {
             token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDQxNzg4MCwiZXhwIjoxNjQ0ODQ5ODgwfQ.4FDiwKDBaMYzrsudelJ8NYMM9mjWLJN3GRPGddhtVw0"
           }

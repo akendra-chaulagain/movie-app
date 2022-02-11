@@ -1,0 +1,8 @@
+.home{
+    margin-top: 11vh;
+}
+@media only screen and (max-width: 768px) {
+    .home{
+        margin-left: 0%;
+    }
+}

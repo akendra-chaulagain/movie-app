@@ -1,0 +1,67 @@
+.topbar {
+  width: 100%;
+  height: 11vh;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  background-color: whitesmoke;
+  box-shadow: 1px 7px 5px -9px #000000;
+}
+.topbar h3 {
+  font-weight: 800;
+  margin-left: 15px;
+  margin-top: 20px;
+  font-size: 30px;
+  color: rgb(5, 5, 82);
+}
+.topbar img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.right {
+  position: relative;
+}
+
+.right .icon {
+  margin: 20px 7px 0px 7px;
+  font-size: 25px;
+  color: rgb(177, 160, 160);
+  cursor: pointer;
+}
+.topIconBadge {
+  position: relative;
+  background-color: rgb(230, 25, 25);
+  padding: 2px 4px;
+  color: whitesmoke;
+  right: 20px;
+  border-radius: 50%;
+  font-size: 15px;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .topbar img {
+    margin-top: 12px;
+    height: 40px;
+    width: 40px;
+    margin-left: 0px;
+  }
+  .right .icon {
+    font-size: 25px;
+    margin: 20px 2px 0px 2px;
+  }
+  .topbar h3 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .topIconBadge {
+    padding: 2px 4px;
+    font-size: 10px;
+    right: 15px;
+  }
+}

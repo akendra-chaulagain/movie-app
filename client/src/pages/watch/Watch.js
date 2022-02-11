@@ -35,7 +35,7 @@ const Watch = () => {
 
     }, [path])
 
-
+    // console.log(watch);
     return (
         <>
             <Navbar />
@@ -44,9 +44,7 @@ const Watch = () => {
                     <div className="col-md-5 left ">
                         <div className="movieImg ">
                             <img src={watch.img} alt="" />
-                            <div className="icons">
-
-                            </div>
+                           
                             <div className="movietitle text-center">{watch.title}</div>
                         </div>
                     </div>
@@ -56,7 +54,7 @@ const Watch = () => {
                         <h5>Release data : <span>{watch.year}</span></h5>
                         <h5>Limit : <span className='limit-box'>+{watch.limit}</span></h5>
                         <h5>Description : <span>{watch.desc}</span></h5>
-                        <Link to={`/watch/movie`}>
+                        <Link to={`/watch/movie/` + path}>
                             <button><Play />Watch</button>
 
                         </Link>

@@ -1,15 +1,17 @@
 
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Featured.css'
 import Pause from '@material-ui/icons/PlayArrow';
-import Info from '@material-ui/icons/Info';
+// import Info from '@material-ui/icons/Info';
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 
 
 const Featured = ({ type }) => {
     const [content, setContent] = useState({})
 
+    // random movie is generated fro movies and series page
     useEffect(() => {
         const getRandomContent = async () => {
             try {
@@ -25,13 +27,13 @@ const Featured = ({ type }) => {
         }
         getRandomContent()
     }, [type])
-
+    console.log(content);
     return (
         <>
             <div className="container-fluid featured">
-            <div className="backgroundImg">
-                <img src={content.img} alt="" />
-            </div>
+                <div className="backgroundImg">
+                    {/* <img src={content.img} alt="" /> */}
+                </div>
                 {type && (
                     <div className="category">
                         <span>{type === "movie" ? "Movies" : "Series"}</span>
@@ -49,10 +51,17 @@ const Featured = ({ type }) => {
                 )}
 
                 <div className="Picture-text">
-                    <img src="../images/matix-logo.jpg" alt="" />
-                    <p>{content.desc} </p>
-                    <button className='hero-btn-play'><Pause />Play</button>
-                    <button className='hero-btn-info'><Info />Info</button>
+                    <h4>{content.title}</h4>
+                    <h5>genra : <span>{content.genre}</span></h5>
+                    <h5>Release data : <span>{content.year}</span></h5>
+                    <h5>Limit : <span className='limit-box'>+{content.limit}</span></h5>
+                    <h5>Description : <span>{content.desc}</span></h5>
+                    <span></span>
+                    <Link to={`/watch/` + content._id}>
+                        <button className='hero-btn-play'><Pause />Play</button>
+                    </Link>
+
+                    {/* <button className='hero-btn-info'><Info />Info</button> */}
 
                 </div>
             </div>

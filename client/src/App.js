@@ -27,13 +27,13 @@ const App = () => {
           user && (
             <>
               {/* movies page  if the type is movies it render to movies because props is given in home page */}
-              <Route exact path="/movies" element={<Home type="movie" />} />
+              <Route exact path="/movies=true" element={<Home type="movie" />} />
               {/* series page  if the type is series it render to movies because props is given in home page*/}
-              <Route exact path="/series" element={<Home type="series" />} />
+              <Route exact path="/series=true" element={<Home type="series" />} />
               {/* watch page = when user click watch now then it render to watch page */}
-              <Route path="/watch/:id" element={<Watch/>} />
+              <Route path="/watch/:id" element={<Watch />} />
               {/* video page when user play video thgis page will run */}
-              <Route path="/watch/movie" element={<Video/>} />
+              <Route path="/watch/movie/:id" element={<Video />} />
 
             </>
           )

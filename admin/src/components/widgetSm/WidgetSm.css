@@ -1,0 +1,27 @@
+.widgetSm {
+  height: 55vh;
+  padding: 20px;
+  box-shadow: -1px 2px 10px -2px #4d4b4b;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+.widgetSmTitle {
+  font-size: 21px;
+  font-weight: 700;
+}
+.widgetSm img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.widgetSm h6 {
+  font-weight: 800;
+}
+.widgetSm p {
+  font-size: 17px;
+  color: gray;
+}
+.widgetSm .displaySm {
+  color: gray;
+  cursor: pointer;
+}

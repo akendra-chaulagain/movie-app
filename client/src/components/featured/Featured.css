@@ -8,23 +8,30 @@
   background-size: cover;
   background-position: center;
   position: relative;
-}
-
-.Picture-text img {
-  width: 90%;
+ background-image:linear-gradient( rgba(34, 34, 37, 0.52), rgba(24, 15, 22, 0.73));
 }
 
 .Picture-text {
   position: absolute;
   bottom: 350px;
+  top: 30vh;
   left: 100px;
-  height: 15vh;
   color: white;
   width: 40%;
 }
 
-.Picture-text p {
-  font-size: 20px;
+.Picture-text h4 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+.Picture-text h5 {
+  font-weight: 600;
+  font-size: 30px;
+}
+.Picture-text span {
+  margin-left: 20px;
+  font-weight: 500;
 }
 
 .hero-btn-play {
@@ -34,6 +41,7 @@
   outline: none;
   border: none;
   background-color: whitesmoke;
+  margin-top: 20px;
 }
 
 .hero-btn-info {
@@ -49,7 +57,7 @@
 
 .category {
   position: absolute;
-  top: 130px;
+  top: 100px;
   left: 90px;
   font-size: 30px;
   font-weight: bold;
@@ -64,19 +72,37 @@ select {
   outline: none;
   font-size: 19px;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 @media only screen and (max-width: 768px) {
   .Picture-text {
     width: 90%;
     left: 10px;
+    top: 35vh;
   }
-  .Picture-text img {
-    width: 70%;
+  .Picture-text h4 {
+    font-size: 37px;
+    font-weight: 600;
+    letter-spacing: 2px;
   }
-  .Picture-text p {
-    font-size: 15px;
+  .Picture-text h5 {
+    font-weight: 600;
+    font-size: 20px;
   }
+  .Picture-text span {
+    margin-left: 0px;
+  }
+  
+.category {
+  left: 10px;
+  font-size: 20px;
+}
+select {
+  padding: 6px 10px;
+  border-radius: 2px;
+  font-size: 15px;
+}
+
 }
 /*# sourceMappingURL=Featured.css.map */

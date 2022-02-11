@@ -1,0 +1,55 @@
+.newUser {
+  margin-top: 12vh;
+}
+.mewuserTitle {
+  font-size: 30px;
+  margin-top: 15px;
+  font-weight: 900;
+}
+
+.newUser-input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.newuserLeft {
+  flex: 5;
+}
+.newuserRight {
+  flex: 5;
+}
+.inputField input {
+  width: 80%;
+  color: gray;
+  outline: none;
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 5px;
+  margin-top: 7px;
+}
+.inputField label {
+  font-weight: 600;
+  color: gray;
+  margin-top: 20px;
+}
+.inputField select {
+  width: 80%;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+.inputField option {
+  color: gray;
+}
+
+.newUserButton button {
+  margin-top: 60px;
+  padding: 3px 60px;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: darkblue;
+  border-radius: 9px;
+}

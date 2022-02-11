@@ -8,11 +8,9 @@ import { Link } from "react-router-dom"
 
 
 
-const ListItem = ({ index, item }) => {
-  const [isHovered, setIsHovered] = useState(false);
+const ListItem = ({ item }) => {
   const [movie, setMovie] = useState({})
 
-  //  our item content user id with the help of this id fetching user data
   useEffect(() => {
     const getMovies = async () => {
       try {
@@ -30,13 +28,9 @@ const ListItem = ({ index, item }) => {
     getMovies()
   }, [item])
 
-
   return (
     <>
-      <div className='listItems'
-        style={{ left: isHovered && index * 225 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}>
+      <div className='listItems'>
         <img src={movie.img} alt="" />
         <div className="itemInfo">
 
@@ -46,6 +40,7 @@ const ListItem = ({ index, item }) => {
             <span>Limit :&#160;&#160;{movie.limit}</span><br />
             <span>Release :&#160;&#160;{movie.year}</span><br />
             <span>Genra :&#160;&#160;{movie.genre}</span><br />
+            {/* render to video page */}
             <Link to={`/watch/` + movie._id}>
               <button><Play />watch now</button>
 

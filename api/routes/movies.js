@@ -82,7 +82,7 @@ router.get("/find/:id", verify, async (req, res) => {
 
 
 
-// get random movie  whrn refresh
+// get random movie  when refresh
 router.get("/random", verify, async (req, res) => {
     const type = req.query.type;
     let movie;
