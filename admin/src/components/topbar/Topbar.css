@@ -26,6 +26,17 @@
   .right {
     position: relative;
   }
+  .right button{
+    border: none;
+    outline: none;
+    font-weight: 600;
+    margin-left: 20px;
+    /* margin-top: 50px; */
+    background-color: lightblue;
+    color: rgb(0, 0, 0);
+    padding: 5px 20px;
+    border-radius: 9px;
+  }
   
   .right .icon {
     margin: 20px 7px 0px 7px;

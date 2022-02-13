@@ -105,7 +105,7 @@ router.get("/random", verify, async (req, res) => {
 })
 
 
-// get all user
+// get all movies
 router.get("/", verify, async (req, res) => {
     if (req.user.isAdmin) {
         try {

@@ -1,10 +1,22 @@
 .productList {
   margin-top: 11vh;
 }
-.leftSideContainer{
+.leftSideContainer {
   margin-top: 5vh;
 }
 .ProductTitle {
   font-size: 27px;
   font-weight: 900;
+}
+
+.userListuser {
+  display: flex;
+  align-items: center;
+}
+.userListuser img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
 }

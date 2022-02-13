@@ -1,15 +1,35 @@
 import { Publish } from '@material-ui/icons';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 import "./Movie.css";
+import axios from "axios"
+
 
 
 const Movie = () => {
+    const location = useLocation()
+    const path = (location.pathname.split("/")[2]);
+    const [singleMovie, setSingleMovie] = useState("")
+
+
+    // get movie by id
+    useEffect(() => {
+        const getMovie = async () => {
+            const res = await axios.get("/movies/find/" + path, {
+                headers: {
+                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDczNDYzMCwiZXhwIjoxNjQ1MTY2NjMwfQ.E3TKGuILa-XpMdf3HMiz9plBwqxYytjhZbOG9GJCwDM"
+                }
+            })
+            setSingleMovie(res.data);
+        }
+        getMovie()
+    }, [path])
+    console.log(singleMovie);
+
+
     return (
         <>
-
-
             <div className="container-fluid movie">
                 <div className="row">
                     <div className="col-md-3">
@@ -17,35 +37,41 @@ const Movie = () => {
                     </div>
                     <div className="col-md-9 ">
                         <div className="productContainerTitle">
-                            <h1 >Product</h1>
+                            <h1 >Movie</h1>
                             <Link to="/newMovie">
                                 <button>Create</button>
                             </Link>
                         </div>
                         <div className="row">
+                            {/* left side container */}
                             <div className="col-md-6 leftSideContainer">
-                                <h4>Product Name</h4>
+                                <h4>Movie Name</h4>
                                 <form className='productForm'>
-                                    <input type="text" placeholder='Mobile' />
-                                    <div className="productForm mt-3">
-                                        <label htmlFor="">In Stock</label><br />
-                                        <select name="active" id="active">
-                                            <option value="yes">yes</option>
-                                            <option value="no">no</option>
-                                        </select>
-                                    </div>
-                                    <div className="productForm mt-3">
-                                        <label htmlFor="">Active</label><br />
-                                        <select name="active" id="active">
-                                            <option value="yes">yes</option>
-                                            <option value="no">no</option>
-                                        </select>
-                                    </div>
+                                    <label htmlFor="">Movie Title</label><br />
+                                    <input type="text" placeholder={singleMovie.title} /><br />
+
+                                    <label htmlFor="">Limit</label><br />
+                                    <input type="number" placeholder={singleMovie.limit} /><br />
+
+                                    <label htmlFor="">Genre</label><br />
+                                    <input type="text" placeholder={singleMovie.genre} /><br />
+
+
+                                    <label htmlFor="">Release Date</label><br />
+                                    <input type="number" placeholder={singleMovie.year} /><br />
+
+                                    <label htmlFor="">Trailer</label><br />
+                                    <input type="file" /><br />
+                                    <label htmlFor="">Video</label><br />
+                                    <input type="file" />
+
+
                                 </form>
                             </div>
+                            {/* right side */}
                             <div className="col-md-6">
                                 <div className="productImg">
-                                    <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+                                    <img src={singleMovie.img} alt="" />
                                     <label htmlFor="file">
                                         <Publish />
                                     </label>

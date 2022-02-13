@@ -3,8 +3,8 @@ import "./Home.css";
 import axios from "axios"
 import Sidebar from '../../components/sidebar/Sidebar';
 
-const Home = () => {
 
+const Home = () => {
 
 
     // get new users from the database

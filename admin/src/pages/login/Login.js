@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
-import { loginCall } from '../../apiCalls'
+import { loginCall } from '../../context/authContext/apiCalls'
 import { AuthContext } from '../../context/authContext/Contex'
 import "./Login.css"
 
@@ -12,6 +12,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         loginCall({ email, password }, dispatch)
+      
     }
 
     return (

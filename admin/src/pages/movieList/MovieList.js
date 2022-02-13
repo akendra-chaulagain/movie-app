@@ -1,133 +1,90 @@
 import './MovieList.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { DeleteOutline } from '@material-ui/icons';
+import { DeleteOutlined } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
-
-
-
-
-export const productRows = [
-    {
-        id: 1,
-        name: 'Mobile',
-        img: "../images/mobile.jpg",
-        stock: 167,
-        status: "active",
-        price: "$500.00"
-    },
-    {
-        id: 2,
-        name: 'Mobile',
-        img: "../images/mobile.jpg",
-        stock: 167,
-        status: "active",
-        price: "$500.00"
-    }, {
-        id: 3,
-        name: 'Mobile',
-        img: "../images/mobile.jpg",
-        stock: 167,
-        status: "active",
-        price: "$500.00"
-    }, {
-        id: 4,
-        name: 'Mobile',
-        img: "../images/mobile.jpg",
-        stock: 167,
-        status: "active",
-        price: "$500.00"
-    }, {
-        id: 5,
-        name: 'Mobile',
-        img: "../images/mobile.jpg",
-        stock: 167,
-        status: "active",
-        price: "$500.00"
-    }, {
-        id: 6,
-        name: 'Mobile',
-        img: "../images/mobile.jpg",
-        stock: 167,
-        status: "active",
-        price: "$500.00"
-    }, {
-        id: 7,
-        name: 'Mobile',
-        img: "../images/mobile.jpg",
-        stock: 167,
-        status: "active",
-        price: "$500.00"
-    },
-
-];
-
+import axios from 'axios';
+import { deleteMovie } from '../../context/movieContext/apiCalls';
+import { useContext } from 'react';
+import { MovieContext } from '../../context/movieContext/MovieContext';
 
 
 
 // this page exported and render to product page in sidebar
 const MovieList = () => {
-    const [data, setData] = useState(productRows)
+    const [data, setData] = useState([])
+    const { movies, dispatch } = useContext(MovieContext)
 
-    const handleDelete = (id) => {
-        setData(data.filter((item) => item.id !== id))
+
+    useEffect(() => {
+        const getAllMovie = async () => {
+            try {
+                const res = await axios.get("/movies", {
+                    headers: {
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDczNDYzMCwiZXhwIjoxNjQ1MTY2NjMwfQ.E3TKGuILa-XpMdf3HMiz9plBwqxYytjhZbOG9GJCwDM"
+                    }
+                })
+                setData(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getAllMovie()
+    }, [])
+
+
+
+
+
+    // delete movie data by usimg context api from the movieContext
+
+    const handelDelete = async (id) => {
+        deleteMovie(id, dispatch)
+        alert("Movie deleted")
+
     }
 
 
-
     const columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
         {
-            field: 'product',
-            headerName: 'Product',
-            width: 190,
-            renderCell: (params) => {
+            field: 'movie', headerName: 'Movie', width: 230, renderCell: (params) => {
                 return (
-                    <>
-                        <div className="productListUser">
-                            <img className='productListImg' src={params.row.img} alt="" />
-                            {params.row.name}
-                        </div>
-
-                    </>
-
+                    <div className='userListuser'>
+                        <img src={params.row.img} alt="avtar" />
+                        {params.row.title}
+                    </div>
                 )
             }
         },
-        { field: 'stock', headerName: 'Stock', width: 240 },
-
+        { field: 'genre', headerName: 'Genre', width: 130 },
+        { field: 'year', headerName: 'year', width: 170, },
+        { field: 'limit', headerName: 'Limits', width: 150, },
+        { field: 'isSeries', headerName: 'isSeries', width: 150, },
         {
-            field: 'price',
-            headerName: 'Price',
-            width: 160,
-
-        },
-        {
-            field: 'action',
-            headerName: 'Action',
-            width: 150,
-            renderCell: (params) => {
+            field: 'action', headerName: 'Action', width: 130, renderCell: (params) => {
                 return (
+
+
                     <>
-                        <Link to={"/movie/" + params.row.id}>
+                        {/* edit  movie data */}
+                        < Link to={`/movie/` + params.row._id}>
                             <button className='button_Edit'>Edit</button>
-                        </Link>
-                        <DeleteOutline className='delete-Btn'
-                            onClick={() => handleDelete(params.row.id)}
+                        </ Link>
+                        {/* delete user data */}
+                        < DeleteOutlined style={{ color: "red", fontSize: 30, cursor: 'pointer' }}
+                            onClick={() => handelDelete(params.row._id)}
                         />
-                    </>
 
+                    </>
                 )
             }
-
         },
+
     ];
 
-
-
-
     return (
+
         <>
             <div className="container-fluid productList">
                 <div className="row">
@@ -135,15 +92,15 @@ const MovieList = () => {
                         <Sidebar />
                     </div>
                     <div className="col-md-9 leftSideContainer">
-                        <div className="ProductTitle text-center">All Products</div>
-
-                        <div style={{ height: 450, width: '100%' }}>
+                        <div className="ProductTitle text-center">All Movies</div>
+                        <div style={{ height: 520, width: '100%' }}>
                             <DataGrid
                                 rows={data}
-                                disableSelectionOnClick
                                 columns={columns}
-                                pageSize={6}
-                                checkboxSelection
+                                pageSize={8}
+                                rowsPerPageOptions={[5]}
+                                disableSelectionOnClick
+                                getRowId={(r) => r._id}
                             />
                         </div>
                     </div>
