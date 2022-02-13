@@ -1,13 +1,6 @@
-import "./Home.css";
-// import { RemoveRedEye } from '@material-ui/icons';
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import Sidebar from "../../components/siderbar/Sidebar";
-
-
-
-
-
+import "./Home.css";
+import axios from "axios"
 
 const Home = () => {
 
@@ -20,7 +13,7 @@ const Home = () => {
             try {
                 const res = await axios.get("/users?new=true", {
                     headers: {
-                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDU1OTExMiwiZXhwIjoxNjQ0OTkxMTEyfQ.DNJdey4Bk0SBaxMoui1KJ-XV6YHD6JhkuJwNG1SCtbU"
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDcxNDg3OSwiZXhwIjoxNjQ1MTQ2ODc5fQ.4MTvMQdupcXml48XwYeUUm1v6FXyEN3bbNWcOGSfz0g"
                     }
                 })
                 setNewUser(res.data)
@@ -32,47 +25,43 @@ const Home = () => {
         getUserUser();
     }, [])
 
-
+    console.log(newUser);
 
 
     return (
         <>
-            <div className="container-fluid home">
-                <div className="row">
-                    <div className="col-md-3">
-                        <Sidebar />
-                    </div>
-                    <div className="col-md-9">
-                        <h3 className='text-center mt-2'>Current 10 members in our website </h3>
+            <div className="home ">
 
-                        <table className="table mt-2">
-                            <thead>
-                                <tr>
-                                    <th scope="col">profile</th>
-                                    <th scope="col">userName</th>
-                                    <th scope="col">Id created date</th>
+                <h3 className='text-center '>Current 10 members in our website </h3>
+
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Profile Photo</th>
+                            <th scope="col">userName</th>
+                            <th scope="col">Id created date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            newUser.map((user, id) => (
+
+                                <tr key={id}>
+                                    <td>
+                                        <img src={user.profilePic || "https://cdn2.vectorstock.com/i/thumb-large/96/76/avatar-vector-32409676.jpg"} alt="avtar" />
+
+                                    </td>
+                                    <td>{user.email}</td>
+                                    <td>{new Date(user.createdAt).toDateString()}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    newUser.map((user, id) => (
 
-                                        <tr key={id}>
-                                            <td>
-                                                <img src={user.profilePic || "https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659651__340.png"} alt="avtar" /></td>
+                            ))
+                        }
 
-                                            <td>{user.username}</td>
-                                            <td>{new Date(user.createdAt).toDateString()}</td>
-                                        </tr>
 
-                                    ))
-                                }
+                    </tbody>
+                </table>
 
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
             </div>
 
         </>

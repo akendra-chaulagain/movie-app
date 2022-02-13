@@ -1,6 +1,7 @@
-
 .User {
+  flex: 4;
   margin-top: 14vh;
+  margin-left: 20px;
 }
 .topContain {
   display: flex;
@@ -20,7 +21,7 @@
 }
 
 .UserTitle {
-  font-size: 29px;
+  font-size: 32px;
   font-weight: 900;
 }
 .userLeft {
@@ -47,7 +48,8 @@
 .contactdetails {
   margin-top: 50px;
 }
-.contactdetails h6,span {
+.contactdetails h6,
+span {
   color: gray;
   margin-top: 30px;
   letter-spacing: 2px;
@@ -90,7 +92,7 @@
   font-weight: 600;
   color: gray;
 }
-.updateButton button{
+.updateButton button {
   margin-top: 20px;
   padding: 2px 60px;
   outline: none;
@@ -100,4 +102,3 @@
   background-color: darkblue;
   border-radius: 9px;
 }
-

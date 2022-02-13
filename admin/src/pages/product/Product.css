@@ -1,5 +1,6 @@
 .product {
   margin-top: 14vh;
+  flex: 4;
 }
 .productContainerTitle {
   display: flex;
@@ -82,9 +83,9 @@
 .productImg img {
   height: 50%;
   width: 50%;
-  border-radius: 10%;
+  border-radius: 20%;
 }
-.productImg button{
+.productImg button {
   margin-top: 20px;
   padding: 2px 60px;
   outline: none;

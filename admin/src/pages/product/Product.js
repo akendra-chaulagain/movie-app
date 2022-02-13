@@ -1,8 +1,7 @@
+import { Publish } from '@material-ui/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./Product.css";
-import Chart from '../../components/charts/Chart'
-import { productData } from '../../DummyData';
 
 
 const Product = () => {
@@ -17,15 +16,11 @@ const Product = () => {
                         </Link>
                     </div>
                     {/* top two boxes */}
-                    <div className="col-md-6">
-                        <div className="productTopLeft">
-                            <Chart data={productData} dataKey="Sales" title="Sales Perfomance" />
-                        </div>
-                    </div>
+
                     <div className="col-md-6">
                         <div className="productTopRight">
                             <div className="peoductInfoTop">
-                                <img src="../images/mobile.jpg" alt="" />
+                                <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
                                 <span className="productName">Mobile</span>
                             </div>
                             <div className="peoductInfoBottom">
@@ -86,8 +81,12 @@ const Product = () => {
                             </div>
                             <div className="col-md-6">
                                 <div className="productImg">
-                                    <img src="../images/mobile.jpg" alt="" /><br />
-
+                                    <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+                                    <label htmlFor="file">
+                                        <Publish />
+                                    </label>
+                                    <input type="file" id='file' style={{ display: "none", marginleft: 50 }} />
+                                    <br />
                                     <button>Update</button>
 
                                 </div>

@@ -1,5 +1,7 @@
 .newUser {
   margin-top: 12vh;
+  flex: 4;
+ margin-left: 20px;
 }
 .mewuserTitle {
   font-size: 30px;

@@ -1,44 +1,47 @@
 .newproduct {
-  margin-top: 12vh;
-}
-.mewproductTitle {
-  font-size: 30px;
-  margin-top: 15px;
-  font-weight: 900;
-}
-.inputField input {
-  width: 40%;
-  color: gray;
-  outline: none;
-  border: 1px solid gray;
-  padding: 4px;
-  border-radius: 5px;
-  margin-top: 7px;
-}
-.inputField label {
-  font-weight: 600;
-  color: gray;
-  margin-top: 20px;
-}
-.inputField select {
-  width: 40%;
-  outline: none;
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 5px;
-}
-.inputField option {
-  color: gray;
-}
-
-.createnewButton button {
-    margin-top: 60px;
-    padding: 3px 60px;
-    outline: none;
-    border: none;
-    font-weight: 600;
-    color: white;
-    background-color: darkblue;
-    border-radius: 9px;
+    margin-top: 14vh;
+    flex: 4;
+    margin-left: 10%;
   }
+  .mewproductTitle {
+    font-size: 30px;
+    margin-top: 15px;
+    font-weight: 900;
+  }
+  .inputField input {
+    width: 40%;
+    color: gray;
+    outline: none;
+    border: 1px solid gray;
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 7px;
+  }
+  .inputField label {
+    font-weight: 600;
+    color: gray;
+    margin-top: 20px;
+  }
+  .inputField select {
+    width: 40%;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .inputField option {
+    color: gray;
+  }
+  
+  .createnewButton button {
+      margin-top: 60px;
+      padding: 3px 60px;
+      outline: none;
+      border: none;
+      font-weight: 600;
+      color: white;
+      background-color: darkblue;
+      border-radius: 9px;
+    }
+    
   

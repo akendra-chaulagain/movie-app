@@ -1,10 +1,15 @@
-.home{
-    margin-top: 11vh;
-    /* margin-left: 20%; */
+.home {
+  flex: 4;
+  margin-top: 11vh;
+  overflow: hidden;
+  padding-left: 40px;
 }
-.home img{
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+.home h3 {
+  margin-top: 2vh;
+  font-weight: 600;
 }
-
+.home img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}

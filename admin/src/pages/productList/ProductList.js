@@ -3,7 +3,65 @@ import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
-import { productRows } from "../../DummyData"
+
+
+
+
+export const productRows = [
+    {
+        id: 1,
+        name: 'Mobile',
+        img: "../images/mobile.jpg",
+        stock: 167,
+        status: "active",
+        price: "$500.00"
+    },
+    {
+        id: 2,
+        name: 'Mobile',
+        img: "../images/mobile.jpg",
+        stock: 167,
+        status: "active",
+        price: "$500.00"
+    }, {
+        id: 3,
+        name: 'Mobile',
+        img: "../images/mobile.jpg",
+        stock: 167,
+        status: "active",
+        price: "$500.00"
+    }, {
+        id: 4,
+        name: 'Mobile',
+        img: "../images/mobile.jpg",
+        stock: 167,
+        status: "active",
+        price: "$500.00"
+    }, {
+        id: 5,
+        name: 'Mobile',
+        img: "../images/mobile.jpg",
+        stock: 167,
+        status: "active",
+        price: "$500.00"
+    }, {
+        id: 6,
+        name: 'Mobile',
+        img: "../images/mobile.jpg",
+        stock: 167,
+        status: "active",
+        price: "$500.00"
+    }, {
+        id: 7,
+        name: 'Mobile',
+        img: "../images/mobile.jpg",
+        stock: 167,
+        status: "active",
+        price: "$500.00"
+    },
+
+];
+
 
 
 
@@ -54,7 +112,9 @@ const ProductList = () => {
                         <Link to={"/product/" + params.row.id}>
                             <button className='button_Edit'>Edit</button>
                         </Link>
-                        <DeleteOutline className='delete-Btn' onClick={() => handleDelete(params.row.id)} />
+                        <DeleteOutline className='delete-Btn'
+                            onClick={() => handleDelete(params.row.id)}
+                        />
                     </>
 
                 )
@@ -69,6 +129,8 @@ const ProductList = () => {
     return (
         <>
             <div className="productList">
+                <div className="ProductTitle text-center">All Products</div>
+
                 <div style={{ height: 450, width: '100%' }}>
                     <DataGrid
                         rows={data}

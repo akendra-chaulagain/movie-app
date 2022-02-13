@@ -22,7 +22,7 @@ const User = () => {
                     {/* left side container */}
                     <div className="col-md-4 userLeft mt-3">
                         <div className='profile_top'>
-                            <img src="../images/profile.jpeg" alt="" />
+                            <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
                             <p>Akendra Chaulagain</p>
                         </div>
 
@@ -74,7 +74,7 @@ const User = () => {
 
                             </div>
                             <div className="updateButton">
-                                <button >update</button>
+                                <button >save changes</button>
 
                             </div>
                         </form>

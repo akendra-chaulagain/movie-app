@@ -1,48 +1,47 @@
-import React, { useContext } from 'react';
-import './App.css';
-import { Routes, Route } from "react-router-dom";
-import Home from './pages/home/Home';
-import Topbar from './components/topbar/Topbar';
-import Sidebar from './components/siderbar/Sidebar';
-import UserList from './pages/userlist/UserList';
-import User from './pages/user/User';
-import NewUser from './pages/newUser/NewUser';
-import ProductList from './pages/productList/ProductList';
-import Product from './pages/product/Product';
-import NewProduct from './pages/newProduct/NewProduct';
-import Login from './pages/login/Login';
-import { AuthContext } from './context/authContext/AuthContext';
-
+import React from 'react'
+import Sidebar from './components/sidebar/Sidebar'
+import Topbar from './components/topbar/Topbar'
+import "./App.css"
+import Home from './pages/home/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UserList from './pages/userlist/UserList'
+import User from './pages/user/User'
+import NewUser from './pages/newUser/NewUser'
+import ProductList from './pages/productList/ProductList'
+import Product from './pages/product/Product'
+import NewProduct from './pages/newproduct/NewProduct'
 
 const App = () => {
-
-  // const {  user } = useContext(AuthContext)
-  const user = false
   return (
-    <>
-
+    <Router>
       <Topbar />
+      <div className="containerApp">
+        <Sidebar />
+        <Routes>
+          {/* home page */}
+          <Route path='/' element={<Home />} />
+          {/* users page */}
+          <Route path='/users' element={<UserList />} />
+          {/* single user page when click  edit button in users page*/}
+          <Route path='/user/:id' element={<User />} />
 
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/users' element={<UserList />} />
-        <Route exact path='/user/:userId' element={<User />} />
+          {/* new user page  */}
+          <Route path='/newuser' element={<NewUser />} />
+          {/* product list */}
+          <Route path='/productlist' element={<ProductList />} />
 
-        <Route exact path='/newuser' element={<NewUser />} />
-        <Route exact path='/Movies' element={<ProductList />} />
-        <Route exact path='/product/:userId' element={<Product />} />
-        <Route exact path='/newproduct' element={<NewProduct />} />
+          {/* individual product */}
+          <Route path='/product/:id' element={<Product />} />
 
-
-        <Route path="/login" element={user ? <Home /> : <Login />} />
-
-      </Routes>
+          {/* /newproduct */}
+          {/* new product page */}
+          <Route path='/newproduct' element={<NewProduct />} />
 
 
-    </>
+        </Routes>
+      </div>
+    </Router>
   )
+}
 
-};
-
-export default App;
-
+export default App
