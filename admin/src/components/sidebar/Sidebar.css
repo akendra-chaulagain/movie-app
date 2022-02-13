@@ -1,10 +1,9 @@
 .sidebar {
   flex: 1;
   background-color: whitesmoke;
-  height: 100vh;
+  height: 120vh;
   /* width: 100%; */
   color: rgb(0, 0, 0);
-  margin-top: 10vh;
   box-shadow: 5px 1px 6px -6px #000000;
 }
 .sidebartitle {

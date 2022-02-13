@@ -4,6 +4,7 @@ import "./UserList.css"
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import Sidebar from '../../components/sidebar/Sidebar';
 // import { userRows } from "../../DummyData"
 
 
@@ -115,20 +116,35 @@ const UserList = () => {
 
   return (
     <>
-      <div className=" UserList">
-        <h3 className='text-center'>All users</h3>
 
-        <div style={{ height: 600, width: '100%' }}>
-          <DataGrid
-            rows={data}
-            columns={columns}
-            pageSize={11}
-            rowsPerPageOptions={[5]}
-            disableSelectionOnClick
-            checkboxSelection
-          />
+      <div className="container-fluid userList ">
+        <div className="row">
+          <div className="col-3">
+            <Sidebar />
+          </div>
+          <div className="col-9">
+            <h3 className='text-center  userTitle'>All users</h3>
+
+            <div style={{ height: 600, width: '100%' }}>
+              <DataGrid
+                rows={data}
+                columns={columns}
+                pageSize={11}
+                rowsPerPageOptions={[5]}
+                disableSelectionOnClick
+                checkboxSelection
+              />
+            </div>
+          </div>
         </div>
-      </div>
+ 
+
+    </div>
+
+
+
+
+
     </>
   )
 };

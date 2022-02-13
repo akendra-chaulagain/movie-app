@@ -6,18 +6,20 @@ import Reducer from "./Reducer";
 
 
 const INITIAL_STATE = {
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    user:JSON.parse(localStorage.getItem("user")) || null,
+    // user: null,
     isFetching: false,
     error: false
+
 };
 
 
-export const Context = createContext(INITIAL_STATE);
+export const AuthContext = createContext(INITIAL_STATE);
 
 
-export const ContextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(Reducer, INITIAL_STATE)
-    
+
 
     // to store user data in local storage
     useEffect(() => {
@@ -25,14 +27,14 @@ export const ContextProvider = ({ children }) => {
     }, [state.user])
 
     return (
-        <Context.Provider value={{
+        <AuthContext.Provider value={{
             user: state.user,
             isFetching: state.isFetching,
             error: state.error,
             dispatch,
         }}>
             {children}
-        </Context.Provider>
+        </AuthContext.Provider>
     )
 
 }

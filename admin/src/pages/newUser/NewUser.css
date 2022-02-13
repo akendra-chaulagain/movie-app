@@ -1,7 +1,5 @@
 .newUser {
-  margin-top: 12vh;
-  flex: 4;
- margin-left: 20px;
+  margin-top: 11vh;
 }
 .mewuserTitle {
   font-size: 30px;
@@ -15,13 +13,13 @@
   margin-top: 20px;
 }
 .newuserLeft {
-  flex: 5;
+  flex: 10;
 }
 .newuserRight {
-  flex: 5;
+  flex: 10;
 }
 .inputField input {
-  width: 80%;
+  width: 100%;
   color: gray;
   outline: none;
   border: 1px solid gray;
@@ -35,7 +33,7 @@
   margin-top: 20px;
 }
 .inputField select {
-  width: 80%;
+  width: 100%;
   outline: none;
   border: 1px solid gray;
   border-radius: 5px;

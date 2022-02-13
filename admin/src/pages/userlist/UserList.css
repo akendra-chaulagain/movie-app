@@ -1,15 +1,16 @@
-.UserList {
+
+.userList {
   flex: 4;
+  margin-top: 11vh;
+  overflow: hidden;
+  /* padding-left: 40px; */
+}
+.userList h3 {
   margin-top: 2vh;
-  margin-left: 3%;
+  font-weight: 600;
 }
-.UserList h3 {
-  font-weight: 700;
-  margin-top: 14vh;
-}
-.table {
-  padding: 20px;
-}
+
+
 .button_Edit {
     cursor: pointer;
     margin-right: 20px;

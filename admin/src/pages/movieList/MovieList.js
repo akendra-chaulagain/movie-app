@@ -1,8 +1,9 @@
-import './ProductList.css'
+import './MovieList.css'
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import Sidebar from '../../components/sidebar/Sidebar';
 
 
 
@@ -66,7 +67,7 @@ export const productRows = [
 
 
 // this page exported and render to product page in sidebar
-const ProductList = () => {
+const MovieList = () => {
     const [data, setData] = useState(productRows)
 
     const handleDelete = (id) => {
@@ -109,7 +110,7 @@ const ProductList = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={"/product/" + params.row.id}>
+                        <Link to={"/movie/" + params.row.id}>
                             <button className='button_Edit'>Edit</button>
                         </Link>
                         <DeleteOutline className='delete-Btn'
@@ -128,22 +129,30 @@ const ProductList = () => {
 
     return (
         <>
-            <div className="productList">
-                <div className="ProductTitle text-center">All Products</div>
+            <div className="container-fluid productList">
+                <div className="row">
+                    <div className="col-md-3">
+                        <Sidebar />
+                    </div>
+                    <div className="col-md-9 leftSideContainer">
+                        <div className="ProductTitle text-center">All Products</div>
 
-                <div style={{ height: 450, width: '100%' }}>
-                    <DataGrid
-                        rows={data}
-                        disableSelectionOnClick
-                        columns={columns}
-                        pageSize={6}
-                        checkboxSelection
-                    />
+                        <div style={{ height: 450, width: '100%' }}>
+                            <DataGrid
+                                rows={data}
+                                disableSelectionOnClick
+                                columns={columns}
+                                pageSize={6}
+                                checkboxSelection
+                            />
+                        </div>
+                    </div>
                 </div>
+
 
             </div>
         </>
     )
 };
 
-export default ProductList;
+export default MovieList;

@@ -17,8 +17,8 @@ const Sidebar = () => {
                         {/* it render to home page folder in   */}
                         <li className='sidebarItems mt-1'>
                             <Link className='link' to="/">
-                            <LineStyle className="sidebarIcons" style={{ marginRight: 8 }} />
-                            Home
+                                <LineStyle className="sidebarIcons" style={{ marginRight: 8 }} />
+                                Home
                             </Link>
 
                         </li>
@@ -40,18 +40,18 @@ const Sidebar = () => {
                         {/* users link which render to userlist page */}
                         <li className='sidebarItems mt-1'>
                             <Link className='link' to="/users">
-                            <Person className="sidebarIcons" style={{ marginRight: 8 }} />
-                            Users
+                                <Person className="sidebarIcons" style={{ marginRight: 8 }} />
+                                Users
                             </Link>
 
                         </li>
 
                         {/* product link */}
-                        <Link className='link' to="/productlist">
-                        <li className='sidebarItems mt-1'>
-                            <PlayArrow className="sidebarIcons" style={{ marginRight: 8 }} />
-                            Movies
-                        </li>
+                        <Link className='link' to="/movielist">
+                            <li className='sidebarItems mt-1'>
+                                <PlayArrow className="sidebarIcons" style={{ marginRight: 8 }} />
+                                Movies
+                            </li>
                         </Link>
                         {/* transaction page */}
                         <li className='sidebarItems mt-1'>

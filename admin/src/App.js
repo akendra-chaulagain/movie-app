@@ -3,44 +3,66 @@ import Sidebar from './components/sidebar/Sidebar'
 import Topbar from './components/topbar/Topbar'
 import "./App.css"
 import Home from './pages/home/Home'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+
+  Route,
+  Routes,
+
+} from "react-router-dom";
 import UserList from './pages/userlist/UserList'
 import User from './pages/user/User'
 import NewUser from './pages/newUser/NewUser'
-import ProductList from './pages/productList/ProductList'
-import Product from './pages/product/Product'
-import NewProduct from './pages/newproduct/NewProduct'
+import MovieList from './pages/movieList/MovieList'
+import Movie from './pages/movie/Movie'
+import NewMovie from './pages/newMovie/NewMovie'
+import Login from './pages/login/Login'
 
 const App = () => {
+  const user = false;
   return (
-    <Router>
-      <Topbar />
-      <div className="containerApp">
-        <Sidebar />
-        <Routes>
-          {/* home page */}
-          <Route path='/' element={<Home />} />
-          {/* users page */}
-          <Route path='/users' element={<UserList />} />
-          {/* single user page when click  edit button in users page*/}
-          <Route path='/user/:id' element={<User />} />
+    <>
+      <Router>
+        {
+          user ? (
+            <>
+              <Topbar />
+              <Routes>
+                {/* home page */}
+                <Route exact path='/' element={<Home />} />
+                {/* user list */}
+                <Route exact path='/users' element={<UserList />} />
+                {/* single user page */}
+                <Route exact path='/user/:id' element={<User />} />
+                {/* new user */}
+                <Route exact path='/newuser' element={<NewUser />} />
+                {/* all movie list */}
+                <Route exact path='/movielist' element={<MovieList />} />
+                {/* get movie by id */}
+                <Route exact path='/movie/:id' element={<Movie />} />
+                {/* create new movie */}
+                <Route exact path='/newMovie' element={<NewMovie />} />
+              </Routes>
 
-          {/* new user page  */}
-          <Route path='/newuser' element={<NewUser />} />
-          {/* product list */}
-          <Route path='/productlist' element={<ProductList />} />
+            </>
+          ) : (
+            <>
+              <Routes>
+                <Route exact path='/login' element={<Login />} />
 
-          {/* individual product */}
-          <Route path='/product/:id' element={<Product />} />
+              </Routes>
 
-          {/* /newproduct */}
-          {/* new product page */}
-          <Route path='/newproduct' element={<NewProduct />} />
+            </>
+          )
+        }
 
 
-        </Routes>
-      </div>
-    </Router>
+
+
+
+
+      </Router>
+    </>
   )
 }
 

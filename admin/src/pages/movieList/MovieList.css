@@ -1,7 +1,8 @@
 .productList {
-  flex: 4;
-  margin-top: 15vh;
-  margin-left: 8%;
+  margin-top: 11vh;
+}
+.leftSideContainer{
+  margin-top: 5vh;
 }
 .ProductTitle {
   font-size: 27px;
