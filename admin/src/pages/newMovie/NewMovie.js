@@ -10,12 +10,30 @@ const NewMovie = () => {
     const [imgSm, setImgSm] = useState(null)
     const [trailer, setTrailer] = useState(null)
     const [video, setVideo] = useState(null)
+    const [uploaded, setUploaded] = useState(0)
 
     const handleChange = (e) => {
         const value = e.target.value;
         setMovie({ ...movie, [e.target.name]: value })
     }
-    console.log(img);
+
+    const upload = (items) => {
+        items.forEach(item=>{
+            
+        })
+    }
+
+    // upload video and file
+    const handleUpload = (e) => {
+        e.preventDefault();
+        upload([
+            { file: img, label: "img" },
+            { file: imgTitle, label: "imgTitle" },
+            { file: imgSm, label: "imgSm" },
+            { file: trailer, label: "trailer" },
+            { file: video, label: "img" },
+        ])
+    }
 
     return (
         <>
@@ -35,25 +53,25 @@ const NewMovie = () => {
                                     <div className="mt-3">
                                         <label htmlFor="">Image</label><br />
                                         <input type="file" id='img' name='img'
-                                         onChange={e=>setImg(e.target.files[0])}/>
+                                            onChange={e => setImg(e.target.files[0])} />
                                     </div>
 
                                     <div className="mt-2">
                                         <label htmlFor="">Title image</label><br />
-                                        <input type="file" id='imgTitle' name='imgTitle' 
-                                         onChange={e=>imgTitle(e.target.files[0])}/>
+                                        <input type="file" id='imgTitle' name='imgTitle'
+                                            onChange={e => imgTitle(e.target.files[0])} />
 
-                                   
+
                                     </div>
 
                                     <div className="mt-2">
                                         <label htmlFor="">Thumbnail image</label><br />
-                                        <input type="file" id='imgSm' name='imgSm' 
-                                         onChange={e=>setImgSm(e.target.files[0])}
+                                        <input type="file" id='imgSm' name='imgSm'
+                                            onChange={e => setImgSm(e.target.files[0])}
 
-                                         />
+                                        />
 
-                                    
+
                                     </div>
 
 
@@ -123,16 +141,16 @@ const NewMovie = () => {
                                     <div className="inputField">
                                         <label htmlFor="">Trailer</label><br />
                                         <input type="file" name='trailer'
-                                         onChange={e=>setTrailer(e.target.files[0])}
+                                            onChange={e => setTrailer(e.target.files[0])}
 
-                                         />
+                                        />
                                     </div>
 
 
                                     <div className="inputField">
                                         <label htmlFor="">Video</label><br />
-                                        <input type="file" name='video' 
-                                         onChange={e=>setVideo(e.target.files[0])}
+                                        <input type="file" name='video'
+                                            onChange={e => setVideo(e.target.files[0])}
                                         />
                                     </div>
 
@@ -142,7 +160,12 @@ const NewMovie = () => {
 
                                     {/* create btn */}
                                     <div className="createnewButton">
-                                        <button >Create</button>
+                                        {uploaded === 5 ? (
+                                            <button >Create</button>
+
+                                        ) : (
+                                            <button onClick={handleUpload} >Upload</button>
+                                        )}
                                     </div>
 
 
