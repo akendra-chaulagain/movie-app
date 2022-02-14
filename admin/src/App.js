@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 import UserList from './pages/userlist/UserList'
 import User from './pages/user/User'
-import NewUser from './pages/newUser/NewUser'
 import MovieList from './pages/movieList/MovieList'
 import Movie from './pages/movie/Movie'
 import NewMovie from './pages/newMovie/NewMovie'
@@ -36,9 +35,8 @@ const App = () => {
                 <Route exact path='/users' element={<UserList />} />
                 {/* single user page */}
                 <Route exact path='/user/:id' element={<User />} />
-                {/* new user */}
-                <Route exact path='/newuser' element={<NewUser />} />
-                {/* all movie list */}
+              
+               
                 <Route exact path='/movielist' element={<MovieList />} />
                 {/* get movie by id */}
                 <Route exact path='/movie/:id' element={<Movie />} />

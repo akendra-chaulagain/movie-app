@@ -1,20 +1,15 @@
 import './MovieList.css'
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { DeleteOutlined } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 import axios from 'axios';
-import { deleteMovie } from '../../context/movieContext/apiCalls';
-import { useContext } from 'react';
-import { MovieContext } from '../../context/movieContext/MovieContext';
 
 
 
-// this page exported and render to product page in sidebar
+// this page exported and render to movies page in sidebar
 const MovieList = () => {
     const [data, setData] = useState([])
-    const { movies, dispatch } = useContext(MovieContext)
 
 
     useEffect(() => {
@@ -33,18 +28,8 @@ const MovieList = () => {
         getAllMovie()
     }, [])
 
-
-
-
-
-    // delete movie data by usimg context api from the movieContext
-
-    const handelDelete = async (id) => {
-        deleteMovie(id, dispatch)
-        alert("Movie deleted")
-
-    }
-
+    console.log(data);
+    
 
     const columns = [
         {
@@ -64,17 +49,12 @@ const MovieList = () => {
         {
             field: 'action', headerName: 'Action', width: 130, renderCell: (params) => {
                 return (
-
-
                     <>
-                        {/* edit  movie data */}
+                        {/* edit  movie data button*/}
                         < Link to={`/movie/` + params.row._id}>
                             <button className='button_Edit'>Edit</button>
                         </ Link>
-                        {/* delete user data */}
-                        < DeleteOutlined style={{ color: "red", fontSize: 30, cursor: 'pointer' }}
-                            onClick={() => handelDelete(params.row._id)}
-                        />
+                      
 
                     </>
                 )
@@ -98,7 +78,7 @@ const MovieList = () => {
                                 rows={data}
                                 columns={columns}
                                 pageSize={8}
-                                rowsPerPageOptions={[5]}
+                                rowsPerPageOptions={[8]}
                                 disableSelectionOnClick
                                 getRowId={(r) => r._id}
                             />

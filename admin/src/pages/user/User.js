@@ -1,100 +1,73 @@
-
-import React from 'react';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import Sidebar from '../../components/sidebar/Sidebar'
 import "./User.css"
-import { AccountCircleOutlined, CalendarTodayOutlined, EmailOutlined, LocationOnRounded, PhoneAndroidOutlined } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
-import Sidebar from '../../components/sidebar/Sidebar';
 
-
-
-
-// exported in  app.js
 const User = () => {
+    const [userData, setUserData] = useState({})
+    const location = useLocation()
+    const path = location.pathname.split("/")[2];
+
+    // get user data by id
+
+    useEffect(() => {
+        const getUserData = async () => {
+            try {
+                const res = await axios.get("/users/find/" + path, {
+                    headers: {
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDczNDYzMCwiZXhwIjoxNjQ1MTY2NjMwfQ.E3TKGuILa-XpMdf3HMiz9plBwqxYytjhZbOG9GJCwDM"
+                    }
+                })
+                setUserData(res.data);
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getUserData()
+    }, [path])
+
+
+    // delete account
+    const handelDelete = async () => {
+        try {
+            await axios.delete("/users/" + path, {
+                headers: {
+                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDczNDYzMCwiZXhwIjoxNjQ1MTY2NjMwfQ.E3TKGuILa-XpMdf3HMiz9plBwqxYytjhZbOG9GJCwDM"
+                }
+            })
+            alert("user data deleted !")
+            window.location.replace("/users")
+
+        } catch (error) {
+            alert("Unable to delete !")
+
+        }
+    }
+
+
     return (
         <>
-            <div className="container-fluid User">
+            <div className=" container-fluid user">
                 <div className="row">
-                    <div className="col-md-3">
-                        {/* sidebar */}
+                    <div className="col-3">
                         <Sidebar />
                     </div>
-                    <div className="col-md-9 userRightSide">
-                        <div className="row">
-                            <div className="topContain">
-                                <div className="UserTitle">Edit User</div>
-                                <Link to="/newuser">
-                                    <button className="createButton">Create</button>
-                                </Link>
-                            </div>
-
-                            {/* right side container */}
-                            <div className="col-md-4  mt-3">
-                                <div className='profile_top'>
-                                    <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                                    <p>Akendra Chaulagain</p>
-                                </div>
-
-                                <div className="contactdetails ">
-                                    <h6>Account Details</h6>
-                                    <span><AccountCircleOutlined style={{ marginRight: 15 }} />akendra12</span>
-                                    <p><CalendarTodayOutlined style={{ marginRight: 15 }} />09.09.2004</p>
-
-                                </div>
-
-                                <div className="contactdetails ">
-                                    <h6>Contact Details</h6>
-                                    <span><PhoneAndroidOutlined style={{ marginRight: 15 }} />98765655</span>
-                                    <p><EmailOutlined style={{ marginRight: 15 }} />akendra@gmail.com</p>
-                                    <p><LocationOnRounded style={{ marginRight: 15 }} />Tikapur Kailali</p>
-
-                                </div>
-
-                            </div>
-
-
-
-
-                            <div className="col-md-7 ">
-                                <div className="rightSideTitle">Edit</div>
-                                <form className="userdetailForm">
-
-                                    <div className="inputBox">
-                                        <label >Username</label><br />
-                                        <input type="text" placeholder='akendra12' />
-                                    </div>
-                                    <div className="inputBox">
-                                        <label >Full Name</label><br />
-                                        <input type="text" placeholder='Akendra Chaulagain' />
-                                    </div>
-                                    <div className="inputBox">
-                                        <label >Email</label><br />
-                                        <input type="email" placeholder='akendra@gmail.com' />
-                                    </div>
-
-                                    <div className="inputBox">
-                                        <label >Phone</label><br />
-                                        <input type="number" placeholder='98766434' />
-                                    </div>
-
-                                    <div className="inputBox">
-                                        <label >Address</label><br />
-                                        <input type="text" placeholder='Tikapur kailali' />
-
-                                    </div>
-                                    <div className="updateButton">
-                                        <button >save changes</button>
-
-                                    </div>
-                                </form>
-                            </div>
+                    <div className="col-9 reightSideContainer">
+                        <h2 className='mt-3'>User Data</h2>
+                        <div className="userdataList">
+                            <h4>Username:<span>{userData.username}</span></h4>
+                            <h4>Email:<span>{userData.email}</span></h4>
+                            <h4>CreatedAt<span>{new Date(userData.createdAt).toDateString()}</span></h4>
+                            <button onClick={handelDelete}>Delete Account</button>
                         </div>
                     </div>
                 </div>
 
-
             </div>
         </>
     )
-};
+}
 
-export default User;
+export default User

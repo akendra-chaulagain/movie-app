@@ -17,11 +17,13 @@ const NewMovie = () => {
     const [trailer, setTrailer] = useState(null)
     const [video, setVideo] = useState(null)
     const [uploaded, setUploaded] = useState(0)
+    const [progressBar, setprogressBar] = useState()
     const { dispatch } = useContext(MovieContext)
 
     const handleChange = (e) => {
         const value = e.target.value;
         setMovie({ ...movie, [e.target.name]: value })
+
     }
 
 
@@ -29,12 +31,13 @@ const NewMovie = () => {
     const upload = (items) => {
         items.forEach((item) => {
             const fileName = new Date().getTime() + item.label + item.file.name;
-            const storageref = ref(storage, `/items/${fileName}`)
-            const uploadTask = uploadBytesResumable(storageref, item);
+            const storageref = ref(storage, `/items/${fileName}`);
+            const uploadTask = uploadBytesResumable(storageref, item.file);
             uploadTask.on("state_changed",
                 (snapshot) => {
                     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log(progress);
+                    setprogressBar(progress)
+
                 },
                 (Error) => {
                     console.log(Error);
@@ -189,17 +192,18 @@ const NewMovie = () => {
                                         />
                                     </div>
 
-
-
-
-
                                     {/* create btn */}
                                     <div className="createnewButton">
                                         {uploaded === 5 ? (
                                             <button onClick={handleSubmit} >Create</button>
 
+
                                         ) : (
-                                            <button onClick={handleUpload} >Upload</button>
+                                            <>
+                                                <button onClick={handleUpload} >Upload</button>
+                                                <h2>{progressBar}</h2>
+                                            </>
+
                                         )}
                                     </div>
 
