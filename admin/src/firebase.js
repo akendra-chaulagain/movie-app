@@ -1,16 +1,46 @@
-import firebase from "firebase"
+// import firebase from 'firebase/compat/app';
+// import 'firebase/compat/firestore';
+
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDw7GnuSn98P0rG8hk-YH1hTRiE0ShuFIo",
+//     authDomain: "netflix-5e0a5.firebaseapp.com",
+//     databaseUrl: "gs://netflix-5e0a5.appspot.com",
+//     projectId: "netflix-5e0a5",
+//     storageBucket: "netflix-5e0a5.appspot.com",
+//     messagingSenderId: "706848058379",
+//     appId: "1:706848058379:web:3fbab686d8e584799ceb0e",
+//     measurementId: "G-G0M5QW4SBM"
+// };
+
+
+// const firebaseApp = firebase.initializeApp(firebaseConfig);
+// const storage = firebaseApp.firestore();
+
+
+// export default storage;
+
+
+
+
+
+
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAnsw_xMvjk-dy0j9dAGVUp7ct8bfhM0Ow",
-    authDomain: "netflix-8102c.firebaseapp.com",
-    projectId: "netflix-8102c",
-    storageBucket: "netflix-8102c.appspot.com",
-    messagingSenderId: "687953499982",
-    appId: "1:687953499982:web:ce0e0fcdace821aaab701f",
-    measurementId: "G-FD3MJYVSMN"
+    apiKey: "AIzaSyDw7GnuSn98P0rG8hk-YH1hTRiE0ShuFIo",
+    authDomain: "netflix-5e0a5.firebaseapp.com",
+    databaseUrl: "gs://netflix-5e0a5.appspot.com",
+    projectId: "netflix-5e0a5",
+    storageBucket: "netflix-5e0a5.appspot.com",
+    messagingSenderId: "706848058379",
+    appId: "1:706848058379:web:3fbab686d8e584799ceb0e",
+    measurementId: "G-G0M5QW4SBM"
 };
 
-firebase.initializeApp(firebaseConfig);
-const storage = firebase.storage();
+export const app = initializeApp(firebaseConfig)
+export const storage = getStorage(app)
 
-export default storage;
+
+
