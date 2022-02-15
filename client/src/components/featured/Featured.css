@@ -17,17 +17,17 @@
   top: 30vh;
   left: 100px;
   color: white;
-  width: 40%;
+  width: 60%;
 }
 
 .Picture-text h4 {
-  font-size: 40px;
+  font-size: 45px;
   font-weight: 700;
   letter-spacing: 4px;
 }
 .Picture-text h5 {
   font-weight: 600;
-  font-size: 30px;
+  font-size: 25px;
 }
 .Picture-text span {
   margin-left: 20px;

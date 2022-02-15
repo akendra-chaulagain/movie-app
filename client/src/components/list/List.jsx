@@ -27,7 +27,7 @@ const List = ({ list }) => {
     return (
         <>
             <div className=" list">
-                <h2 className='list-title text-center'>{list.title}</h2>
+                <h2 className='list-title mb-3'>{list.title}</h2>
                 <div className="wrapper">
                     <ArrowBackOutlined style={{ fontSize: 30 }} className='sliderArrow-left' onClick={() => handleClick("left")} />
                     <div className="all-items" ref={listRef}>

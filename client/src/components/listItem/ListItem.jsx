@@ -10,13 +10,13 @@ import { Link } from "react-router-dom"
 
 const ListItem = ({ item }) => {
   const [movie, setMovie] = useState({})
-
+  // console.log(item);
   useEffect(() => {
     const getMovies = async () => {
       try {
         const res = await axios.get("/movies/find/" + item, {
           headers: {
-            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDQ1NzU2OSwiZXhwIjoxNjQ0ODg5NTY5fQ.4tLs-ycRdwWidQVU9z1MWtPOi6afCoAEn-ZlY9Q82RE"
+            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2Q3MzE2MzAzZTMwOGIwYTAxNCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDkxNTI1NCwiZXhwIjoxNjQ1MzQ3MjU0fQ.d71O6UQkFVPDX5kl3ki-3UqclhmIcya_sHuUfbYdxdk"
           }
         })
         setMovie(res.data)
@@ -27,6 +27,7 @@ const ListItem = ({ item }) => {
     }
     getMovies()
   }, [item])
+  console.log(movie);
 
   return (
     <>

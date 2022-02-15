@@ -12,8 +12,6 @@ import { MovieContext } from "../../context/movieContext/MovieContext"
 const NewMovie = () => {
     const [movie, setMovie] = useState({})
     const [img, setImg] = useState(null)
-    const [imgTitle, setImgTitle] = useState(null)
-    const [imgSm, setImgSm] = useState(null)
     const [trailer, setTrailer] = useState(null)
     const [video, setVideo] = useState(null)
     const [uploaded, setUploaded] = useState(0)
@@ -60,11 +58,10 @@ const NewMovie = () => {
         e.preventDefault();
         upload([
             { file: img, label: "img" },
-            { file: imgTitle, label: "imgTitle" },
-            { file: imgSm, label: "imgSm" },
             { file: trailer, label: "trailer" },
             { file: video, label: "video" },
         ])
+       
     }
 
     //create movie and send to database 
@@ -73,6 +70,9 @@ const NewMovie = () => {
         createMovie(movie, dispatch)
 
     }
+
+    //progress bar
+
 
     return (
         <>
@@ -95,23 +95,6 @@ const NewMovie = () => {
                                             onChange={(e) => setImg(e.target.files[0])} />
                                     </div>
 
-                                    <div className="mt-2">
-                                        <label htmlFor="">Title image</label><br />
-                                        <input type="file" id='imgTitle' name='imgTitle'
-                                            onChange={(e) => setImgTitle(e.target.files[0])} />
-
-
-                                    </div>
-
-                                    <div className="mt-2">
-                                        <label htmlFor="">Thumbnail image</label><br />
-                                        <input type="file" id='imgSm' name='imgSm'
-                                            onChange={(e) => setImgSm(e.target.files[0])}
-
-                                        />
-
-
-                                    </div>
 
 
                                     <div className="inputField">
@@ -194,16 +177,23 @@ const NewMovie = () => {
 
                                     {/* create btn */}
                                     <div className="createnewButton">
-                                        {uploaded === 5 ? (
-                                            <button onClick={handleSubmit} >Create</button>
+                                        {/* <button  onClick={handleSubmit} >Create</button> */}
+
+                                        {uploaded === 3 ? (
+
+                                            <div className="createButton">
+                                                <button onClick={handleSubmit} >Create</button>
+
+                                            </div>
 
 
                                         ) : (
                                             <>
                                                 <button onClick={handleUpload} >Upload</button>
                                                 <h2>{progressBar}</h2>
-                                            </>
 
+
+                                            </>
                                         )}
                                     </div>
 

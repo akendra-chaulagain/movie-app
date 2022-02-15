@@ -19,7 +19,7 @@ const Home = ({ type }) => {
       try {
         const res = await axios.get(`lists${type ? "?types=" + type : ""}${genre ? "&genre=" + genre : ""}`, {
           headers: {
-            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDQxNzg4MCwiZXhwIjoxNjQ0ODQ5ODgwfQ.4FDiwKDBaMYzrsudelJ8NYMM9mjWLJN3GRPGddhtVw0"
+            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2Q3MzE2MzAzZTMwOGIwYTAxNCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDkxNTI1NCwiZXhwIjoxNjQ1MzQ3MjU0fQ.d71O6UQkFVPDX5kl3ki-3UqclhmIcya_sHuUfbYdxdk"
           }
         })
         setLists(res.data);
@@ -39,7 +39,7 @@ const Home = ({ type }) => {
       <div className=" home">
         <Navbar />
         {/* featured page import from featured page  */}
-        <Featured type={type} />
+        <Featured type={type} setgenre={setgenre}/>
 
         {/* list page import from list page  */}
         {

@@ -34,6 +34,7 @@
   color: rgb(0, 0, 0);
   z-index: 999;
   border-radius: 7px;
+  cursor: pointer;
 
 }
 .sliderArrown-right {
@@ -44,6 +45,7 @@
   top: 130px;
   border-radius: 7px;
   font-size: 60px;
+  cursor: pointer;
 }
 @media only screen and (max-width: 768px) {
   .sliderArrown-right {

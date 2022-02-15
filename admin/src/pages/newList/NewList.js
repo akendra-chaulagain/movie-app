@@ -10,10 +10,6 @@ const NewList = () => {
 
 
 
-
-
-
-
     const handleChange = (e) => {
         e.preventDefault();
         const value = e.target.value;
