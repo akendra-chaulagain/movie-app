@@ -5,7 +5,7 @@ import "./NewList.css"
 import axios from 'axios'
 
 const NewList = () => {
-    const [movies, setMovies] = useState([])
+    const [movie, setMovies] = useState([])
     const [list, setList] = useState(null)
 
 
@@ -36,11 +36,9 @@ const NewList = () => {
     const handleSelect = (e) => {
         let value = Array.from(e.target.selectedOptions, (option) => option.value);
         setList({ ...list, [e.target.name]: value })
-
     }
 
-
-
+    console.log(list);
     // get all movie movies 
     useEffect(() => {
         const getMovie = async () => {
@@ -53,7 +51,6 @@ const NewList = () => {
         }
         getMovie()
     }, [])
-
 
 
 
@@ -92,7 +89,7 @@ const NewList = () => {
 
                                     <label >Type</label>
                                     <div className="inputField">
-                                        <select name="type" onChange={handleChange}>
+                                        <select name="types" onChange={handleChange}>
                                             <option >Type</option>
                                             <option value="movie">Movie</option>
                                             <option value="series">Series</option>
@@ -104,8 +101,8 @@ const NewList = () => {
                                     <label >Content</label>
                                     <div className="inputField">
                                         <select multiple name="content" onChange={handleSelect}>
-                                            {movies.map((data, key) => (
-                                                <option key={key} value={movies._id}>{data.title}</option>
+                                            {movie.map((data, key) => (
+                                                <option key={key} value={data._id}>{data.title}</option>
                                             ))}
                                         </select>
                                     </div>

@@ -7,11 +7,14 @@ import Register from './pages/register/Register';
 import Error from './pages/error/Error';
 import Watch from './pages/watch/Watch';
 import Video from './pages/video page/Video';
+import { useContext } from 'react';
+import { AuthContext } from "./authContext/Contex"
 
 
 
 const App = () => {
-  const user = true;
+  const { user } = useContext(AuthContext)
+  
   return (
     <>
       <Routes>

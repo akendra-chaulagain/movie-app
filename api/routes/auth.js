@@ -27,7 +27,7 @@ const User = require("../modules/User")
 router.post("/register", async (req, res) => {
     const { username, email, password } = req.body
     if (!username || !email || !password) {
-        return res.status(500).json("enter all the data")
+        return res.status(500).json("enter all the data ")
     }
     try {
         // if temail already exist in database then this statement will run

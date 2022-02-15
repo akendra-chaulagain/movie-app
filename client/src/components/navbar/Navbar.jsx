@@ -3,9 +3,17 @@ import DownArrow from '@material-ui/icons/KeyboardArrowDown';
 import Menu from '@material-ui/icons/Menu';
 import "./Navbar.css"
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../authContext/Contex';
+import { Logout } from '../../authContext/Action';
 
 
 const Navbar = () => {
+    const { dispatch } = useContext(AuthContext)
+    const handlelogout = () => {
+        dispatch(Logout())
+        window.location.replace("/login")
+    }
     return (
         <>
             <nav className="navbar navbar-expand-lg ">
@@ -43,11 +51,9 @@ const Navbar = () => {
                                 <li className="nav-item">
                                     <img src="../images/profile.jpg" alt="" />
                                 </li>
-                                <li className="nav-item dropDown-icon">
-                                    <Link className="nav-link " to="#"><DownArrow /></Link>
-                                </li>
+
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="#">LogOut</Link>
+                                    <Link className="nav-link" to="#" onClick={handlelogout}>LogOut</Link>
                                 </li>
                             </ul>
                         </div>

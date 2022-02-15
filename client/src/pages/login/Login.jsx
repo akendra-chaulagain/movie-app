@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css'
+import { AuthContext } from "../../authContext/Contex"
+import { loginCall } from '../../authContext/apiCalls';
 
 const Login = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const { dispatch } = useContext(AuthContext)
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        loginCall({ email, password }, dispatch)
+    }
+
+
     return (
         <>
             <div className="container-fluid login">
@@ -23,6 +36,7 @@ const Login = () => {
                                     className="form-control mt-2"
                                     placeholder='akendra@gmail.com'
                                     required
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
 
                             </div>
@@ -31,10 +45,12 @@ const Login = () => {
                                     className="form-control mt-2"
                                     placeholder="password"
                                     required
+                                    onChange={(e) => setPassword(e.target.value)}
+
                                 />
                             </div>
 
-                            <button type="submit" className='login-btn mt-4'>Submit</button>
+                            <button type="submit" onClick={handleLogin} className='login-btn mt-4'>Submit</button>
                             <p className='mt-2'>New to Ak movies ?
                                 <Link className='signupLink' to="/register">Sign up </Link>
                             </p>

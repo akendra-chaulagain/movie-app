@@ -27,7 +27,6 @@ const ListItem = ({ item }) => {
     }
     getMovies()
   }, [item])
-  console.log(movie);
 
   return (
     <>

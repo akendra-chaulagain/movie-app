@@ -6,7 +6,7 @@
   overflow: hidden;
   cursor: pointer;
   background-color: black;
- border-radius: 10px;
+  border-radius: 10px;
 }
 
 .listItems img {
@@ -21,7 +21,7 @@
 .itrmInfoTop span {
   margin-left: 20px;
 }
-.itrmInfoTop button{
+.itrmInfoTop button {
   margin-left: 20px;
   border-radius: 2px;
   border: none;
@@ -30,7 +30,7 @@
   margin-top: 10px;
   background-color: whitesmoke;
 }
-.itrmInfoTop button:hover{
+.itrmInfoTop button:hover {
   background-color: lightblue;
   color: black;
 }
@@ -41,7 +41,4 @@
     height: 300px;
     margin-left: 10px;
   }
-
-  
 }
-
