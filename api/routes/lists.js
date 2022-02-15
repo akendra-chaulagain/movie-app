@@ -14,7 +14,6 @@ require("../connection/database")
 
 // movie Schema and models
 const List = require("../modules/List")
-const Movie = require("../modules/Movie")
 
 
 // create list
@@ -119,34 +118,6 @@ router.get("/", verify, async (req, res) => {
 
 })
 
-
-// router.get("/", verify, async (req, res) => {
-//     const typeQuery = req.query.types;
-//     const genreQuery = req.query.genre;
-//     let list;
-//     try {
-//         if (typeQuery) {
-//             if (genreQuery) {
-//                 list = await List.aggregate([
-//                     { $sample: { size: 10 } },
-//                     { $match: { types: typeQuery, genre: genreQuery } }
-//                 ])
-
-//             } else {
-//                 list = await List.aggregate([
-//                     { $sample: { size: 10 } },
-//                     { $match: { types: typeQuery } }
-//                 ])
-//             }
-
-//         } else {
-//             list = await List.aggregate([{ $sample: { size: 10 } }])
-//         }
-//         console.log(list);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })
 
 
 module.exports = router;

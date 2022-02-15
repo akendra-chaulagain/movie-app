@@ -31,19 +31,3 @@ export const createMoviesFailure = () => ({
 
 
 
-
-
-// delete 
-
-// export const deleteMoviesStart = () => ({
-//     type: "DELETE_MOVIES_SATART",
-// });
-
-// export const deleteMoviesSuccess = (id) => ({
-//     type: "DELETE_MOVIES_SUCCESS",
-//     payload: id,
-// });
-// export const deleteMoviesFailure = () => ({
-//     type: "DELETE_MOVIES_FAILURE",
-
-// });
