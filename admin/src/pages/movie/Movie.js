@@ -20,7 +20,7 @@ const Movie = () => {
     // const [img, setImg] = useState({})
     // const [video, setVideo] = useState({})
 
-   
+
 
 
     // get movie by id
@@ -55,7 +55,7 @@ const Movie = () => {
 
     }
 
-    // update movie data
+
 
 
 
@@ -68,8 +68,7 @@ const Movie = () => {
                 limit,
                 genre,
                 date,
-                // img,
-                // video
+
             }, {
                 headers: {
                     token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDczNDYzMCwiZXhwIjoxNjQ1MTY2NjMwfQ.E3TKGuILa-XpMdf3HMiz9plBwqxYytjhZbOG9GJCwDM"
@@ -82,7 +81,7 @@ const Movie = () => {
         }
     }
 
-    // update video and photo
+
 
 
     return (

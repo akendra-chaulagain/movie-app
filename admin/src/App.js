@@ -17,6 +17,9 @@ import NewMovie from './pages/newMovie/NewMovie'
 import Login from './pages/login/Login'
 import { useContext } from 'react'
 import { AuthContext } from "./context/authContext/Contex"
+import List from './pages/list/List';
+import EditList from './pages/EditList/EditList';
+import NewList from './pages/newList/NewList';
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -35,13 +38,19 @@ const App = () => {
                 <Route exact path='/users' element={<UserList />} />
                 {/* single user page */}
                 <Route exact path='/user/:id' element={<User />} />
-              
-               
+
+
                 <Route exact path='/movielist' element={<MovieList />} />
                 {/* get movie by id */}
                 <Route exact path='/movie/:id' element={<Movie />} />
                 {/* create new movie */}
                 <Route exact path='/newMovie' element={<NewMovie />} />
+                {/* lists page */}
+                <Route exact path='/lists' element={<List />} />
+                 {/* Edit lists page */}
+                 <Route exact path='/lists/:id' element={<EditList />} />
+                  {/* create new page */}
+                  <Route exact path='/newList' element={<NewList />} />
               </Routes>
 
             </>

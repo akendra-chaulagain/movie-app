@@ -35,9 +35,46 @@ router.post("/", verify, async (req, res) => {
     }
 })
 
+// update userListr
+router.put("/update/:id", verify, async (req, res) => {
+    if (req.user.isAdmin) {
+        try {
+            const result = await List.findByIdAndUpdate(req.params.id, {
+                $set: req.body
+            }, { new: true });
+            return res.status(201).json(result)
+        } catch (error) {
+            res.status(400).json(error)
+        }
+
+    } else {
+        return res.status(401).json("You are not allowed to update other list")
+
+    }
+})
+
+
+
+// get user acccording to id
+
+router.get("/find/:id", verify, async (req, res) => {
+    if (req.user.isAdmin) {
+        try {
+            const result = await List.findById(req.params.id);
+            return res.status(201).json(result)
+        } catch (error) {
+            res.status(400).json(error)
+        }
+
+    } else {
+        return res.status(401).json("You are not allowed to get other list")
+
+    }
+})
+
 
 // delete list
-router.post("/:id", verify, async (req, res) => {
+router.delete("/:id", verify, async (req, res) => {
     if (req.user.isAdmin) {
         try {
             const result = await List.findByIdAndDelete(req.params.id);

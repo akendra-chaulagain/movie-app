@@ -1,0 +1,36 @@
+.editList {
+  margin-top: 11vh;
+}
+
+.leftsideMainContainer {
+  margin-top: 5vh;
+}
+
+.ListContainer input {
+  width: 80%;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid gray;
+}
+::placeholder {
+  padding-left: 10px;
+}
+
+.ListContainer label {
+  font-weight: 600;
+  color: gray;
+  margin-top: 20px;
+}
+
+.ListContainer button {
+  margin-top: 9vh;
+  padding: 2px 40px;
+  outline: none;
+  margin-left: 40px;
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: darkblue;
+  border-radius: 9px;
+}

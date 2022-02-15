@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Sidebar.css"
-import { LineStyle, Person, Timeline, TrendingUp, BarChart, FeedbackOutlined, MailOutline, MessageOutlined, ShoppingBasket, Report, AttachMoney, PlayArrow } from '@material-ui/icons';
+import { LineStyle, Person, Timeline, TrendingUp, BarChart, FeedbackOutlined, MailOutline, MessageOutlined, ShoppingBasket, Report, PlayArrow, Menu } from '@material-ui/icons';
 import { Link } from "react-router-dom";
 
 
@@ -53,11 +53,14 @@ const Sidebar = () => {
                                 Movies
                             </li>
                         </Link>
-                        {/* transaction page */}
-                        <li className='sidebarItems mt-1'>
-                            <AttachMoney className="sidebarIcons" style={{ marginRight: 8 }} />
-                            Transaction
-                        </li>
+                        {/* List page */}
+                        <Link className='link' to="/lists">
+                            <li className='sidebarItems mt-1'>
+                                <Menu className="sidebarIcons" style={{ marginRight: 8 }} />
+                                Lists
+                            </li>
+                        </Link>
+
                         {/* reports page */}
                         <li className='sidebarItems mt-1'>
                             <BarChart className="sidebarIcons" style={{ marginRight: 8 }} />
