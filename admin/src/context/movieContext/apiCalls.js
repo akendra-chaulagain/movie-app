@@ -6,7 +6,10 @@ export const getMoviesall = async (dispatch) => {
     dispatch(getMoviesStart())
     try {
         const res = await axios.get("/movies", {
-            headers: { token: "Bearer" + JSON.parse(localStorage.getItem("user")).accessToken }
+            // headers: { token: "Bearer" + JSON.parse(localStorage.getItem("user")).accessToken }
+            headers: {
+                token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDgyNDQ0NCwiZXhwIjoxNjQ1MjU2NDQ0fQ.K1474oRY6cmLXY9Eb0n2b5YoD12bv1TiWGDiFV5JJU4"
+            }
         })
         dispatch(getMoviesSuccess(res.data))
     } catch (error) {
@@ -22,6 +25,7 @@ export const createMovie = async (movie, dispatch) => {
             headers: {
                 token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDgyNDQ0NCwiZXhwIjoxNjQ1MjU2NDQ0fQ.K1474oRY6cmLXY9Eb0n2b5YoD12bv1TiWGDiFV5JJU4"
             }
+            // headers: { token: "Bearer" + JSON.parse(localStorage.getItem("user")).accessToken }
         })
         dispatch(createMoviesSuccess(res.data))
         alert("success..")

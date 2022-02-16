@@ -14,16 +14,16 @@ import { AuthContext } from "./authContext/Contex"
 
 const App = () => {
   const { user } = useContext(AuthContext)
-  
+
   return (
     <>
       <Routes>
         {/* home page routes */}
         <Route exact path="/" element={user ? <Home /> : <Register />} />
         {/* login page route import from login page */}
-        <Route path="/login" element={!user ? <Login /> : <Home />} />
+        <Route path="/login" element={user ? <Home /> : <Login />} />
         {/* login page route import from Register page */}
-        <Route path="/register" element={!user ? <Register /> : <Home />} />
+        <Route path="/register" element={user ? <Home /> : <Register />} />
 
         {/* if there is user this below page will show */}
         {

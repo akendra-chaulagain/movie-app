@@ -8,7 +8,7 @@ export const loginCall = async (user, dispatch) => {
     dispatch(LoginStart())
     try {
         const res = await axios.post("/auth/login", user)
-        res.data.isAdmin && dispatch(LoginSuccess(res.data))
+        dispatch(LoginSuccess(res.data))
         alert("Login success..")
         window.location.replace("/")
 

@@ -8,14 +8,14 @@ import { loginCall } from '../../authContext/apiCalls';
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const { dispatch } = useContext(AuthContext)
+    const { user, dispatch } = useContext(AuthContext)
 
     const handleLogin = (e) => {
         e.preventDefault();
         loginCall({ email, password }, dispatch)
     }
 
-
+    console.log(user);
     return (
         <>
             <div className="container-fluid login">
@@ -34,7 +34,7 @@ const Login = () => {
 
                                 <input type="email"
                                     className="form-control mt-2"
-                                    placeholder='akendra@gmail.com'
+                                    placeholder='lo@gmail.com'
                                     required
                                     onChange={(e) => setEmail(e.target.value)}
                                 />

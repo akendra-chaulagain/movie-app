@@ -54,7 +54,7 @@ const Register = () => {
                             <label >Email address</label>
                             <input type="email"
                                 className="form-control mt-2"
-                                placeholder='akendra@gmail.com'
+                                placeholder='ak@gmail.com'
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -62,8 +62,8 @@ const Register = () => {
                             <label className='mt-3'>Username</label>
 
                             <input type="text"
-                                className="form-control "
-                                placeholder='akendra'
+                                className="form-control"
+                                placeholder='username'
                                 onChange={(e) => setUserName(e.target.value)}
 
                             />

@@ -28,9 +28,6 @@ const Home = ({ type }) => {
       }
     }
     getRandomList()
-    return () => {
-
-    }
   }, [genre, type])
 
 
@@ -39,7 +36,7 @@ const Home = ({ type }) => {
       <div className=" home">
         <Navbar />
         {/* featured page import from featured page  */}
-        <Featured type={type} setgenre={setgenre}/>
+        <Featured type={type} setgenre={setgenre} />
 
         {/* list page import from list page  */}
         {

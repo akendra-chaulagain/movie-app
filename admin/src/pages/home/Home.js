@@ -16,6 +16,9 @@ const Home = () => {
                     headers: {
                         token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDcxNDg3OSwiZXhwIjoxNjQ1MTQ2ODc5fQ.4MTvMQdupcXml48XwYeUUm1v6FXyEN3bbNWcOGSfz0g"
                     }
+                    // headers: {
+                    //     token: "Bearer" + JSON.parse(localStorage.getItem("user")).accessToken,
+                    // }
                 })
                 setNewUser(res.data)
             } catch (error) {

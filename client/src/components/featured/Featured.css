@@ -9,6 +9,8 @@
   background-position: center;
   position: relative;
  background-image:linear-gradient( rgba(34, 34, 37, 0.52), rgba(24, 15, 22, 0.73));
+ overflow: hidden;
+ 
 }
 
 .Picture-text {

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 const Featured = ({ type, setgenre }) => {
     const [content, setContent] = useState({})
 
-    // random movie is generated fro movies and series page
+    // random movie is generated for movies and series page
     useEffect(() => {
         const getRandomContent = async () => {
             try {
@@ -44,14 +44,14 @@ const Featured = ({ type, setgenre }) => {
                             <option value="fantasy">Fantasy</option>
                             <option value="horror">Horror</option>
                             <option value="drama">Drama</option>
-                            <option value="Romance">Romance</option>
+                            <option value="romance">Romance</option>
                         </select>
                     </div>
                 )}
 
                 <div className="Picture-text">
                     <h4>{content.title}</h4>
-                    <h5>genra : <span>{content.genre}</span></h5>
+                    {/* <h5>genra : <span>{content.genre}</span></h5> */}
                     <h5>Release data : <span>{content.year}</span></h5>
                     <h5>Age limit : <span className='limit-box'>+{content.limit}</span></h5>
                     <h5>Description : <span>{content.desc}</span></h5>

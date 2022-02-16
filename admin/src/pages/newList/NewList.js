@@ -38,7 +38,6 @@ const NewList = () => {
         setList({ ...list, [e.target.name]: value })
     }
 
-    console.log(list);
     // get all movie movies 
     useEffect(() => {
         const getMovie = async () => {
