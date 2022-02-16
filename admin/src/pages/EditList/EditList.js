@@ -37,7 +37,6 @@ const EditList = () => {
 
 
     const handleUpdateList = async (e) => {
-        console.log(path);
         e.preventDefault();
         try {
             await axios.put("/lists/update/" + path, {
@@ -118,7 +117,6 @@ const EditList = () => {
                                 /><br />
                                 <button onClick={handleUpdateList}>Update</button>
                                 <button onClick={handelDelete}>Delete</button>
-
                             </form>
 
                         </div>

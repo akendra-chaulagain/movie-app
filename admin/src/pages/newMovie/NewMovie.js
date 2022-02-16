@@ -61,14 +61,13 @@ const NewMovie = () => {
             { file: trailer, label: "trailer" },
             { file: video, label: "video" },
         ])
-       
+
     }
 
     //create movie and send to database 
     const handleSubmit = (e) => {
         e.preventDefault()
         createMovie(movie, dispatch)
-
     }
 
     //progress bar

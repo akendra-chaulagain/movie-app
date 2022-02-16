@@ -26,6 +26,20 @@
 .nav-item a:hover {
   color: gray;
 }
+.searchInput input {
+  margin-top: 15px;
+  outline: none;
+  border: none;
+  padding: 5px 20px;
+}
+.searchInput button {
+  padding: 5px 5px;
+  outline: none;
+  border: none;
+  background-color: red;
+  color: whitesmoke;
+  margin-right: 20px;
+}
 
 @media only screen and (max-width: 768px) {
   .nav-item a {
@@ -34,5 +48,11 @@
   .navbar-brand {
     margin-left: 10px;
     font-size: 25px;
+  }
+  .searchInput  {
+    display: none;
+  }
+  .searchInput button {
+    display: none;
   }
 }

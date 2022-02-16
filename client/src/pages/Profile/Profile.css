@@ -1,0 +1,58 @@
+.Profile {
+  color: whitesmoke;
+  height: 100vh;
+  width: 100%;
+}
+.rightSideContainer {
+  margin-top: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rightSideContainer input {
+  width: 100%;
+  padding: 9px;
+  background-color: rgb(212, 208, 208);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+.rightSideContainer label {
+  margin-top: 30px;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 20px;
+}
+.updataProfileButton button {
+  background-color: lightblue;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 4px 20px;
+}
+
+.updataProfileButton span {
+  margin-left: 20px;
+  cursor: pointer;
+  color: red;
+}
+
+@media only screen and (max-width: 768px) {
+ 
+  .updataProfileButton button {
+    padding: 4px 10px;
+    margin-top: 5px;
+  }
+  .rightSideContainer {
+    width: 100%;
+    margin-top: 25vh;
+  }
+  .rightSideContainer label {
+    font-weight: 500;
+  }
+}
