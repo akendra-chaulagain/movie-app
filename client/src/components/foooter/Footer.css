@@ -1,0 +1,22 @@
+.footer {
+  background-image: linear-gradient(
+      
+      rgba(0, 0, 0, 0.8),
+      rgb(0, 0, 0,0.8)
+    ),
+    url("../../../public/images/footer.jpg");
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  background-size: contain;
+  height: 50vh;
+  width: 100%;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+ .footer{
+   height: 40vh;
+ }
+  
+}

@@ -32,35 +32,6 @@ const Featured = ({ type, setgenre }) => {
         getRandomContent()
     }, [type])
 
-    // get all movie for search content
-    // const [getAllMovie, setgetAllMovie] = useState([])
-    // useEffect(() => {
-    //     const getMovie = async () => {
-    //         const res = await axios.get("/movies", {
-    //             headers: {
-    //                 token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2Q3MzE2MzAzZTMwOGIwYTAxNCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDkxNTI1NCwiZXhwIjoxNjQ1MzQ3MjU0fQ.d71O6UQkFVPDX5kl3ki-3UqclhmIcya_sHuUfbYdxdk"
-    //             }
-    //         })
-    //         setgetAllMovie(res.data)
-    //     }
-    //     getMovie();
-    // }, [])
-
-
-
-
-    // state for search 
-    // const [search, setSearch] = useState([])
-
-    // const handleFilter = (e) => {
-    //     const searchWord = e.target.value;
-    //     const newFilter = getAllMovie.filter((value) => {
-    //         return value.title.includes(searchWord)
-    //     })
-    //     setSearch(newFilter)
-    // }
-    // console.log(search);
-
     return (
         <>
             <div className="container-fluid featured">

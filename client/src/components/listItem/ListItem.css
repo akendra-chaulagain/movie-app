@@ -18,11 +18,8 @@
   font-size: 18px;
   font-weight: 900;
 }
-.itrmInfoTop span {
-  margin-left: 20px;
-}
+
 .itrmInfoTop button {
-  margin-left: 20px;
   border-radius: 2px;
   border: none;
   outline: none;
@@ -37,8 +34,9 @@
 
 @media only screen and (max-width: 768px) {
   .listItems {
-    width: 180px;
+    width: 175px;
     height: 300px;
     margin-left: 10px;
   }
+  
 }

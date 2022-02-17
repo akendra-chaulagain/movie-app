@@ -5,6 +5,7 @@ import Featured from '../../components/featured/Featured';
 import List from "../../components/list/List";
 import Navbar from '../../components/navbar/Navbar';
 import axios from "axios"
+import Footer from '../../components/foooter/Footer';
 
 
 
@@ -48,7 +49,8 @@ const Home = ({ type }) => {
         }
 
       </div>
-
+      {/* fooooter */}
+      <Footer />
     </>
   )
 };
