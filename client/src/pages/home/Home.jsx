@@ -31,10 +31,11 @@ const Home = ({ type }) => {
   }, [genre, type])
 
 
+
   return (
     <>
       <div className=" home">
-        <Navbar />
+        <Navbar lists={lists} />
         {/* featured page import from featured page  */}
         <Featured type={type} setgenre={setgenre} />
 

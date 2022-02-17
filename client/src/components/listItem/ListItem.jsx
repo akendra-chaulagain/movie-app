@@ -35,14 +35,13 @@ const ListItem = ({ item }) => {
         <div className="itemInfo">
 
           <div className="itrmInfoTop">
-            <h6 className='text-center'>{movie.title}</h6>
+            <h6 >{movie.title}</h6>
             <span>Duration :&#160;&#160;{movie.duration}</span><br />
-            <span>Limit :&#160;&#160;{movie.limit}</span><br />
             <span>Release :&#160;&#160;{movie.year}</span><br />
             <span>Genra :&#160;&#160;{movie.genre}</span><br />
             {/* render to video page */}
             <Link to={`/watch/` + movie._id}>
-              <button><Play />watch now</button>
+              <button><Play />watch</button>
 
             </Link>
           </div>

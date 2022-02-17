@@ -10,6 +10,9 @@ import Video from './pages/video page/Video';
 import { useContext } from 'react';
 import { AuthContext } from "./authContext/Contex"
 import Profile from './pages/Profile/Profile';
+import Search from './pages/searchPage/Search';
+
+
 
 
 
@@ -40,6 +43,8 @@ const App = () => {
               <Route path="/watch/movie/:id" element={<Video />} />
               {/* video page when user play video thgis page will run */}
               <Route path="/profile/user" element={<Profile />} />
+              {/*Search page */}
+              {/* <Route path="/search" element={<Search />} /> */}
 
             </>
           )

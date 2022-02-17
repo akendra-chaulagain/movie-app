@@ -12,7 +12,6 @@ import { MovieContext } from "../../context/movieContext/MovieContext"
 const NewMovie = () => {
     const [movie, setMovie] = useState({})
     const [img, setImg] = useState(null)
-    const [trailer, setTrailer] = useState(null)
     const [video, setVideo] = useState(null)
     const [uploaded, setUploaded] = useState(0)
     const [progressBar, setprogressBar] = useState()
@@ -25,7 +24,7 @@ const NewMovie = () => {
     }
 
 
-    // upload image and video  in  firenbase
+    // upload image and video  in  firebase
     const upload = (items) => {
         items.forEach((item) => {
             const fileName = new Date().getTime() + item.label + item.file.name;
@@ -58,7 +57,6 @@ const NewMovie = () => {
         e.preventDefault();
         upload([
             { file: img, label: "img" },
-            { file: trailer, label: "trailer" },
             { file: video, label: "video" },
         ])
 
@@ -100,6 +98,16 @@ const NewMovie = () => {
                                         <label htmlFor="">Title</label><br />
                                         <input type="text" placeholder='john wick' name='title'
                                             onChange={handleChange}
+                                            autoComplete="off"
+
+                                        />
+                                    </div>
+                                    <div className="inputField">
+                                        <label htmlFor="">Movie Username</label><br />
+                                        <input type="text" placeholder='enter movie user' name='movieusername'
+                                            onChange={handleChange}
+                                            autoComplete="off"
+
                                         />
                                     </div>
 
@@ -109,6 +117,7 @@ const NewMovie = () => {
                                         <label htmlFor="">Description</label><br />
                                         <input type="text" placeholder='Description' name='desc'
                                             onChange={handleChange}
+                                            autoComplete="off"
 
                                         />
                                     </div>
@@ -117,6 +126,7 @@ const NewMovie = () => {
                                         <label htmlFor="">Year</label><br />
                                         <input type="number" placeholder='2022' name='year'
                                             onChange={handleChange}
+                                            autoComplete="off"
 
                                         />
                                     </div>
@@ -124,6 +134,7 @@ const NewMovie = () => {
                                         <label htmlFor="">Genre</label><br />
                                         <input type="text" placeholder='action' name='genre'
                                             onChange={handleChange}
+                                            autoComplete="off"
 
                                         />
                                     </div>
@@ -141,6 +152,8 @@ const NewMovie = () => {
                                         <label htmlFor="">Limit</label><br />
                                         <input type="number" placeholder='Age limit' name='limit'
                                             onChange={handleChange}
+                                            autoComplete="off"
+
 
                                         />
                                     </div>
@@ -148,6 +161,8 @@ const NewMovie = () => {
                                         <label htmlFor="">Duration</label><br />
                                         <input type="text" placeholder='duration' name='duration'
                                             onChange={handleChange}
+                                            autoComplete="off"
+
 
                                         />
                                     </div>
@@ -159,26 +174,20 @@ const NewMovie = () => {
                                         </select>
                                     </div>
 
-                                    <div className="inputField">
-                                        <label htmlFor="">Trailer</label><br />
-                                        <input type="file" name='trailer'
-                                            onChange={(e) => setTrailer(e.target.files[0])}
 
-                                        />
-                                    </div>
 
-                                    <div className="inputField">
+                                    {/* <div className="inputField">
                                         <label htmlFor="">Video</label><br />
                                         <input type="file" name='video'
                                             onChange={(e) => setVideo(e.target.files[0])}
                                         />
-                                    </div>
+                                    </div> */}
 
                                     {/* create btn */}
                                     <div className="createnewButton">
                                         {/* <button  onClick={handleSubmit} >Create</button> */}
 
-                                        {uploaded === 3 ? (
+                                        {uploaded === 1 ? (
 
                                             <div className="createButton">
                                                 <button onClick={handleSubmit} >Create</button>

@@ -1,0 +1,36 @@
+
+  
+  .Searchitem img {
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+  }
+  .itrmInfoTop h6 {
+    font-size: 18px;
+    font-weight: 900;
+  }
+  .itrmInfoTop span {
+    margin-left: 20px;
+  }
+  .itrmInfoTop button {
+    margin-left: 20px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    padding: 2px 5px;
+    margin-top: 10px;
+    background-color: whitesmoke;
+  }
+  .itrmInfoTop button:hover {
+    background-color: lightblue;
+    color: black;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .Searchitem {
+      width: 180px;
+      height: 300px;
+      margin-left: 10px;
+    }
+  }
+  

@@ -7,15 +7,24 @@ import { AuthContext } from '../../authContext/Contex';
 import { Logout } from '../../authContext/Action';
 
 
-const Navbar = () => {
+const Navbar = ({ lists }) => {
     const { dispatch } = useContext(AuthContext)
     const handlelogout = () => {
         dispatch(Logout())
         window.location.replace("/login")
     }
+
     // state for search 
-    const [search, setSearch] = useState("")
-    console.log(search);
+    const [search, setSearch] = useState([])
+    // console.log(search);
+
+    const handleFilter = (e) => {
+        const searchWord = e.target.value;
+        const newFilter = lists.filter((value) => {
+            return value.title.includes(searchWord)
+        })
+        setSearch(newFilter)
+    }
 
 
     return (
@@ -25,11 +34,6 @@ const Navbar = () => {
                     <span className="navbar-brand" to="#">Ak movies</span>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"><Menu style={{ color: "white" }} /></span>
-                        {/* search field when the drop down menu appears */}
-                        {/* <li className="nav-item  searchInput">
-                                <input type="text" placeholder='search movie' />
-                                <button>search</button>
-                            </li> */}
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -50,15 +54,16 @@ const Navbar = () => {
                         </ul>
                         <div className="d-flex">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item  searchInput">
-                                    <input type="text" placeholder='search movie' onChange={(e) => setSearch(e.target.value)} />
-                                    <button>search</button>
-                                </li>
+                               
 
 
                                 <li className="nav-item">
                                     <Link className='nav-link' to={`/profile/user`}>Profile</Link>
                                 </li>
+                                {/* <li className="nav-item">
+                                    <Link className='nav-link' to={`/search`}>Search</Link>
+                                </li> */}
+
 
                                 <li className="nav-item">
                                     <Link className="nav-link" to="#" onClick={handlelogout}>LogOut</Link>
