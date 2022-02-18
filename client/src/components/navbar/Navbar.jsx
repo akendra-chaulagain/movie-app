@@ -2,7 +2,7 @@
 import Menu from '@material-ui/icons/Menu';
 import "./Navbar.css"
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../authContext/Contex';
 import { Logout } from '../../authContext/Action';
 
@@ -14,18 +14,7 @@ const Navbar = ({ lists }) => {
         window.location.replace("/login")
     }
 
-    // state for search 
-    const [search, setSearch] = useState([])
-    // console.log(search);
-
-    const handleFilter = (e) => {
-        const searchWord = e.target.value;
-        const newFilter = lists.filter((value) => {
-            return value.title.includes(searchWord)
-        })
-        setSearch(newFilter)
-    }
-
+    
 
     return (
         <>
@@ -46,10 +35,6 @@ const Navbar = ({ lists }) => {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/movies=true">Movies</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="#">New and Popular</Link>
-                            </li>
-
 
                         </ul>
                         <div className="d-flex">
@@ -60,11 +45,6 @@ const Navbar = ({ lists }) => {
                                 <li className="nav-item">
                                     <Link className='nav-link' to={`/profile/user`}>Profile</Link>
                                 </li>
-                                {/* <li className="nav-item">
-                                    <Link className='nav-link' to={`/search`}>Search</Link>
-                                </li> */}
-
-
                                 <li className="nav-item">
                                     <Link className="nav-link" to="#" onClick={handlelogout}>LogOut</Link>
                                 </li>

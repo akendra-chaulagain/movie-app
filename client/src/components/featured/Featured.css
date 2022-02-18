@@ -19,7 +19,7 @@
 }
 
 .containerData h4 {
-  font-size: 65px;
+  font-size: 55px;
   font-weight: 700;
   letter-spacing: 6px;
 }
@@ -73,7 +73,7 @@ select {
     top: 35vh;
   }
   .containerData h4 {
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 600;
     letter-spacing: 1px;
     margin-left: 10%;
@@ -91,6 +91,7 @@ select {
     left: 10%;
     font-size: 20px;
   }
+  
   select {
     padding: 3px 7px;
     border-radius: 2px;

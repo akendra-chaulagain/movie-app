@@ -10,7 +10,7 @@ import Video from './pages/video page/Video';
 import { useContext } from 'react';
 import { AuthContext } from "./authContext/Contex"
 import Profile from './pages/Profile/Profile';
-import Search from './pages/searchPage/Search';
+
 
 
 
@@ -22,12 +22,13 @@ const App = () => {
   return (
     <>
       <Routes>
-        {/* home page routes */}
-        <Route exact path="/" element={user ? <Home /> : <Register />} />
+
         {/* login page route import from login page */}
         <Route path="/login" element={user ? <Home /> : <Login />} />
         {/* login page route import from Register page */}
         <Route path="/register" element={user ? <Home /> : <Register />} />
+        {/* home page routes */}
+        <Route exact path="/" element={user ? <Home /> : <Register />} />
 
         {/* if there is user this below page will show */}
         {

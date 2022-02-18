@@ -1,22 +1,64 @@
 .footer {
-  background-image: linear-gradient(
-      
-      rgba(0, 0, 0, 0.8),
-      rgb(0, 0, 0,0.8)
-    ),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
     url("../../../public/images/footer.jpg");
   background-position: center;
   background-size: cover;
   justify-content: center;
   background-size: contain;
-  height: 50vh;
+  height: 40vh;
   width: 100%;
   margin-top: 30px;
 }
+.footer h3 {
+  color: red;
+}
+.containerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.firstContainer {
+  margin-right: 10%;
+  margin-top: 20px;
+}
+
+.middleContainer {
+  margin-right: 10%;
+  margin-top: 20px;
+}
+.thirdContainer {
+  margin-top: 20px;
+}
+.firstContainer span {
+  cursor: pointer;
+}
+.firstContainer span:hover {
+  color: red;
+  text-decoration: underline;
+}
+.middleContainer span {
+  cursor: pointer;
+}
+.middleContainer span:hover {
+  color: red;
+  text-decoration: underline;
+}
+.thirdContainer span {
+  cursor: pointer;
+}
+.thirdContainer span:hover {
+  color: red;
+  text-decoration: underline;
+}
 
 @media only screen and (max-width: 768px) {
- .footer{
-   height: 40vh;
- }
-  
+  .footer {
+    height: 35vh;
+  }
+  .firstContainer {
+    margin-right: 25px;
+  }
+  .middleContainer {
+    margin-right: 25px;
+  }
 }
