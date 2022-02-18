@@ -21,7 +21,7 @@ const User = require("../modules/User")
 // update user data
 
 router.put("/:id", verify, async (req, res) => {
-    if (req.user.id === req.params.id || req.user.isAdmin) {
+    // if (req.user.isAdmin) {
         try {
             if (req.body.password) {
                 const salt = await bcrypt.genSalt(10);
@@ -36,9 +36,9 @@ router.put("/:id", verify, async (req, res) => {
 
         }
 
-    } else {
-        console.log("you cannot update other account");
-    }
+    // } else {
+    //     console.log("you cannot update other account");
+    // }
 })
 
 
@@ -47,7 +47,6 @@ router.put("/:id", verify, async (req, res) => {
 // delete user
 
 router.delete("/:id", verify, async (req, res) => {
-    if (req.user.id === req.params.id || req.user.isAdmin) {
         try {
             const deleteUser = await User.findByIdAndDelete(req.params.id)
             res.status(201).json(deleteUser)
@@ -55,9 +54,7 @@ router.delete("/:id", verify, async (req, res) => {
             res.status(201).json("unable to delete")
         }
 
-    } else {
-        console.log("you cannot delete other account");
-    }
+   
 })
 
 

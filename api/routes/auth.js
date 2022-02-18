@@ -60,7 +60,7 @@ router.post("/login", async (req, res) => {
 
     //   created jsonweb Token 
     const accessToken = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.SECRETKey,
-      { expiresIn: "1m" }
+      { expiresIn: "1d" }
     )
 
 

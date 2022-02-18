@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import './Login.css'
 import { AuthContext } from "../../authContext/Contex"
 import { loginCall } from '../../authContext/apiCalls';
+// ReactToastify is use for alert
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -13,6 +17,7 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         loginCall({ email, password }, dispatch)
+
     }
 
     console.log(user);
@@ -64,6 +69,8 @@ const Login = () => {
 
                 </div>
             </div>
+            {/* ReactToastify container */}
+            <ToastContainer />
         </>
     )
 };

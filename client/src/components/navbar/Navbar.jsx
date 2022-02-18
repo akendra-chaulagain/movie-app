@@ -7,14 +7,15 @@ import { AuthContext } from '../../authContext/Contex';
 import { Logout } from '../../authContext/Action';
 
 
+
 const Navbar = ({ lists }) => {
-    const { dispatch } = useContext(AuthContext)
+    const { user, dispatch } = useContext(AuthContext)
     const handlelogout = () => {
         dispatch(Logout())
-        window.location.replace("/login")
+        window.location.replace("/register")
+
     }
 
-    
 
     return (
         <>
@@ -39,11 +40,11 @@ const Navbar = ({ lists }) => {
                         </ul>
                         <div className="d-flex">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                               
+
 
 
                                 <li className="nav-item">
-                                    <Link className='nav-link' to={`/profile/user`}>Profile</Link>
+                                    <Link className='nav-link' to={`/profile/user/${user._id}`}>Profile</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="#" onClick={handlelogout}>LogOut</Link>
@@ -53,6 +54,7 @@ const Navbar = ({ lists }) => {
                     </div>
                 </div>
             </nav>
+
         </>
     )
 };

@@ -66,9 +66,7 @@ const EditList = () => {
                 headers: {
                     token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2Q3MzE2MzAzZTMwOGIwYTAxNCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDkwNzQzNywiZXhwIjoxNjQ1MzM5NDM3fQ.hzXF-cCtQoB_nAwpozY7WuDYvH2w1XWAd5LpRzp0iAw"
                 }
-                // headers: {
-                //     token: "Bearer" + JSON.parse(localStorage.getItem("user")).accessToken,
-                // }
+
             })
             window.location.replace("/lists")
             alert("List Deleted !")

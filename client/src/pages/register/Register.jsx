@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import "./Register.css";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// ReactToastify is use for alert
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -21,10 +24,19 @@ const Register = () => {
                 username,
                 password
             })
+            toast.success("User register success !", {
+                position: "top-center",
+                autoClose: "2000"
+            }
+            );
             window.location.replace("/login")
-            alert("Register Successfull.")
+
         } catch (error) {
-            alert("Something went wrong unable to register!")
+            toast.success("Something went wrong unable to register!", {
+                position: "top-center",
+                autoClose: "2000"
+            }
+            );
         }
     }
 
@@ -86,6 +98,8 @@ const Register = () => {
                 </div>
 
             </div>
+            {/* ReactToastify container */}
+            <ToastContainer />
         </>
     )
 };

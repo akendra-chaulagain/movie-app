@@ -3,48 +3,89 @@ import React, { useState } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import axios from "axios"
 import "./Profile.css"
-import { useContext } from 'react'
-import { AuthContext } from '../../authContext/Contex'
+
 import Footer from "../../components/foooter/Footer"
+import { useLocation } from 'react-router-dom'
+// ReactToastify is use for alert
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
 
 
 const Profile = () => {
-    const [username, setUsername] = useState({})
-    const [email, setEmail] = useState({})
-    const [password, setPassword] = useState({})
-    const { user } = useContext(AuthContext)
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
 
-    // get user data
+    const location = useLocation()
+    const path = location.pathname.split("/")[3];
+
 
 
 
 
 
     const handleUpdate = async (e) => {
-        const userId = (user._id);
         e.preventDefault()
         try {
-            const res = await axios.put(`/users/` + userId, {
+            await axios.put(`/users/` + path, {
                 username,
                 email,
                 password
             }, {
                 headers: {
-                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGNiYWZmM2JjNWY2NWMwMjQ3ZGY4MSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDUwMDE2MTksImV4cCI6MTY0NTAwMTY3OX0.CRteXKoIym6-HegaUt93qNEb3ZwWfWAfFj7CaPCktVk"
+                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGYxNTY2NThhNDZiOGEzZTNhMjIyOCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDUxNTgzNTEsImV4cCI6MTY0NTI0NDc1MX0.jrirevv1zp42n0d-fFyucD23Q2mdRugvqx_1w_n8HCg"
+
                 }
             })
-            console.log(res);
+            window.location.replace("/")
+            toast.success("Your data updated", {
+                position: "top-center",
+                autoClose: "2000"
+            }
+            );
         } catch (error) {
-            console.log("unable to update");
+            toast.success("Unable to update your data! try again", {
+                position: "top-center",
+                autoClose: "2000"
+            }
+            );
 
         }
-
-
     }
+
+
+    // delete account
+
+    const handleDelete = async () => {
+        try {
+            await axios.delete("/users/" + path, {
+                headers: {
+                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGYzNmMzM2U2OGMzNTQwNzUxOGE3MyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDUxNjQzNDgsImV4cCI6MTY0NTI1MDc0OH0.OUx2Kw3lj84p27mMlly2j6exaQVQT8HibsX5dAW8UnI"
+                }
+            })
+            window.location.replace("/register")
+            toast.success("Account delete success..", {
+                position: "top-center",
+                autoClose: "2000"
+            }
+            );
+
+        } catch (error) {
+            toast.success("Unable to delete account ! try  again.", {
+                position: "top-center",
+                autoClose: "2000"
+            }
+            );
+
+        }
+    }
+
+
 
     return (
         <>
@@ -68,6 +109,7 @@ const Profile = () => {
                             <div className="inputField">
                                 <input type="email" placeholder='enter your new email'
                                     onChange={(e) => setEmail(e.target.value)}
+                                    required
 
 
                                 />
@@ -83,7 +125,7 @@ const Profile = () => {
                             <div className="updataProfileButton">
                                 <button type='submit' onClick={handleUpdate}>Update</button>
 
-                                <span>Delete account</span>
+                                <span onClick={handleDelete}>Delete account</span>
 
                             </div>
 
@@ -94,6 +136,8 @@ const Profile = () => {
             </div>
 
             <Footer />
+            {/* {/* ReactToastify container */}
+            <ToastContainer />
         </>
     )
 }

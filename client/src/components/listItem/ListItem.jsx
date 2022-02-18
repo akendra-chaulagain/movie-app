@@ -30,7 +30,7 @@ const ListItem = ({ item }) => {
 
   return (
     <>
-      <div className='listItems'>
+      <div className='listItems'  data-aos="zoom-in"  data-aos-duration="1500" >
         <img src={movie.img} alt="" />
         <div className="itemInfo">
 

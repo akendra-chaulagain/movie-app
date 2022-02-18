@@ -10,11 +10,6 @@ import { Link } from "react-router-dom"
 const Featured = ({ type, setgenre }) => {
     const [content, setContent] = useState({})
 
-
-
-
-
-
     // random movie is generated for movies and series page
     useEffect(() => {
         const getRandomContent = async () => {
@@ -52,9 +47,9 @@ const Featured = ({ type, setgenre }) => {
                 )}
 
 
-                <div className="Picture-text">
-                    {/* <input type="text" placeholder='search movies and series' onChange={handleFilter} /> */}
-                    <div className="containerData">
+                <div className="Picture-text" >
+                   
+                    <div className="containerData"  data-aos="zoom-in"  data-aos-duration="1200">
                         <h4>{content.title}</h4>
                         <h5>Release data : <span>{content.year}</span></h5>
                         <h5>Age limit : <span className='limit-box'>+{content.limit}</span></h5>
