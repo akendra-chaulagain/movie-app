@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { AuthContextProvider } from './authContext/Contex';
+import { store, persistor } from "./redux/store";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <AuthContextProvider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <App />
-      </AuthContextProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+      </PersistGate>
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
-

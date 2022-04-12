@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 import Navbar from '../../components/navbar/Navbar'
 import "./Watch.css"
 import Play from '@material-ui/icons/PlayArrow';
+import Footer from "../../components/foooter/Footer"
 
 
 // this page render to watch page when user click in watch now button in home page
@@ -18,12 +19,12 @@ const Watch = () => {
     useEffect(() => {
         const getMove = async () => {
             try {
-                const res = await axios.get("/movies/find/" + path,
-                    {
-                        headers: {
-                            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2Q3MzE2MzAzZTMwOGIwYTAxNCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDkxNTI1NCwiZXhwIjoxNjQ1MzQ3MjU0fQ.d71O6UQkFVPDX5kl3ki-3UqclhmIcya_sHuUfbYdxdk"
-                        }
-                    })
+                const res = await axios.get("/movies/find/" + path, {
+                  headers: {
+                    token:
+                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGM2NzllN2UzMjZjZjIzZTBmNDJhOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTcyNDg5NywiZXhwIjoxNjQ5ODExMjk3fQ.2Ztva5v8XHF905xTK7Jxex8VLKwTDQ9WYPLXy5q3aY0",
+                  },
+                });
                 setWatch(res.data);
 
             } catch (error) {
@@ -61,6 +62,7 @@ const Watch = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

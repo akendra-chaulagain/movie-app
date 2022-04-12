@@ -19,6 +19,9 @@
   font-size: 18px;
   font-weight: 900;
 }
+.itrmInfoTop span{
+  margin-left: 4%;
+}
 
 .itrmInfoTop button {
   border-radius: 2px;
@@ -27,6 +30,7 @@
   padding: 2px 5px;
   margin-top: 10px;
   background-color: whitesmoke;
+  margin-left: 4%;
 }
 .itrmInfoTop button:hover {
   background-color: lightblue;
@@ -39,5 +43,4 @@
     height: 300px;
     margin-left: 10px;
   }
-  
 }

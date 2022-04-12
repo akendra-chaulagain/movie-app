@@ -32,16 +32,20 @@ const Profile = () => {
     const handleUpdate = async (e) => {
         e.preventDefault()
         try {
-            await axios.put(`/users/` + path, {
+            await axios.put(
+              `/users/` + path,
+              {
                 username,
                 email,
-                password
-            }, {
+                password,
+              },
+              {
                 headers: {
-                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGYxNTY2NThhNDZiOGEzZTNhMjIyOCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDUxNTgzNTEsImV4cCI6MTY0NTI0NDc1MX0.jrirevv1zp42n0d-fFyucD23Q2mdRugvqx_1w_n8HCg"
-
-                }
-            })
+                  token:
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGM2NzllN2UzMjZjZjIzZTBmNDJhOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTcyNDg5NywiZXhwIjoxNjQ5ODExMjk3fQ.2Ztva5v8XHF905xTK7Jxex8VLKwTDQ9WYPLXy5q3aY0",
+                },
+              }
+            );
             window.location.replace("/")
             toast.success("Your data updated", {
                 position: "top-center",
@@ -64,10 +68,11 @@ const Profile = () => {
     const handleDelete = async () => {
         try {
             await axios.delete("/users/" + path, {
-                headers: {
-                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGYzNmMzM2U2OGMzNTQwNzUxOGE3MyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDUxNjQzNDgsImV4cCI6MTY0NTI1MDc0OH0.OUx2Kw3lj84p27mMlly2j6exaQVQT8HibsX5dAW8UnI"
-                }
-            })
+              headers: {
+                token:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGM2NzllN2UzMjZjZjIzZTBmNDJhOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTcyNDg5NywiZXhwIjoxNjQ5ODExMjk3fQ.2Ztva5v8XHF905xTK7Jxex8VLKwTDQ9WYPLXy5q3aY0",
+              },
+            });
             window.location.replace("/register")
             toast.success("Account delete success..", {
                 position: "top-center",

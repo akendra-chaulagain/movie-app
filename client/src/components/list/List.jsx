@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, {  useRef, useState } from 'react';
 import ListItem from '../listItem/ListItem';
 import ArrowBackOutlined from "@material-ui/icons/ArrowBackSharp"
 import ArrowFrontOutlined from "@material-ui/icons/ArrowForward"
@@ -8,6 +8,8 @@ import "./List.css"
 
 
 const List = ({ list }) => {
+  
+
 
 
     // function for  carousel 
@@ -25,15 +27,13 @@ const List = ({ list }) => {
         }
     }
     return (
+
         <>
-
             <div className=" list">
-
                 <h2 className='list-title mb-3'>{list.title}</h2>
                 <div className="wrapper">
                     <ArrowBackOutlined style={{ fontSize: 30 }} className='sliderArrow-left' onClick={() => handleClick("left")} />
                     <div className="all-items" ref={listRef}>
-                        {/* this all the list items are imported from the ListItem page  */}
                         {
                             list.content.map((item, i) => (
                                 <ListItem index={i} item={item} key={i} />
@@ -42,7 +42,6 @@ const List = ({ list }) => {
                     </div>
                     <ArrowFrontOutlined style={{ fontSize: 30 }} className='sliderArrown-right ' onClick={() => handleClick("right")} />
                 </div>
-
             </div>
         </>
     )

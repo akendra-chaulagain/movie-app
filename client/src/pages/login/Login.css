@@ -7,7 +7,8 @@
   background-position: center;
   position: relative;
 }
-.navbar-brand{
+
+.navbar-brand {
   font-size: 40px;
   color: rgb(255, 68, 68);
   /* margin: 40px 0px 0px 40px; */
@@ -33,6 +34,7 @@
   color: rgb(0, 0, 0);
   margin-left: 4%;
 }
+
 .login-btn {
   width: 91%;
   background-color: lightblue;
@@ -46,13 +48,21 @@
   margin-top: 10px;
   margin-left: 4%;
 }
+
 .login-btn:hover {
   background-color: whitesmoke;
   color: rgb(0, 0, 0);
 }
-.signupInputbox p{
+
+.signupInputbox button:disabled {
+  color: red;
+  cursor: not-allowed;
+}
+
+.signupInputbox p {
   margin-left: 4%;
 }
+
 
 
 .signupLink {
@@ -61,6 +71,7 @@
   font-weight: 600;
   color: rgb(247, 177, 149);
 }
+
 .signupLink:hover {
   text-decoration: underline;
   color: white;
@@ -72,14 +83,16 @@
     top: 65%;
     width: 100%;
   }
+
   .login-input input {
     height: 6vh;
-    
+
   }
+
   .login-btn {
-  height: 5vh;
-    
+    height: 5vh;
+
   }
-  
-  
+
+
 }

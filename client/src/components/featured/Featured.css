@@ -2,7 +2,7 @@
   margin-top: 10vh;
   height: 100vh;
   width: 100%;
-  
+  margin-bottom: 20vh;
 }
 .backgroundImg img {
   height: 100vh;
@@ -63,7 +63,27 @@ select {
   border-radius: 2px;
 }
 
+.searchField {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.searchField input {
+  margin-top: 8vh;
+  height: 50px;
+  width: 25%;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 30px;
+}
+
 @media only screen and (max-width: 768px) {
+  .featured {
+    height: 90vh;
+    width: 100%;
+    margin-bottom: 12vh;
+  }
   .backgroundImg img {
     height: 90vh;
     width: 100%;
@@ -92,7 +112,7 @@ select {
     left: 10%;
     font-size: 20px;
   }
-  
+
   select {
     padding: 3px 7px;
     border-radius: 2px;
@@ -101,5 +121,16 @@ select {
   .hero-btn-play {
     padding: 2px 10px;
     margin-left: 10%;
+  }
+  .searchField {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .searchField input {
+    margin-top: 4vh;
+    width: 50%;
+    height: 40px;
+    padding: 4px 20px;
   }
 }

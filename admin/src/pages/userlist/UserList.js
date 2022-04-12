@@ -18,18 +18,16 @@ const UserList = () => {
     const getUser = async () => {
       const res = await axios.get("/users", {
         headers: {
-          token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDM1M2QyMzE2MzAzZTMwOGIwYTAxMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NDczNDYzMCwiZXhwIjoxNjQ1MTY2NjMwfQ.E3TKGuILa-XpMdf3HMiz9plBwqxYytjhZbOG9GJCwDM"
+          token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGM2NzllN2UzMjZjZjIzZTBmNDJhOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NTE2Njk5NCwiZXhwIjoxNjQ1MjUzMzk0fQ.RcftddX44lNOgQa11V_tG540dOGet0fUzoOccSs3q3s"
         }
       })
       setuserData(res.data);
     }
     getUser()
   }, [])
-  console.log(data);
 
 
 
-  // <img src={user.profilePic || "https://cdn2.vectorstock.com/i/thumb-large/96/76/avatar-vector-32409676.jpg"} alt="avtar" />
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
@@ -39,7 +37,6 @@ const UserList = () => {
         return (
           <>
             <div className='userListuser'>
-              {/* <img src={params.row.img} alt="avtar" /> */}
               <img src={params.row.img || "https://cdn2.vectorstock.com/i/thumb-large/96/76/avatar-vector-32409676.jpg"} alt="avtar" />
               {params.row.username}
             </div>

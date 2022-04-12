@@ -31,6 +31,8 @@
 }
 .firstContainer span {
   cursor: pointer;
+  font-size: 20px;
+
 }
 .firstContainer span:hover {
   color: red;
@@ -38,6 +40,7 @@
 }
 .middleContainer span {
   cursor: pointer;
+  font-size: 20px;
 }
 .middleContainer span:hover {
   color: red;
@@ -45,6 +48,8 @@
 }
 .thirdContainer span {
   cursor: pointer;
+  font-size: 20px;
+
 }
 .thirdContainer span:hover {
   color: red;
@@ -53,12 +58,22 @@
 
 @media only screen and (max-width: 768px) {
   .footer {
-    height: 35vh;
+    height: 40vh;
   }
   .firstContainer {
     margin-right: 25px;
+    
+  }
+  .firstContainer span{
+    font-size: 16px;
+  }
+  .middleContainer span{
+    font-size: 16px;
   }
   .middleContainer {
     margin-right: 25px;
+  }
+  .thirdContainer span{
+    font-size: 16px;
   }
 }
