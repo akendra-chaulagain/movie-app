@@ -46,8 +46,6 @@ const Featured = ({ type, setgenre }) => {
         <div className="Picture-text">
           <div
             className="containerData"
-            data-aos="zoom-in"
-            data-aos-duration="1100"
           >
             <h4>{content.title}</h4>
             <h5>

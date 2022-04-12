@@ -9,6 +9,7 @@ import Watch from "./pages/watch/Watch";
 import Video from "./pages/video page/Video";
 import Profile from "./pages/Profile/Profile";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -16,13 +17,16 @@ const App = () => {
   return (
     <>
       <Routes>
-        {/* login page route import from login page */}
-        <Route path="/" element={user ? <Home /> : <Login />} />
-        {/* login page route import from Register page */}
-        <Route path="/" element={user ? <Home /> : <Register />} />
-        {/* home page routes */}
-        <Route exact path="/" element={user ? <Home /> : <Register />} />
+        <Route exact path="/" element={user?<Home />:<Navigate to="/login"/>} />
 
+        {/* login page route import from login page */}
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        {/* login page route import from Register page */}
+        <Route
+          path="/register"
+          element={user ? <Navigate to="/" /> : <Register />}
+        />
+        {/* home page routes */}
         {/* if there is user this below page will show */}
         {user && (
           <>
