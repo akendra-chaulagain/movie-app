@@ -17,13 +17,7 @@ const Home = ({ type }) => {
         const res = await axios.get(
           `lists${type ? "?types=" + type : ""}${
             genre ? "&genre=" + genre : ""
-          }`,
-          {
-            headers: {
-              token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGM2NzllN2UzMjZjZjIzZTBmNDJhOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTcyNDg5NywiZXhwIjoxNjQ5ODExMjk3fQ.2Ztva5v8XHF905xTK7Jxex8VLKwTDQ9WYPLXy5q3aY0",
-            },
-          }
+          }`
         );
         setLists(res.data);
       } catch (error) {

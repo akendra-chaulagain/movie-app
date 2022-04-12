@@ -37,8 +37,24 @@ router.post("/register", async (req, res) => {
     const salt = await bcrypt.genSalt(12);
     // now we set user password to hashed password
     user.password = await bcrypt.hash(user.password, salt);
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: "1d" }
+      // { expiresIn: "1hr" }
+      // { expiresIn: "1d" }
+      // { expiresIn: "20s" }
+      // { expiresIn: "15m" }
+    );
+    // saving in cookie
+    res.cookie("jsonwebToken", token, {
+      expires: new Date(Date.now() + 1000 * 60 * 60),
+      path: "/",
+      httpOnly: true,
+      sameSite: "lax",
+    });
     const result = await user.save();
-    return res.status(200).json(result);
+    return res.status(200).json(result, token);
   } catch (error) {
     console.log(error);
   }
@@ -51,16 +67,26 @@ router.post("/login", async (req, res) => {
   if (user) {
     const isMatch = await bcrypt.compare(password, user.password);
 
-    //   created jsonweb Token
-    const accessToken = jwt.sign(
+    const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
-      process.env.SECRETKey,
+      process.env.JWT_SECRET_KEY,
       { expiresIn: "1d" }
+      // { expiresIn: "1hr" }
+      // { expiresIn: "1d" }
+      // { expiresIn: "20s" }
+      // { expiresIn: "15m" }
     );
+    // saving in cookie
+    res.cookie("jsonwebToken", token, {
+      expires: new Date(Date.now() + 1000 * 60 * 60),
+      path: "/",
+      httpOnly: true,
+      sameSite: "lax",
+    });
 
     if (isMatch) {
       const { password, ...others } = user._doc;
-      res.status(200).json({ ...others, accessToken });
+      res.status(200).json({ ...others, token });
     } else {
       res.status(400).json({ error: "Invalid data" });
     }

@@ -13,6 +13,10 @@ dotenv.config({ path: "./config.env" });
 
 // port no
 const PORT = process.env.PORT;
+// cooki-parser for json webtoken
+const cookieparser = require("cookie-parser");
+app.use(cookieparser());
+
 
 // routes
 app.use("/api/auth", authRoute);
