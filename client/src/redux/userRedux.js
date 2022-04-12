@@ -22,10 +22,24 @@ export const userSlicer = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    //   reducer for register
+    registerStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    registerSuccess: (state, actions) => {
+      state.isFetching = false;
+      state.currentUser = actions.payload;
+      state.error = false;
+    },
+    registerFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loginFailure, loginSuccess, loginStart } = userSlicer.actions;
+export const { loginFailure, loginSuccess, loginStart,registerFailure,registerStart,registerSuccess } = userSlicer.actions;
 
 export default userSlicer.reducer;
