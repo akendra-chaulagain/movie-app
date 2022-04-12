@@ -9,9 +9,13 @@
 }
 
 .navbar-brand {
-  font-size: 40px;
+  font-size: 30px;
   color: rgb(255, 68, 68);
   /* margin: 40px 0px 0px 40px; */
+}
+
+.topContent button {
+  background-color: red;
 }
 
 .signupInputbox {
@@ -25,9 +29,13 @@
   opacity: 0.8;
 }
 
+.signupInputbox h2 {
+  font-size: 25px;
+}
+
 .login-input input {
   width: 91%;
-  height: 7vh;
+  height: 6vh;
   outline: none;
   background-color: white;
   border: none;
@@ -35,22 +43,25 @@
   margin-left: 4%;
 }
 
+.login-input label {
+  margin-left: 4%;
+}
+
 .login-btn {
+  height: 5vh;
   width: 91%;
-  background-color: lightblue;
-  color: rgb(0, 0, 0);
+  background-color: rgb(255, 0, 0);
+  color: white;
   height: 6vh;
   font-size: 18px;
   border: none;
   outline: none;
-  border-radius: 6px;
-  font-weight: 600;
-  margin-top: 10px;
+  border-radius: 3px;
   margin-left: 4%;
 }
 
 .login-btn:hover {
-  background-color: whitesmoke;
+  background-color: white;
   color: rgb(0, 0, 0);
 }
 
@@ -69,30 +80,36 @@
   text-decoration: none;
   margin-left: 10px;
   font-weight: 600;
-  color: rgb(247, 177, 149);
+  color: white;
 }
 
 .signupLink:hover {
   text-decoration: underline;
-  color: white;
+  color: red;
 }
 
 @media only screen and (max-width: 768px) {
   .signupInputbox {
     position: relative;
-    top: 65%;
-    width: 100%;
+    top: 86%;
+    width: 80%;
+  }
+
+  .login-input {
+    height: auto;
   }
 
   .login-input input {
-    height: 6vh;
-
+    height: 5vh;
   }
 
   .login-btn {
-    height: 5vh;
-
+    height: 4vh;
+    font-size: 16px;
   }
-
-
+  .signupInputbox p {
+    font-size: 10px;
+    padding-bottom: 20px;
+  }
+  
 }

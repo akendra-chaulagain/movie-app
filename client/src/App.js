@@ -17,7 +17,11 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={user?<Home />:<Navigate to="/login"/>} />
+        <Route
+          exact
+          path="/"
+          element={user ? <Home /> : <Navigate to="/login" />}
+        />
 
         {/* login page route import from login page */}
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />

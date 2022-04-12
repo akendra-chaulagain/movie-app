@@ -27,17 +27,14 @@ const Login = () => {
           <span className="navbar-brand" to="#">
             Ak movies
           </span>
-          <button className="start-btnsignIn ">
-            <Link to="/register">Sign Up</Link>
-          </button>
         </div>
 
         <div className="row login-form">
           <div className=" login-input ">
             <form className="signupInputbox">
               <div className="mb-3">
-                <h2 className="mt-3 mb-4 text-center">Sign In</h2>
-
+                <h2 className="mt-1 mb-2 text-center">Sign In</h2>
+                <label>Email</label>
                 <input
                   type="email"
                   className="form-control mt-2"
@@ -47,6 +44,7 @@ const Login = () => {
                 />
               </div>
               <div className="mb-3">
+                <label>Password</label>
                 <input
                   type="password"
                   className="form-control mt-2"
@@ -59,23 +57,15 @@ const Login = () => {
               <button
                 type="submit"
                 onClick={handleLogin}
-                className="login-btn mt-4"
+                className="login-btn mt-2"
                 disabled={isFetching}
               >
                 Submit
               </button>
-              <p className="mt-2">
+              <p className="mt-4">
                 New to Ak movies ?
                 <Link className="signupLink" to="/register">
                   Sign up
-                </Link>
-              </p>
-
-              <p>
-                This page is protected by Google reCAPTCHA .
-                <Link className="signupLink " to="https://www.netflix.com/np">
-                  <br />
-                  Learn more.
                 </Link>
               </p>
             </form>

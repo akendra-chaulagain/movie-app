@@ -28,10 +28,6 @@ const Register = () => {
           <span className="navbar-brand" to="#">
             Ak movies
           </span>
-
-          <button className="start-btnsignIn ">
-            <Link to="/login">Sign In</Link>
-          </button>
         </div>
 
         <div className="row">
@@ -40,14 +36,12 @@ const Register = () => {
               Unlimated movies, Tv shows , and more.
             </h2>
             <h3 className="text-center"> Watch anywhere.Cancel anytime</h3>
-            <p className="text-center">
-              Ready to watch ? Enter your email to create or restart your
-              membership
-            </p>
           </div>
 
           {/* register from */}
           <form action="" className="input-box  ">
+            <h2 className="mt-1 mb-2 text-center">Sign Up</h2>
+
             <div>
               <label>Email address</label>
               <input
@@ -84,10 +78,10 @@ const Register = () => {
             >
               Sign Up
             </button>
-            <span>
+            <span className="ak">
               Already have an account ?
               <Link to="/login" className="link">
-                Sign In{" "}
+                Sign In
               </Link>
             </span>
           </form>
