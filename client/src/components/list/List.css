@@ -2,28 +2,33 @@
   width: 100%;
   margin-top: 10px;
 }
+
 .list-title {
   color: whitesmoke;
   font-size: 23px;
   font-weight: 600;
   margin-left: 50px;
 }
+
 .all-items {
   display: flex;
   width: max-content;
   transition: all 1s ease;
   z-index: 999;
 }
+
 .wrapper {
   position: relative;
 }
+
 .list h2 {
   color: rgb(255, 255, 255);
   margin-top: 40px;
   font-size: 28px;
   font-weight: 800;
-  
+
 }
+
 .sliderArrow-left {
   position: absolute;
   background-color: rgb(255, 255, 255);
@@ -37,6 +42,7 @@
   cursor: pointer;
 
 }
+
 .sliderArrown-right {
   background-color: white;
   margin-left: 97%;
@@ -47,11 +53,15 @@
   font-size: 60px;
   cursor: pointer;
 }
+
 @media only screen and (max-width: 768px) {
   .sliderArrown-right {
     margin-left: 90%;
-    
+
   }
-  
-  
+
+  .list h2 {
+    font-size: 17px;
+    font-weight: 600;
+  }
 }

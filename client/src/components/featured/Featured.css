@@ -1,41 +1,44 @@
 .featured {
-  margin-top: 10vh;
-  height: 100vh;
+  margin-top: 3vh;
+  height: 90vh;
   width: 100%;
   margin-bottom: 20vh;
 }
+
 .backgroundImg img {
   height: 100vh;
   width: 100%;
-  background-size: contain;
+  object-fit: cover;
 }
 
 .containerData {
   position: absolute;
   bottom: 350px;
-  top: 33vh;
+  top: 40vh;
   left: 100px;
   color: white;
   width: 60%;
 }
 
 .containerData h4 {
-  font-size: 55px;
+  font-size: 35px;
   font-weight: 700;
   letter-spacing: 6px;
 }
+
 .containerData h5 {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 20px;
 }
+
 .containerData span {
   margin-left: 20px;
   font-weight: 500;
 }
 
 .hero-btn-play {
-  padding: 8px 18px;
-  border-radius: 6px;
+  padding: 2px 18px;
+  border-radius: 3px;
   font-weight: 600;
   outline: none;
   border: none;
@@ -47,63 +50,54 @@
   position: absolute;
   top: 119px;
   left: 10%;
-  font-size: 30px;
+  font-size: 23px;
   font-weight: bold;
 }
 
-select {
+.category select {
   cursor: pointer;
   margin-left: 10px;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border: none;
   outline: none;
-  font-size: 19px;
-  padding: 10px 20px;
+  font-size: 17px;
+  padding: 2px 5px;
   border-radius: 2px;
-}
-
-.searchField {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.searchField input {
-  margin-top: 8vh;
-  height: 50px;
-  width: 25%;
-  outline: none;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 30px;
 }
 
 @media only screen and (max-width: 768px) {
   .featured {
-    height: 90vh;
+    height: 40vh;
     width: 100%;
     margin-bottom: 12vh;
   }
+
   .backgroundImg img {
-    height: 90vh;
+    height: 50vh;
     width: 100%;
+    object-fit: cover;
   }
+
   .containerData {
     width: 90%;
     left: 10px;
-    top: 35vh;
+    top: 20vh;
   }
+
   .containerData h4 {
-    font-size: 40px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-left: 10%;
+    margin-left: 3%;
   }
+
   .containerData h5 {
-    font-weight: 600;
-    font-size: 16px;
-    margin-left: 10%;
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 4%;
   }
+
   .containerData span {
     margin-left: 0px;
   }
@@ -113,24 +107,22 @@ select {
     font-size: 20px;
   }
 
-  select {
-    padding: 3px 7px;
+  .category select {
+    padding: 1px 2px;
     border-radius: 2px;
-    font-size: 15px;
+    font-size: 11px;
   }
+
+
   .hero-btn-play {
     padding: 2px 10px;
-    margin-left: 10%;
+    margin-left: 4%;
+    font-size: 12px;
+    font-weight: 500;
   }
-  .searchField {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  .searchField input {
-    margin-top: 4vh;
-    width: 50%;
-    height: 40px;
-    padding: 4px 20px;
+
+  .category {
+    font-size: 19px;
+    font-weight: 500;
   }
 }

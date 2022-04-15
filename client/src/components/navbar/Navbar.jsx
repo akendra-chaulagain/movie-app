@@ -11,7 +11,7 @@ const Navbar = ({ lists }) => {
     <>
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-          <span className="navbar-brand" to="#">
+          <span className="navbar-brand" to="/">
             Ak movies
           </span>
           <button

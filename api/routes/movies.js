@@ -92,16 +92,12 @@ router.get("/random", verify, async (req, res) => {
 });
 
 // get all movies
-router.get("/", verify, async (req, res) => {
-  if (req.user.isAdmin) {
-    try {
-      const getAllMovie = await Movie.find();
-      return res.status(201).json(getAllMovie.reverse());
-    } catch (error) {
-      res.status(400).json(error);
-    }
-  } else {
-    return res.status(401).json("You are not allowed to get all movie");
+router.get("/getall", async (req, res) => {
+  try {
+    const getAllMovie = await Movie.find().limit(10);
+    return res.status(201).json(getAllMovie.reverse());
+  } catch (error) {
+    res.status(400).json(error);
   }
 });
 

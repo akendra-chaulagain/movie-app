@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Featured.css";
-import Pause from "@material-ui/icons/PlayArrow";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -44,9 +43,7 @@ const Featured = ({ type, setgenre }) => {
         )}
 
         <div className="Picture-text">
-          <div
-            className="containerData"
-          >
+          <div className="containerData">
             <h4>{content.title}</h4>
             <h5>
               Release data : <span>{content.year}</span>
@@ -57,20 +54,14 @@ const Featured = ({ type, setgenre }) => {
             <h5>
               Description : <span>{content.desc}</span>
             </h5>
-            <span></span>
+
             <Link to={`/watch/` + content._id}>
               <button className="hero-btn-play">
-                <Pause />
                 Play
               </button>
             </Link>
           </div>
         </div>
-
-        {/* search field */}
-        {/* <div className="searchField">
-                    <input querydata={query} type="text" placeholder='Search....' onChange={(e) => setQuery(e.target.value)} />
-                </div> */}
       </div>
     </>
   );

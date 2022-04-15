@@ -28,14 +28,12 @@ const ListItem = ({ item }) => {
             <h6 className="text-center">{movie.title}</h6>
             <span>Duration :&#160;{movie.duration}</span>
             <br />
-            <span>Release :&#160;&#160;{movie.year}</span>
-            <br />
             <span>Genra :&#160;&#160;{movie.genre}</span>
             <br />
             {/* render to video page */}
             <Link to={`/watch/` + movie._id}>
               <button>
-                <Play />
+                <Play style={{ fontSize: 14 }} />
                 watch
               </button>
             </Link>
