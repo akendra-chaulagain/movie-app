@@ -27,6 +27,7 @@ export const loginUser = async (dispatch, user) => {
     });
   }
 };
+
 // register
 export const registerUser = async (dispatch, user) => {
   dispatch(registerStart());
@@ -35,7 +36,7 @@ export const registerUser = async (dispatch, user) => {
     dispatch(registerSuccess(res.data));
   } catch (error) {
     dispatch(registerFailure());
-    toast.success("Enter correct email and password !", {
+    toast.success("unable to register user !", {
       position: "top-center",
       autoClose: "2000",
     });

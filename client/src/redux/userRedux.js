@@ -36,10 +36,32 @@ export const userSlicer = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    // logout user
+    logOutStart: (state) => {
+      state.isFetching = true;
+    },
+    logOutSuccess: (state) => {
+      state.isFetching = false;
+      state.currentUser = localStorage.removeItem("persist:root");
+    },
+    logOutfailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loginFailure, loginSuccess, loginStart,registerFailure,registerStart,registerSuccess } = userSlicer.actions;
+export const {
+  loginFailure,
+  loginSuccess,
+  loginStart,
+  registerFailure,
+  registerStart,
+  registerSuccess,
+  logOutStart,
+  logOutSuccess,
+  logOutfailure,
+} = userSlicer.actions;
 
 export default userSlicer.reducer;

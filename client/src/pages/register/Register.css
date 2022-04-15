@@ -61,21 +61,13 @@
 }
 
 .start-btn:hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-
-
-
-.input-box button:disabled {
-  color: red;
-  cursor: not-allowed;
-}
-
-.start-btnsignIn a {
-  text-decoration: none;
-  margin-left: 10px;
-  font-weight: 500;
+  background-color: rgb(255, 255, 255);color: rgb(0, 0, 0);
+  }
+  
+  .start-btnsignIn a {
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: 500;
   color: white;
 }
 

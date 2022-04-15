@@ -1,69 +1,25 @@
 import React, { useState } from "react";
-import Navbar from "../../components/navbar/Navbar";
-import axios from "axios";
 import "./Profile.css";
 
 import Footer from "../../components/foooter/Footer";
-import { useLocation } from "react-router-dom";
 // ReactToastify is use for alert
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Profile = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const user = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch();
 
-  const location = useLocation();
-  const path = location.pathname.split("/")[3];
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState(user.password);
 
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.put(`/users/` + path, {
-        username,
-        email,
-        password,
-      });
-      window.location.replace("/");
-      toast.success("Your data updated", {
-        position: "top-center",
-        autoClose: "2000",
-      });
-    } catch (error) {
-      toast.success("Unable to update your data! try again", {
-        position: "top-center",
-        autoClose: "2000",
-      });
-    }
-  };
-
-  // delete account
-
-  const handleDelete = async () => {
-    try {
-      await axios.delete("/users/" + path, {
-        headers: {
-          token:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGM2NzllN2UzMjZjZjIzZTBmNDJhOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTcyNDg5NywiZXhwIjoxNjQ5ODExMjk3fQ.2Ztva5v8XHF905xTK7Jxex8VLKwTDQ9WYPLXy5q3aY0",
-        },
-      });
-      window.location.replace("/register");
-      toast.success("Account delete success..", {
-        position: "top-center",
-        autoClose: "2000",
-      });
-    } catch (error) {
-      toast.success("Unable to delete account ! try  again.", {
-        position: "top-center",
-        autoClose: "2000",
-      });
-    }
-  };
+  
 
   return (
     <>
-      <Navbar />
       <div className="container-fluid profile">
         <div className="row">
           <div className=" rightSideContainer">
@@ -84,7 +40,6 @@ const Profile = () => {
                   type="email"
                   placeholder="enter your new email"
                   onChange={(e) => setEmail(e.target.value)}
-                  required
                 />
               </div>
               <label htmlFor="">Password</label>
@@ -96,11 +51,11 @@ const Profile = () => {
                 />
               </div>
               <div className="updataProfileButton">
-                <button type="submit" onClick={handleUpdate}>
+                <button type="submit">
                   Update
                 </button>
 
-                <span onClick={handleDelete}>Delete account</span>
+                <span>Delete account</span>
               </div>
             </form>
           </div>

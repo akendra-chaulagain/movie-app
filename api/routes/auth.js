@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const verify = require("../verifyToken");
+
 
 const bodyParser = require("body-parser");
 router.use(bodyParser.json()); // for parsing application/json
@@ -41,10 +43,7 @@ router.post("/register", async (req, res) => {
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT_SECRET_KEY,
       { expiresIn: "1d" }
-      // { expiresIn: "1hr" }
-      // { expiresIn: "1d" }
-      // { expiresIn: "20s" }
-      // { expiresIn: "15m" }
+     
     );
     // saving in cookie
     res.cookie("jsonwebToken", token, {
@@ -54,7 +53,7 @@ router.post("/register", async (req, res) => {
       sameSite: "lax",
     });
     const result = await user.save();
-    return res.status(200).json(result, token);
+    return res.status(200).json({result, token});
   } catch (error) {
     console.log(error);
   }
@@ -92,6 +91,21 @@ router.post("/login", async (req, res) => {
     }
   } else {
     res.status(401).json({ error: "User does not exist" });
+  }
+});
+
+// logout user
+router.post("/logout", verify, async (req, res) => {
+  const cookie = req.headers.cookie;
+  if (cookie) {
+    const token = cookie.split("=")[1];
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
+      if (err) res.status(403).json("Token is not valid !");
+      req.user = user;
+    });
+    res.clearCookie("jsonwebToken");
+    req.cookies[`jsonwebToken`] = "";
+    return res.status(200).json("LogOut successfully..");
   }
 });
 

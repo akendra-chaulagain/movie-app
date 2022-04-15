@@ -43,7 +43,7 @@ const App = () => {
             {/* video page when user play video thgis page will run */}
             <Route path="/watch/movie/:id" element={<Video />} />
             {/* video page when user play video thgis page will run */}
-            <Route path="/profile/user/:id" element={<Profile />} />
+            <Route path="/profile/user" element={<Profile />} />
             {/*Search page */}
             {/* <Route path="/search" element={<Search />} /> */}
           </>

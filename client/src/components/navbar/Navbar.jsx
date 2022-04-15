@@ -2,10 +2,50 @@
 import Menu from "@material-ui/icons/Menu";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {
+  logOutfailure,
+  logOutStart,
+  logOutSuccess,
+} from "../../redux/userRedux";
+import axios from "axios";
+import { ToastContainer, toast, Zoom } from "react-toastify";
 
 const Navbar = ({ setSearchresult }) => {
-  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  // logOut User
+  const handlLogout = async () => {
+    dispatch(logOutStart());
+    try {
+      await axios.post("/auth/logout", null).then(() => {
+        dispatch(logOutSuccess());
+        toast.success(" Logout Success!", {
+          position: "top-center",
+          autoClose: 2000,
+          theme: "dark",
+          transition: Zoom,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
+    } catch (error) {
+      dispatch(logOutfailure());
+      toast.error(" Something went wrong. unable to update!", {
+        position: "top-center",
+        autoClose: 2000,
+        theme: "dark",
+        transition: Zoom,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
 
   return (
     <>
@@ -64,12 +104,12 @@ const Navbar = ({ setSearchresult }) => {
             <div className="d-flex">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link" to={`/profile/user/${user._id}`}>
+                  <Link className="nav-link" to={`/profile/user`}>
                     Profile
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="#">
+                  <Link className="nav-link" to="#" onClick={handlLogout}>
                     LogOut
                   </Link>
                 </li>
@@ -78,6 +118,7 @@ const Navbar = ({ setSearchresult }) => {
           </div>
         </div>
       </nav>
+      <ToastContainer />
     </>
   );
 };

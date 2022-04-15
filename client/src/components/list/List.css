@@ -57,6 +57,8 @@
 @media only screen and (max-width: 768px) {
   .sliderArrown-right {
     margin-left: 90%;
+    margin-top: -21px;
+
 
   }
 

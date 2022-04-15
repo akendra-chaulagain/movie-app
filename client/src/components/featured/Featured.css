@@ -68,7 +68,7 @@
 
 @media only screen and (max-width: 768px) {
   .featured {
-    height: 40vh;
+    height: auto;
     width: 100%;
     margin-bottom: 12vh;
   }
@@ -119,6 +119,7 @@
     margin-left: 4%;
     font-size: 12px;
     font-weight: 500;
+    margin-bottom: 10px;
   }
 
   .category {

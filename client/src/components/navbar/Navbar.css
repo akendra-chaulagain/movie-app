@@ -17,6 +17,7 @@
   height: 50px;
   width: 50px;
   border-radius: 40%;
+  object-fit: cover;
 }
 
 .nav-item a {
@@ -61,8 +62,9 @@
   border: none;
   background-color: gainsboro;
 }
+
 /* search box for less then 768px */
-.searchContainerLess{
+.searchContainerLess {
   display: none;
 }
 
@@ -70,6 +72,7 @@
 @media only screen and (max-width: 768px) {
   .navbar {
     height: auto;
+    width: 100%;
   }
 
   .nav-item a {
@@ -78,27 +81,53 @@
 
   .navbar .navbar-brand {
     margin-left: 3px;
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .searchInput button {
     display: none;
   }
+
   .searchContainer {
     display: none;
   }
+
   /* search box for less then 768px */
   .searchContainerLess {
     display: inherit;
   }
-  .searchContainerLess input{
-    width: 200%;
+
+  .searchContainerLess input {
+    width: 100%;
     outline: none;
-    height: 26px;
+    height: 21px;
     border-radius: 4px;
-    padding: 1px 5px;
+    padding: 1px 4px;
     border: none;
     background-color: gainsboro;
-    margin-left: -18px;
+    margin-left: -20px;
   }
 }
+
+/* @media only screen and (max-width: 320px) {
+  .navbar .navbar-brand {
+    font-size: 15px;
+  }
+
+  .searchContainerLess {
+    display: inherit;
+  }
+
+  .searchContainerLess input {
+    width: 90%;
+    outline: none;
+    height: 21px;
+    border-radius: 4px;
+    padding: 1px 4px;
+    border: none;
+    background-color: gainsboro;
+    margin-left: -50px;
+  }
+
+
+} */
