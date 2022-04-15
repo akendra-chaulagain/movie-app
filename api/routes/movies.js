@@ -94,10 +94,25 @@ router.get("/random", verify, async (req, res) => {
 // get all movies
 router.get("/getall", async (req, res) => {
   try {
-    const getAllMovie = await Movie.find().limit(10);
+    const getAllMovie = await Movie.find();
     return res.status(201).json(getAllMovie.reverse());
   } catch (error) {
     res.status(400).json(error);
+  }
+});
+// search movie from database according to
+router.get("/search", async (req, res) => {
+  const search = req.query.q;
+  try {
+    const movie = await Movie.find({
+      title: {
+        $regex: search,
+        $options: "i",
+      },
+    });
+    res.status(201).json(movie);
+  } catch (error) {
+    console.log("unable to seacrh data" + error);
   }
 });
 

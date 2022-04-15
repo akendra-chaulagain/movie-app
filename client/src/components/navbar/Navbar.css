@@ -47,6 +47,26 @@
   margin-right: 20px;
 }
 
+/* search container */
+.searchContainer {
+  margin-top: 15px;
+}
+
+.searchContainer input {
+  width: 200%;
+  outline: none;
+  height: 30px;
+  border-radius: 4px;
+  padding: 1px 5px;
+  border: none;
+  background-color: gainsboro;
+}
+/* search box for less then 768px */
+.searchContainerLess{
+  display: none;
+}
+
+
 @media only screen and (max-width: 768px) {
   .navbar {
     height: auto;
@@ -63,5 +83,22 @@
 
   .searchInput button {
     display: none;
+  }
+  .searchContainer {
+    display: none;
+  }
+  /* search box for less then 768px */
+  .searchContainerLess {
+    display: inherit;
+  }
+  .searchContainerLess input{
+    width: 200%;
+    outline: none;
+    height: 26px;
+    border-radius: 4px;
+    padding: 1px 5px;
+    border: none;
+    background-color: gainsboro;
+    margin-left: -18px;
   }
 }

@@ -2,6 +2,7 @@ import axios from "axios";
 // ReactToastify is use for alert
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getMovieFailure, getMovieStart, getMovieSuccess } from "./movieRedux";
 import {
   loginFailure,
   loginStart,
@@ -38,5 +39,16 @@ export const registerUser = async (dispatch, user) => {
       position: "top-center",
       autoClose: "2000",
     });
+  }
+};
+// register
+export const getAllMovie = async (dispatch) => {
+  dispatch(getMovieStart());
+  try {
+    const res = await axios.get("/movies/getall");
+    dispatch(getMovieSuccess(res.data));
+  } catch (error) {
+    dispatch(getMovieFailure());
+    console.log("unable to get all movies");
   }
 };

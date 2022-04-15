@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Navbar = ({ lists }) => {
+const Navbar = ({ setSearchresult }) => {
   const user = useSelector((state) => state.user);
 
   return (
@@ -14,6 +14,14 @@ const Navbar = ({ lists }) => {
           <span className="navbar-brand" to="/">
             Ak movies
           </span>
+          {/* search box  for less than 768px*/}
+          <div className="searchContainerLess">
+            <input
+              type="text"
+              placeholder="Search "
+              onChange={(e) => setSearchresult(e.target.value)}
+            />
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -44,6 +52,14 @@ const Navbar = ({ lists }) => {
                   Movies
                 </Link>
               </li>
+              {/* search box  for more than 768px*/}
+              <div className="searchContainer">
+                <input
+                  type="text"
+                  placeholder="Search "
+                  onChange={(e) => setSearchresult(e.target.value)}
+                />
+              </div>
             </ul>
             <div className="d-flex">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">

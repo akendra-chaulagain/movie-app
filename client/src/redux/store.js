@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userRedux";
+import movieReducer from "./movieRedux";
 import {
   persistStore,
   persistReducer,
@@ -16,10 +17,12 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
+  blacklist: ["movie"],
 };
 
 const rootReducer = combineReducers({
   user: userReducer,
+  movie: movieReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
