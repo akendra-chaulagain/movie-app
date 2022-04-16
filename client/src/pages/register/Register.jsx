@@ -42,67 +42,68 @@ const Register = () => {
         }}
       >
         <Form>
-          <div className="container-fluid register">
-            <div className="topContent">
-              <span className="navbar-brand" to="#">
-                Ak movies
-              </span>
-            </div>
-
-            <div className="row">
-              <div className="container-text ">
-                <h2 className="text-center mainTitle ">
-                  Unlimated movies, Tv shows , and more.
-                </h2>
-                <h3 className="text-center"> Watch anywhere.Cancel anytime</h3>
-              </div>
-
-              {/* register from */}
-              <div className="input-box  ">
-                <h2 className="mt-2 mb-2 text-center">Sign Up</h2>
-
-                <div>
+          <div className=" registerPage">
+            <div className="registerFrom">
+              <h2 className="registerTitle">Ak movies</h2>
+              <div className=" registerFormContainer">
+                <h4>Create An Account</h4>
+                {/* name */}
+                <div className="inputBox mt-2">
+                  <label>UserName</label>
                   <RegisterTextField
-                    type="email"
-                    className="form-control mt-2"
-                    name="email"
-                    placeholder="enter your email"
-                  />
-                </div>
-                <div>
-                  <RegisterTextField
-                    type="text"
-                    className="form-control mt-4"
-                    placeholder="enter your username"
+                    label="UserName"
                     name="username"
+                    type="text"
+                    placeholder="biraj"
                   />
                 </div>
-                <div>
+                {/* email */}
+                <div className="inputBox">
+                  <label>Email</label>
+
                   <RegisterTextField
-                    type="password"
-                    className="form-control mt-4 "
-                    placeholder="enter your password"
+                    label="Email"
+                    name="email"
+                    type="email"
+                    placeholder="a@gmail.com"
+                  />
+                </div>
+                {/* password */}
+                <div className="inputBox">
+                  <label>Password</label>
+
+                  <RegisterTextField
+                    label="Password"
                     name="password"
+                    type="password"
+                    placeholder="password"
                   />
                 </div>
-                <div>
+                {/* cpassword */}
+                <div className="inputBox">
+                  <label>Confirm Password</label>
+
                   <RegisterTextField
-                    type="password"
-                    className="form-control mt-4"
+                    label="Confirm Password"
                     name="cpassword"
+                    type="password"
                     placeholder="confirm password"
                   />
                 </div>
-
-                <button className="start-btn" disabled={isFetching}>
-                  register
-                </button>
-                <span className="ak">
-                  Already have an account ?
-                  <Link to="/login" className="link">
-                    Sign In
-                  </Link>
-                </span>
+                <div className="inputBox">
+                  {/* <button onClick={handleRegister}>Continue</button> */}
+                  <button disabled={isFetching}>Continue</button>
+                </div>
+              </div>
+              <p>
+                Already have an account ?{/* render to login page when click */}
+                <Link className="link" to="/login">
+                  <span className="siginInBtn">SIGN IN</span>
+                </Link>
+              </p>
+              <div className="terms">
+                By creating an account, you agree to All In One's Conditions of
+                Use and Privacy Notice.
               </div>
             </div>
           </div>

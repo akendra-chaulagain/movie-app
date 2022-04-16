@@ -32,50 +32,44 @@ const Login = () => {
         }}
       >
         <Form>
-          <div className="container-fluid login">
-            <div className="topContent">
-              <span className="navbar-brand" to="#">
-                Ak movies
-              </span>
-            </div>
-
-            <div className="row login-form">
-              <div className=" login-input ">
-                <div className="signupInputbox">
-                  <div className="">
-                    <h2 className="mt-2 mb-2 text-center">Sign In</h2>
-                    {/* <label>Email</label> */}
-                    <RegisterTextField
-                      type="email"
-                      className="form-control mt-4"
-                      name="email"
-                      placeholder="enter you email"
-                    />
-                  </div>
-                  <div className="">
-                    {/* <label>Password</label> */}
-                    <RegisterTextField
-                      type="password"
-                      className="form-control "
-                      name="password"
-                      placeholder="enter your password"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="login-btn"
-                    disabled={isFetching}
-                  >
-                    Submit
-                  </button>
-                  <p className="mt-2">
-                    New to Ak movies ?
-                    <Link className="signupLink" to="/register">
-                      Sign up
-                    </Link>
-                  </p>
+          <div className=" loginPage">
+            <div className="loginFrom">
+              <h2 className="loginTitle">Ak movies</h2>
+              <div className=" LoginFormContainer">
+                <h4>Sign-In</h4>
+                <div className="inputBox mt-3">
+                  <label>Email</label>
+                  <RegisterTextField
+                    label="Email"
+                    name="email"
+                    type="text"
+                    placeholder="ak@gmail.com"
+                  />
                 </div>
+
+                <div className="inputBox mt-2">
+                  <label>Password</label>
+                  <RegisterTextField
+                    label="Password"
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                  />
+                </div>
+                <div className="inputBox mt-2">
+                  {/* login button */}
+                  <button disabled={isFetching}>Continue</button>
+                </div>
+              </div>
+              <p>
+                Don't have an account ?{/* render to login page when click */}
+                <Link className="link" to="/register">
+                  <span>SIGN UP</span>
+                </Link>
+              </p>
+              <div className="terms">
+                By creating an account, you agree to ak movies's Conditions of
+                Use and Privacy Notice.
               </div>
             </div>
           </div>

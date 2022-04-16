@@ -1,201 +1,101 @@
-.register {
-  height: 100vh;
+.registerPage {
+  height: 90vh;
   width: 100%;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.8), rgba(4, 9, 30, 0.9)),
-    url("../../../public/images/register.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  color: whitesmoke;
-}
-
-.topContent {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 8vh;
 }
 
-.container-text {
-  margin-top: 2%;
-}
-
-.container-text h2 {
-  font-size: 30px;
-}
-
-.container-text h3 {
-  font-size: 18px;
-}
-
-.input-box {
-  height: auto;
-  width: 37%;
-  position: absolute;
-  top: 53%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #0b0b0b;
-  border-radius: 5px;
-  opacity: 0.8;
-}
-
-.input-box h2 {
-  font-size: 25px;
-}
-
-.input-box input {
-  width: 100%;
-  height: 40px;
-  list-style: none;
-}
-
-
-.start-btn {
-  background-color: rgb(255, 0, 0);
-  color: rgb(255, 255, 255);
-  border: none;
-  outline: none;
-  padding: 3px 20px;
-  letter-spacing: 2px;
-  margin-top: 10px;
-  border-radius: 6px;
-  margin-bottom: 19px;
-}
-
-.start-btn:hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-
-.start-btnsignIn a {
-  text-decoration: none;
-  margin-left: 10px;
-  font-weight: 500;
-  color: white;
-}
-
-.input-box span {
-  margin-left: 10px;
-}
-
-.link {
-  text-decoration: none;
-  margin-left: 10px;
+.registerTitle {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   font-weight: 600;
-  color: rgb(255, 255, 255);
+  font-size: 25px;
+  margin-top: 10px;
 }
 
-.link:hover {
-  text-decoration: underline;
+.registerFrom {
+  height: 82vh;
+  width: 25%;
+  -webkit-box-shadow: -1px 2px 6px 2px rgba(166, 166, 166, 0.48);
+  box-shadow: -1px 2px 6px 2px rgba(203, 200, 200, 0.48);
+}
+
+.registerFormContainer h4 {
+  margin-left: 8%;
+  margin-top: 13px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.inputBox button {
+  margin-left: 8%;
+  margin-top: 10px;
+  width: 80%;
+  padding: 3px 20px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+}
+
+.inputBox button:hover {
+  background-color: rgb(247, 82, 82);
+}
+
+.inputBox button:disabled {
+  color: white;
+  cursor: not-allowed;
+}
+
+.registerFrom p {
+  margin: 10px 0px 0px 8%;
+  font-size: 14px;
+}
+
+.registerFrom .siginInBtn {
+  margin-left: 5px;
   color: red;
 }
 
-@media only screen and (max-width: 769px) {
-  .input-box {
-    height: auto;
-    width: 37%;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-  }
-
-  .input-box h2 {
-    font-size: 20px;
-  }
-
-  .container-text {
-    margin-top: 11%;
-  }
-
-  .container-text h2 {
-    font-size: 18px;
-
-  }
-
-  .container-text h3 {
-    font-size: 16px;
-    margin-top: 13px;
-    font-weight: 500;
-  }
-
-  .topContent span {
-    font-size: 20px;
-  }
-
-  .input-box {
-    width: 80%;
-    margin-left: 0%;
-  }
-
-  .start-btn {
-    padding: 4px 6px;
-    font-size: 12px;
-    margin-bottom: 20px;
-
-  }
-
-  .input-box input {
-    height: 5vh;
-  }
-
-  .input-box span {
-    margin-left: 10px;
-    font-size: 10px;
-  }
-
-  .start-btnsignIn a {
-    font-size: 13px;
-    font-weight: 500;
-  }
+.registerFrom .siginInBtn:hover {
+  text-decoration: underline;
 }
-@media only screen and (max-width: 360px) {
-  .input-box {
+
+.terms {
+  margin: 15px 0px 0px 8%;
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 768px) {
+  .registerPage {
     height: auto;
-    width: 37%;
-    position: absolute;
-    top: 55%;
-    left: 50%;
   }
 
-  .input-box h2 {
-    font-size: 18px;
-  }
-
-  .container-text {
-    margin-top: 11%;
-  }
-
-  .container-text h2 {
-    font-size: 16px;
-
-  }
-
-  .container-text h3 {
-    font-size: 14px;
-    margin-top: 13px;
-    font-weight: 500;
-  }
-
-  .topContent span {
-    font-size: 20px;
-  }
-
-  .input-box {
+  .registerFrom {
     width: 80%;
-    margin-left: 0%;
+    height: auto;
+  }
+  .LoginFormContainer h4 {
+    margin-top: 10px;
+    font-size: 17px;
   }
 
-  .start-btn {
-    padding: 4px 6px;
-    font-size: 10px;
-    margin-bottom: 20px;
-
+  .inputBox input {
+    height: 35px;
+    padding: 2px 8px;
   }
 
-  
+  .inputBox button {
+    margin-top: 10px;
+    padding: 2px 20px;
+  }
 
-
-  .start-btnsignIn a {
-    font-size: 11px;
-    font-weight: 500;
+  .terms {
+    margin: 15px 0px 0px 8%;
+    font-size: 12px;
+    margin-bottom: 30px;
   }
 }

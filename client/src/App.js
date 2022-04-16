@@ -10,24 +10,29 @@ import Video from "./pages/video page/Video";
 import Profile from "./pages/Profile/Profile";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import First from "./pages/firstPage/First";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
   return (
     <>
       <Routes>
+        <Route exact path="/" element={<First />} />
         <Route
           exact
-          path="/"
+          path="/home"
           element={user ? <Home /> : <Navigate to="/login" />}
         />
 
         {/* login page route import from login page */}
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/home" /> : <Login />}
+        />
         {/* login page route import from Register page */}
         <Route
           path="/register"
-          element={user ? <Navigate to="/" /> : <Register />}
+          element={user ? <Navigate to="/home" /> : <Register />}
         />
         {/* home page routes */}
         {/* if there is user this below page will show */}
