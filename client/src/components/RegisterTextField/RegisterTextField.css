@@ -1,0 +1,10 @@
+.registerPageWrapper p {
+    font-size: 14px;
+    margin-left: 4%;
+    color: red;
+    margin-top: 0px;
+}
+
+.registerPageWrapper p:hover {
+    text-decoration: none;
+}

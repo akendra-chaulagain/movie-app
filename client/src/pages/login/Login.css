@@ -14,10 +14,6 @@
   /* margin: 40px 0px 0px 40px; */
 }
 
-.topContent button {
-  background-color: red;
-}
-
 .signupInputbox {
   width: 37%;
   position: absolute;
@@ -35,7 +31,7 @@
 
 .login-input input {
   width: 91%;
-  height: 6vh;
+  height: 40px;
   outline: none;
   background-color: white;
   border: none;
@@ -48,12 +44,11 @@
 }
 
 .login-btn {
-  height: 5vh;
   width: 91%;
   background-color: rgb(255, 0, 0);
   color: white;
-  height: 6vh;
-  font-size: 18px;
+  height: 5vh;
+  font-size: 15px;
   border: none;
   outline: none;
   border-radius: 3px;
@@ -95,21 +90,29 @@
     width: 80%;
   }
 
+  .signupInputbox h2 {
+    font-size: 20px;
+  }
+
   .login-input {
     height: auto;
   }
 
   .login-input input {
-    height: 5vh;
+    width: 91%;
+    height: 30px;
+    margin-top: -10px;
   }
 
   .login-btn {
-    height: 4vh;
-    font-size: 16px;
+    height: 25px;
+    font-size: 15px;
+    margin-top: -20px;
   }
+
   .signupInputbox p {
     font-size: 10px;
     padding-bottom: 20px;
   }
-  
+
 }
