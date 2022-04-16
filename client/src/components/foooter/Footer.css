@@ -8,15 +8,19 @@
   height: 40vh;
   width: 100%;
   margin-top: 30px;
+  color: gray;
 }
+
 .footer h3 {
   color: red;
 }
+
 .containerBox {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .firstContainer {
   margin-right: 10%;
   margin-top: 20px;
@@ -26,33 +30,40 @@
   margin-right: 10%;
   margin-top: 20px;
 }
+
 .thirdContainer {
   margin-top: 20px;
 }
+
 .firstContainer span {
   cursor: pointer;
   font-size: 20px;
 
 }
+
 .firstContainer span:hover {
-  color: red;
+  color: gray;
   text-decoration: underline;
 }
+
 .middleContainer span {
   cursor: pointer;
   font-size: 20px;
 }
+
 .middleContainer span:hover {
-  color: red;
+  color: gray;
   text-decoration: underline;
 }
+
 .thirdContainer span {
   cursor: pointer;
   font-size: 20px;
 
 }
+
 .thirdContainer span:hover {
-  color: red;
+  color: gray;
   text-decoration: underline;
 }
 
@@ -60,20 +71,29 @@
   .footer {
     height: 40vh;
   }
+  .footer h3 {
+    font-size: 18px;
+  }
+
   .firstContainer {
     margin-right: 25px;
-    
   }
-  .firstContainer span{
-    font-size: 16px;
+
+  .firstContainer span {
+    font-size: 13px;
   }
-  .middleContainer span{
-    font-size: 16px;
+
+  .middleContainer span {
+    font-size: 13px;
+
   }
+
   .middleContainer {
     margin-right: 25px;
   }
-  .thirdContainer span{
-    font-size: 16px;
+
+  .thirdContainer span {
+    font-size: 13px;
+
   }
 }
