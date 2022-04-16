@@ -58,3 +58,42 @@
     font-weight: 600;
     margin-top: 10px;
 }
+
+@media only screen and (max-width: 768px) {
+    .FirstText {
+        height: 55vh;
+    }
+
+    .topContent h2 {
+        font-size: 18px;
+        margin: 0px;
+        margin-left: 15px;
+        margin-top: 5px;
+    }
+
+    .topContent .tobarButtonn {
+        font-size: 13px;
+        padding: 1px 6px;
+        height: auto;
+        margin: 0px;
+        margin-right: 15px;
+        margin-top: 10px;
+    }
+
+    .wrappertext {
+        height: 45vh;
+        width: 80%;
+    }
+
+    .wrappertext h2 {
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    .wrappertext p {
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 5px;
+    }
+}

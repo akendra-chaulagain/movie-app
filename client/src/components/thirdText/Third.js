@@ -7,13 +7,13 @@ const Third = () => {
     <>
       <div className="container-fluid Third">
         <div className="row">
-          <div className="col-md-6 rightsideThird">
-            <div className="rightSideSecongImg">
+          <div className="col-md-6 leftsideThird">
+            <div className="leftSideSecongImg">
               <img src="./images/d.jpg" alt="ak" />
             </div>
           </div>
-          <div className="col-md-6 leftSideThird">
-            <div className="text-center textWrrapper">
+          <div className="col-md-6 rightSideThird">
+            <div className="text-center textWrrapperThird">
               <h2>Watch offline.</h2>
               <p>
                 Save your favorites easily and always have something to watch.
@@ -27,7 +27,7 @@ const Third = () => {
         <div className=" reconmondation">
           <div className=" reconmondationInfo">
             <hr />
-            <h5>
+            <h5 className="text-center">
               Ready to watch? Enter your email to create or restart your
               membership.
             </h5>

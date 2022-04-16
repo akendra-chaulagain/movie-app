@@ -108,26 +108,3 @@
     margin-left: -20px;
   }
 }
-
-/* @media only screen and (max-width: 320px) {
-  .navbar .navbar-brand {
-    font-size: 15px;
-  }
-
-  .searchContainerLess {
-    display: inherit;
-  }
-
-  .searchContainerLess input {
-    width: 90%;
-    outline: none;
-    height: 21px;
-    border-radius: 4px;
-    padding: 1px 4px;
-    border: none;
-    background-color: gainsboro;
-    margin-left: -50px;
-  }
-
-
-} */

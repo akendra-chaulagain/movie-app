@@ -7,7 +7,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 13vh; */
 }
 
 .textWrrapper {
@@ -43,8 +42,29 @@
     align-items: center;
     flex-direction: column;
 }
-.rightSideSecongImg img{
+
+.rightSideSecongImg img {
     height: 35vh;
     width: 100%;
     object-fit: contain;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+   .leftSideSecond{
+       height: 25vh;
+   }
+
+    .leftSideSecond h2 {
+        font-weight: 800;
+        font-size: 22px;
+    }
+
+    .textWrrapper p {
+        font-size: 13px;
+        margin-top: 5px;
+    }
+    .rightsideSecond {
+      height: 25vh;
+    }
 }

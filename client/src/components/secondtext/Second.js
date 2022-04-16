@@ -16,7 +16,7 @@ const second = () => {
             </div>
           </div>
           <div className="col-md-6 rightsideSecond">
-            <div className="rightSideSecongImg">
+            <div className="rightSideSecongImg mb-5">
               <img src="./images/movie.jpg" alt="ak" />
             </div>
           </div>

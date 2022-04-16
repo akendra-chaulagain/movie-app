@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-.leftSideThird {
+.rightSideThird {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,23 +19,23 @@
     flex-direction: column;
 }
 
-.textWrrapper h2 {
+.textWrrapperThird h2 {
     font-weight: 800;
     font-size: 50px;
 }
 
-.textWrrapper p {
+.textWrrapperThird p {
     font-size: 24px;
     font-weight: 600;
 }
 
-.rightsideThird {
+.leftsideThird {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.rightSideSecongImg {
+.leftSideSecongImg {
     height: 60vh;
     width: 80%;
     display: flex;
@@ -44,8 +44,8 @@
     flex-direction: column;
 }
 
-.rightSideSecongImg img {
-    height: 35vh;
+.leftSideSecongImg img {
+    height: 45vh;
     width: 100%;
     object-fit: contain;
 }
@@ -91,5 +91,56 @@
 .reconmondationInfo span {
     margin-left: 5%;
     color: red;
+}
 
+@media only screen and (max-width: 768px) {
+    .rightSideThird {
+        height: 25vh;
+    }
+
+    .rightSideThird h2 {
+        font-weight: 800;
+        font-size: 25px;
+        margin-top: 5px;
+    }
+
+    .textWrrapperThird p {
+        font-size: 13px;
+        margin-top: 5px;
+    }
+
+    .leftsideThird {
+        height: 25vh;
+    }
+
+    /* recommondation */
+    .reconmondation {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 2vh;
+    }
+
+    .reconmondationInfo {
+        width: 60%;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .reconmondationInfo h5 {
+        font-size: 12px;
+    }
+
+    .reconmondation p {
+        font-size: 12px;
+    }
+
+    .loginbtn button {
+        padding: 2px 10px;
+        font-size: 14px;
+    }
 }

@@ -17,8 +17,10 @@ const FirstText = () => {
         </div>
         <div className="firstWrapper">
           <div className="wrappertext">
-            <h2>Watch Unlimited movies, TV shows, and more.</h2>
-            <p>Watch anywhere. Cancel anytime.</p>
+            <h2 className="text-center">
+              Watch Unlimited movies, TV shows, and more.
+            </h2>
+            <p className="text-center">Watch anywhere. Cancel anytime.</p>
           </div>
         </div>
       </div>
