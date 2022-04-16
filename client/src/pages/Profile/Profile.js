@@ -6,7 +6,7 @@ import Footer from "../../components/foooter/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-
+import { updateUser } from "../../redux/apiCalls";
 
 const Profile = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -16,7 +16,10 @@ const Profile = () => {
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
 
-  
+  // update user
+  const updateUserData = (id) => {
+    updateUser(id, dispatch, { username, email, password });
+  };
 
   return (
     <>
@@ -51,20 +54,17 @@ const Profile = () => {
                 />
               </div>
               <div className="updataProfileButton">
-                <button type="submit">
+                <button type="submit" onClick={() => updateUserData(user.id)}>
                   Update
                 </button>
-
-                <span>Delete account</span>
               </div>
             </form>
           </div>
         </div>
       </div>
-
-      <Footer />
       {/* {/* ReactToastify container */}
       <ToastContainer />
+      <Footer />
     </>
   );
 };

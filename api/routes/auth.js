@@ -53,7 +53,7 @@ router.post("/register", async (req, res) => {
       sameSite: "lax",
     });
     const result = await user.save();
-    return res.status(200).json({result, token});
+    return res.status(200).json({ result, token });
   } catch (error) {
     console.log(error);
   }

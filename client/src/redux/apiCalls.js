@@ -1,6 +1,6 @@
 import axios from "axios";
 // ReactToastify is use for alert
-import { toast } from "react-toastify";
+import { toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getMovieFailure, getMovieStart, getMovieSuccess } from "./movieRedux";
 import {
@@ -10,21 +10,48 @@ import {
   registerFailure,
   registerStart,
   registerSuccess,
+  updateFailure,
+  updateStart,
+  updateSuccess,
 } from "./userRedux";
+
+// success tostify
+const tostifySuccess = {
+  position: "top-center",
+  autoClose: false,
+  transition: Zoom,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: false,
+  theme: "dark",
+  progress: undefined,
+};
+
+// failure tostify
+const tostifyFailure = {
+  position: "top-center",
+  autoClose: false,
+  transition: Zoom,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: false,
+  theme: "dark",
+  progress: undefined,
+};
 
 // login
 export const loginUser = async (dispatch, user) => {
   dispatch(loginStart());
   try {
     const res = await axios.post("/auth/login", user);
-    dispatch(loginSuccess(res.data));
-    window.location.replace("/");
+    dispatch(loginSuccess(res.data)).then(() => {
+      toast.success("login success !", tostifySuccess);
+    });
   } catch (error) {
     dispatch(loginFailure());
-    toast.success("Enter correct email and password !", {
-      position: "top-center",
-      autoClose: "2000",
-    });
+    toast.error("Invalid email and password !", tostifyFailure);
   }
 };
 
@@ -33,16 +60,30 @@ export const registerUser = async (dispatch, user) => {
   dispatch(registerStart());
   try {
     const res = await axios.post("/auth/register", user);
-    dispatch(registerSuccess(res.data));
+    dispatch(registerSuccess(res.data)).then(() => {
+      toast.success("Register success...", tostifySuccess);
+    });
   } catch (error) {
     dispatch(registerFailure());
-    toast.success("unable to register user !", {
-      position: "top-center",
-      autoClose: "2000",
-    });
+    toast.error("unable to register user !", tostifyFailure);
   }
 };
-// register
+
+// update user
+export const updateUser = async (id, user, dispatch) => {
+  dispatch(updateStart());
+  try {
+    await axios.put(`/users/${id}`, user);
+    dispatch(updateSuccess(id, user)).then(() => {
+      toast.success("update success !", tostifySuccess);
+    });
+  } catch (error) {
+    dispatch(updateFailure());
+    toast.success("unable to update user !", tostifyFailure);
+  }
+};
+
+// get all movies
 export const getAllMovie = async (dispatch) => {
   dispatch(getMovieStart());
   try {

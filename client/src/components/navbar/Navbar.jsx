@@ -18,22 +18,23 @@ const Navbar = ({ setSearchresult }) => {
     dispatch(logOutStart());
     try {
       await axios.post("/auth/logout", null).then(() => {
-        dispatch(logOutSuccess());
-        toast.success(" Logout Success!", {
-          position: "top-center",
-          autoClose: 2000,
-          theme: "dark",
-          transition: Zoom,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        dispatch(logOutSuccess()).then(() => {
+          toast.success(" Logout Success!", {
+            position: "top-center",
+            autoClose: 2000,
+            theme: "dark",
+            transition: Zoom,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         });
       });
     } catch (error) {
       dispatch(logOutfailure());
-      toast.error(" Something went wrong. unable to update!", {
+      toast.error(" Something went wrong. unable to logout!", {
         position: "top-center",
         autoClose: 2000,
         theme: "dark",
