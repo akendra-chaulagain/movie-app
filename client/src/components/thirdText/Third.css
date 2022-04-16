@@ -1,0 +1,95 @@
+.Third {
+    height: auto;
+    width: 100%;
+}
+
+.leftSideThird {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 13vh; */
+}
+
+.textWrrapper {
+    height: 60vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textWrrapper h2 {
+    font-weight: 800;
+    font-size: 50px;
+}
+
+.textWrrapper p {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.rightsideThird {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightSideSecongImg {
+    height: 60vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rightSideSecongImg img {
+    height: 35vh;
+    width: 100%;
+    object-fit: contain;
+}
+
+.reconmondation {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+.reconmondationInfo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reconmondationInfo h5 {
+    font-size: 15px;
+}
+
+.loginbtn button {
+    border: none;
+    width: 100%;
+    outline: none;
+    padding: 4px 20px;
+    background-color: red;
+    color: white;
+}
+
+.loginbtn button:hover {
+    background-color: rgb(247, 82, 82);
+}
+
+.reconmondation p {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.reconmondationInfo span {
+    margin-left: 5%;
+    color: red;
+
+}

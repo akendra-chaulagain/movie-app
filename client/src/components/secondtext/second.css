@@ -1,0 +1,50 @@
+.Second {
+    height: auto;
+    width: 100%;
+}
+
+.leftSideSecond {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 13vh; */
+}
+
+.textWrrapper {
+    height: 60vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textWrrapper h2 {
+    font-weight: 800;
+    font-size: 50px;
+}
+
+.textWrrapper p {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.rightsideSecond {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightSideSecongImg {
+    height: 60vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.rightSideSecongImg img{
+    height: 35vh;
+    width: 100%;
+    object-fit: contain;
+}

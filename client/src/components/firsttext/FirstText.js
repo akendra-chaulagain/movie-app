@@ -22,6 +22,7 @@ const FirstText = () => {
           </div>
         </div>
       </div>
+      <hr />
     </>
   );
 };
