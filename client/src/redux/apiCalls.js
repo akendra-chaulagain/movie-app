@@ -68,18 +68,7 @@ export const registerUser = async (dispatch, user) => {
   }
 };
 
-// update user
-export const updateUser = async (id, user, dispatch) => {
-  dispatch(updateStart());
-  try {
-    await axios.put(`/users/${id}`, user);
-    dispatch(updateSuccess(id, user));
-    toast.success("update success !", tostifySuccess);
-  } catch (error) {
-    dispatch(updateFailure());
-    toast.success("unable to update user !", tostifyFailure);
-  }
-};
+
 
 // get all movies
 export const getAllMovie = async (dispatch) => {

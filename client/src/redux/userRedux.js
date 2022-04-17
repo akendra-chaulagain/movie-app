@@ -36,22 +36,6 @@ export const userSlicer = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //   reducer for update
-    updateStart: (state) => {
-      state.isFetching = true;
-      state.error = false;
-    },
-    updateSuccess: (state, action) => {
-      state.isFetching = false;
-      state.currentUser[
-        state.currentUser.findIndex((item) => item._id === action.payload.id)
-      ] = action.payload.user;
-      state.error = false;
-    },
-    updateFailure: (state) => {
-      state.isFetching = false;
-      state.error = true;
-    },
     // logout user
     logOutStart: (state) => {
       state.isFetching = true;
