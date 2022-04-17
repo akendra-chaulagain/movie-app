@@ -16,14 +16,11 @@ const Watch = () => {
   const path = location.pathname.split("/")[2];
   const dispatch = useDispatch();
 
-
-
-  
   // get all movies
   useEffect(() => {
     getAllMovie(dispatch);
   }, [dispatch]);
-  const movie = useSelector((state) => state.movie.movies);
+  const allmovie = useSelector((state) => state.movie.movies);
 
   const [watch, setWatch] = useState({});
   useEffect(() => {
@@ -39,7 +36,7 @@ const Watch = () => {
   }, [path]);
 
   // usestate for searchh
-  const [searchresult, setSearchresult] = useState("");
+  const [searchresult, setSearchresult] = useState([]);
   const keys = ["title", "desc", "genre", "movieusername", "year", "duration"];
   const searchData = (data) => {
     return data.filter((item) =>
@@ -52,7 +49,7 @@ const Watch = () => {
       <div className="watchContainer">
         <Navbar setSearchresult={setSearchresult} />
         {searchresult ? (
-          <Search data={searchData(movie)} />
+          <Search data={searchData(allmovie)} />
         ) : (
           <>
             <div className="container-fluid watch">
