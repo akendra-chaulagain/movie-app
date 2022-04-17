@@ -17,25 +17,16 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<First />} />
-        <Route
-          exact
-          path="/home"
-          element={user ? <Home /> : <Navigate to="/login" />}
-        />
-
+        <Route exact path="/" element={user ? <Home /> : <First />} />
+     
         {/* login page route import from login page */}
-        <Route
-          path="/login"
-          element={user ? <Navigate to="/home" /> : <Login />}
-        />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         {/* login page route import from Register page */}
         <Route
           path="/register"
-          element={user ? <Navigate to="/home" /> : <Register />}
+          element={user ? <Navigate to="/" /> : <Register />}
         />
-        {/* home page routes */}
-        {/* if there is user this below page will show */}
+      
         {user && (
           <>
             {/* movies page  if the type is movies it render to movies because props is given in home page */}
@@ -49,7 +40,6 @@ const App = () => {
             {/* video page when user play video thgis page will run */}
             <Route path="/profile/user" element={<Profile />} />
             {/*Search page */}
-            {/* <Route path="/search" element={<Search />} /> */}
           </>
         )}
         {/* error page import from error page */}

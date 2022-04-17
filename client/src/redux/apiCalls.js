@@ -46,12 +46,11 @@ export const loginUser = async (dispatch, user) => {
   dispatch(loginStart());
   try {
     const res = await axios.post("/auth/login", user);
-    dispatch(loginSuccess(res.data)).then(() => {
-      toast.success("login success !", tostifySuccess);
-    });
+    dispatch(loginSuccess(res.data));
+    toast.success("login success !", tostifySuccess);
   } catch (error) {
     dispatch(loginFailure());
-    toast.error("Invalid email and password !", tostifyFailure);
+    toast.error("Invalid data !", tostifyFailure);
   }
 };
 
@@ -74,9 +73,8 @@ export const updateUser = async (id, user, dispatch) => {
   dispatch(updateStart());
   try {
     await axios.put(`/users/${id}`, user);
-    dispatch(updateSuccess(id, user)).then(() => {
-      toast.success("update success !", tostifySuccess);
-    });
+    dispatch(updateSuccess(id, user));
+    toast.success("update success !", tostifySuccess);
   } catch (error) {
     dispatch(updateFailure());
     toast.success("unable to update user !", tostifyFailure);

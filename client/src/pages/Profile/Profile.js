@@ -3,22 +3,53 @@ import "./Profile.css";
 
 import Footer from "../../components/foooter/Footer";
 // ReactToastify is use for alert
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../redux/apiCalls";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Profile = () => {
   const user = useSelector((state) => state.user.currentUser);
-  const dispatch = useDispatch();
 
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
 
   // update user
-  const updateUserData = (id) => {
-    updateUser(id, dispatch, { username, email, password });
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      // user request was import from RequestMethos
+      await axios.put("/users/" + user._id, {
+        email,
+        username,
+        password,
+      });
+      toast.success("profile has been updated!", {
+        position: "top-center",
+        autoClose: 2000,
+        transition: Zoom,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+      });
+      window.location.reload("/profile");
+    } catch (error) {
+      toast.error("something went wrong !", {
+        position: "top-center",
+        autoClose: 2000,
+        transition: Zoom,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+        progress: undefined,
+      });
+    }
   };
 
   return (
@@ -34,6 +65,7 @@ const Profile = () => {
                 <input
                   type="text"
                   placeholder="enter your new username"
+                  name="username"
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
@@ -41,6 +73,7 @@ const Profile = () => {
               <div className="inputField">
                 <input
                   type="email"
+                  name="email"
                   placeholder="enter your new email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -49,14 +82,13 @@ const Profile = () => {
               <div className="inputField">
                 <input
                   type="password"
+                  name="password"
                   placeholder="enter your new password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="updataProfileButton">
-                <button type="submit" onClick={() => updateUserData(user.id)}>
-                  Update
-                </button>
+                <button onClick={handleUpdate}>Update</button>
               </div>
             </form>
           </div>

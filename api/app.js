@@ -12,7 +12,7 @@ const listRoute = require("./routes/lists");
 dotenv.config({ path: "./config.env" });
 
 // port no
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 // cooki-parser for json webtoken
 const cookieparser = require("cookie-parser");
 app.use(cookieparser());

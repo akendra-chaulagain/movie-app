@@ -6,18 +6,24 @@ import { Link } from "react-router-dom";
 
 const ListItem = ({ item }) => {
   const [movie, setMovie] = useState({});
+  const [didMount, setDidMount] = useState(false);
   // console.log(item);
   useEffect(() => {
     const getMovies = async () => {
       try {
         const res = await axios.get("/movies/find/" + item);
         setMovie(res.data);
+        setDidMount(true);
       } catch (error) {
         console.log(error);
       }
     };
     getMovies();
+    return () => setDidMount(false);
   }, [item]);
+  if (!didMount) {
+    return null;
+  }
 
   return (
     <>

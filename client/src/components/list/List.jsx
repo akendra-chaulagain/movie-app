@@ -8,10 +8,6 @@ import "./List.css"
 
 
 const List = ({ list }) => {
-  
-
-
-
     // function for  carousel 
     const listRef = useRef()
     const [slideNumber, setSlideNumber] = useState(0)

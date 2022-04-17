@@ -14,9 +14,18 @@ const Watch = () => {
   // get data from the given  url id
   const location = useLocation();
   const path = location.pathname.split("/")[2];
+  const dispatch = useDispatch();
+
+
+
+  
+  // get all movies
+  useEffect(() => {
+    getAllMovie(dispatch);
+  }, [dispatch]);
+  const movie = useSelector((state) => state.movie.movies);
 
   const [watch, setWatch] = useState({});
-
   useEffect(() => {
     const getMove = async () => {
       try {
@@ -28,13 +37,6 @@ const Watch = () => {
     };
     getMove();
   }, [path]);
-
-  // get all movies
-  const dispatch = useDispatch();
-  useEffect(() => {
-    getAllMovie(dispatch);
-  }, [dispatch]);
-  const movie = useSelector((state) => state.movie.movies);
 
   // usestate for searchh
   const [searchresult, setSearchresult] = useState("");
