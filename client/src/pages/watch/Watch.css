@@ -67,7 +67,8 @@
 
 @media only screen and (max-width: 768px) {
     .movieImg img {
-        margin-top: 10%;
+        margin-top: 1%;
+        height: auto;
     }
 
     .movieImg .movietitle {
@@ -97,7 +98,6 @@
         border-radius: 3px;
         font-size: 12px;
         font-weight: 600;
-        padding-bottom: 20px;
     }
 
     .left {

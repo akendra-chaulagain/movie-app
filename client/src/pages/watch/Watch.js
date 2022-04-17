@@ -15,7 +15,7 @@ const Watch = () => {
   useEffect(() => {
     const getMove = async () => {
       try {
-        const res = await axios.get(`/api/movies/find/${path}`);
+        const res = await axios.get(`/movies/find/${path}`);
         setWatch(res.data);
       } catch (error) {
         console.log(error);
