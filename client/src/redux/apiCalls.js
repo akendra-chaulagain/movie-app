@@ -10,9 +10,6 @@ import {
   registerFailure,
   registerStart,
   registerSuccess,
-  updateFailure,
-  updateStart,
-  updateSuccess,
 } from "./userRedux";
 
 // success tostify
