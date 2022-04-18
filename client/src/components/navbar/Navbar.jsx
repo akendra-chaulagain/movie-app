@@ -10,6 +10,7 @@ import {
 } from "../../redux/userRedux";
 import axios from "axios";
 import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = ({ setSearchresult }) => {
   const dispatch = useDispatch();
@@ -17,19 +18,19 @@ const Navbar = ({ setSearchresult }) => {
   const handlLogout = async () => {
     dispatch(logOutStart());
     try {
-      await axios.post("/auth/logout", null);
-      dispatch(logOutSuccess()).then(() => {
-        toast.success(" Logout Success!", {
-          position: "top-center",
-          autoClose: 2000,
-          theme: "dark",
-          transition: Zoom,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+      await axios.post("/auth/logout", null).then(() => {
+        dispatch(logOutSuccess());
+      });
+      toast.success(" Logout Success!", {
+        position: "top-center",
+        autoClose: 2000,
+        theme: "dark",
+        transition: Zoom,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
     } catch (error) {
       dispatch(logOutfailure());
@@ -117,8 +118,8 @@ const Navbar = ({ setSearchresult }) => {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </nav>
-      <ToastContainer />
     </>
   );
 };

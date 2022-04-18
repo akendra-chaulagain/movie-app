@@ -11,14 +11,16 @@ import Profile from "./pages/Profile/Profile";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import First from "./pages/firstPage/First";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
+  
   return (
     <>
       <Routes>
         <Route exact path="/" element={user ? <Home /> : <First />} />
-     
+
         {/* login page route import from login page */}
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         {/* login page route import from Register page */}
@@ -26,7 +28,7 @@ const App = () => {
           path="/register"
           element={user ? <Navigate to="/" /> : <Register />}
         />
-      
+
         {user && (
           <>
             {/* movies page  if the type is movies it render to movies because props is given in home page */}

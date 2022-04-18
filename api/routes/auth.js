@@ -47,7 +47,7 @@ router.post("/register", async (req, res) => {
     );
     // saving in cookie
     res.cookie("jsonwebToken", token, {
-      expires: new Date(Date.now() + 1000 * 60 * 60),
+      expires: new Date(Date.now() + 1000 * 60 * 60*6),
       path: "/",
       httpOnly: true,
       sameSite: "lax",
@@ -77,7 +77,7 @@ router.post("/login", async (req, res) => {
     );
     // saving in cookie
     res.cookie("jsonwebToken", token, {
-      expires: new Date(Date.now() + 1000 * 60 * 60),
+      expires: new Date(Date.now() + 1000 * 60 * 60*6),
       path: "/",
       httpOnly: true,
       sameSite: "lax",

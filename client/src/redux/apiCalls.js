@@ -65,8 +65,6 @@ export const registerUser = async (dispatch, user) => {
   }
 };
 
-
-
 // get all movies
 export const getAllMovie = async (dispatch) => {
   dispatch(getMovieStart());
