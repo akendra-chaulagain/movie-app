@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const verify = require("../verifyToken");
 
-
 const bodyParser = require("body-parser");
 router.use(bodyParser.json()); // for parsing application/json
 
@@ -43,11 +42,10 @@ router.post("/register", async (req, res) => {
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT_SECRET_KEY,
       { expiresIn: "1d" }
-     
     );
     // saving in cookie
     res.cookie("jsonwebToken", token, {
-      expires: new Date(Date.now() + 1000 * 60 * 60*6),
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 4),
       path: "/",
       httpOnly: true,
       sameSite: "lax",
@@ -69,15 +67,13 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT_SECRET_KEY,
-      { expiresIn: "1d" }
-      // { expiresIn: "1hr" }
-      // { expiresIn: "1d" }
-      // { expiresIn: "20s" }
-      // { expiresIn: "15m" }
+      { expiresIn: "1m" },
+      { httpOnly: true }
     );
     // saving in cookie
     res.cookie("jsonwebToken", token, {
-      expires: new Date(Date.now() + 1000 * 60 * 60*6),
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 4),
+
       path: "/",
       httpOnly: true,
       sameSite: "lax",

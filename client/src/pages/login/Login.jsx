@@ -13,6 +13,9 @@ import RegisterTextField from "../../components/RegisterTextField/RegisterTextFi
 const Login = () => {
   const dispactch = useDispatch();
   const { isFetching } = useSelector((state) => state.user);
+  // logout user after timer
+
+ 
 
   const validate = Yup.object({
     email: Yup.string().email("Invalid email!").required("Email is required!"),

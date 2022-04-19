@@ -7,6 +7,7 @@ import {
   loginFailure,
   loginStart,
   loginSuccess,
+  logOutSuccess,
   registerFailure,
   registerStart,
   registerSuccess,
@@ -44,6 +45,10 @@ export const loginUser = async (dispatch, user) => {
   try {
     const res = await axios.post("/auth/login", user);
     dispatch(loginSuccess(res.data));
+    // auto logout after jwt expire
+    setTimeout(() => {
+      dispatch(logOutSuccess());
+    }, 1000 * 30);
     toast.success("login success !", tostifySuccess);
   } catch (error) {
     dispatch(loginFailure());
@@ -56,9 +61,12 @@ export const registerUser = async (dispatch, user) => {
   dispatch(registerStart());
   try {
     const res = await axios.post("/auth/register", user);
-    dispatch(registerSuccess(res.data)).then(() => {
-      toast.success("Register success...", tostifySuccess);
-    });
+    dispatch(registerSuccess(res.data));
+    // auto logout after jwt expire
+    setTimeout(() => {
+      dispatch(logOutSuccess());
+    }, 1000 * 30);
+    toast.success("Register success...", tostifySuccess);
   } catch (error) {
     dispatch(registerFailure());
     toast.error("unable to register user !", tostifyFailure);

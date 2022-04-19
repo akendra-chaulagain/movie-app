@@ -6,8 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { store, persistor } from "./redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import "react-toastify/dist/ReactToastify.css";
-
 
 ReactDOM.render(
   <BrowserRouter>

@@ -8,7 +8,6 @@ import {
   logOutStart,
   logOutSuccess,
 } from "../../redux/userRedux";
-import axios from "axios";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,9 +17,7 @@ const Navbar = ({ setSearchresult }) => {
   const handlLogout = async () => {
     dispatch(logOutStart());
     try {
-      await axios.post("/auth/logout", null).then(() => {
-        dispatch(logOutSuccess());
-      });
+      dispatch(logOutSuccess());
       toast.success(" Logout Success!", {
         position: "top-center",
         autoClose: 2000,
